@@ -26,9 +26,10 @@ models and renderings at the end of the course.
 ---
 
 ## Contents
-1. **Terrain modeling**
-  i. Importing and modeling lidar data in GRASS GIS
-  ii. Analyzing terrain data in GRASS GIS
+1. [**Terrain modeling**](#1-terrain-modeling) <br>
+  I. [Importing and modeling lidar data in GRASS GIS](#i-importing-and-modeling-lidar-data-in-grass-gis) <br>
+  II. Analyzing terrain data in GRASS GIS <br>
+2.
 
 
 
