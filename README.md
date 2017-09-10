@@ -140,15 +140,39 @@ g.region region=region res=1
 ```
 or
 ```
-g.region raster=elevation_2012 res=1
+g.region raster=elevation_2016 res=1
 ```
 
 Compute contours from the digital elevation model using the module
 [r.contour](https://grass.osgeo.org/grass72/manuals/r.contour.html)
 with a 1 meter contour interval set with option `step=1`.
+Then compute 5 meter contours using the option `step=5`.
+Double click on the 5 meter contour map in the layer manager,
+switch to the line tab,
+and make the line weight heavier (eg. 2 or 3 px).
 ```
-r.contour input=elevation_2012 output=contour_1m_2012 step=1
+r.contour input=elevation_2016 output=contour_1m_2016 step=1
+r.contour input=elevation_2016 output=contour_5m_2016 step=5
 ```
+
+Compute a relief map for our study area's topography using the module
+[r.relief](https://grass.osgeo.org/grass72/manuals/r.relief.html).
+Optionally choose to vertically exaggerate the relief
+with the parameter `zscale`.
+You can also change the `altitude` or `azimuth` parameters
+to explore different lighting conditions.
+Then use [r.shade](https://grass.osgeo.org/grass72/manuals/r.shade.html)
+to create a composite of elevation and relief maps
+for the sake of visualization.
+Adjust the brightness with the `brighten` parameter until it looks good.
+```
+r.relief input=elevation_2016 output=relief_2016 zscale=3
+r.shade shade=relief_2016 color=elevation_2016 output=shaded_relief_2016 brighten=30
+```
+In the layer manager turn off all layers except
+the shaded relief and the contours.
+Move the contour maps above the shaded relief map.
+Export the map as a .png file.
 
 Compute the slope and aspect of our study area's topography
 using the module
@@ -157,60 +181,60 @@ This module can calculate topographic parameters including
 slope, aspect, tangential and profile curvature,
 and partial derivatives from an elevation raster.
 ```
-r.slope.aspect elevation=elevation_2012 slope=slope_2012 aspect=aspect_2012
+r.slope.aspect elevation=elevation_2016 slope=slope_2016 aspect=aspect_2016
 ```
 
-Compute a relief map for our study area's topography using the module
-[r.relief](https://grass.osgeo.org/grass72/manuals/r.relief.html).
-Optionally choose to vertically exaggerate the relief
-using the option `zscale` or vary the `altitude` or `azimuth`.
-Then use [r.shade](https://grass.osgeo.org/grass72/manuals/r.shade.html)
-to create a composite of elevation and relief maps
-for the sake of visualization.
-Adjust the brightness with the `brighten` option until it looks good.
+Use either the
+![profile](image/grass-gui/layer-raster-profile.png)
+GUI profile surface map button,
+[d.profile](https://grass.osgeo.org/grass72/manuals/d.profile.html), or
+[r.profile](https://grass.osgeo.org/grass72/manuals/r.profile.html)
+to find the profile, i.e. section, of the digital elevation model.
 ```
-r.relief input=elevation_2012 output=relief_2012 zscale=3
-r.shade shade=relief_2012 color=elevation_2012 output=shaded_relief_2012 brighten=30
+r.profile -i input=elevation_2016 output=- null=*
 ```
 
-Calculate the difference between a time series of elevation maps using
-
-https://grass.osgeo.org/grass72/manuals/r.mapcalc.html
-
-https://grass.osgeo.org/grass72/manuals/r.series.html
-
-
+Compare a time series of elevation maps using
+map algebra with
+[r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
+and raster statistics with
+[r.series](https://grass.osgeo.org/grass72/manuals/r.series.html).
+Use `r.mapcalc` to calculate the difference in elevation,
+ie. the net change in elevation, between 2004 and 2016.
+Use [r.colors](https://grass.osgeo.org/grass72/manuals/r.colors.html)
+to set an appropriate color table like the built-in `differences` color table
+or a custom rules file like the `color_difference.txt`
+included in the nc_spm_evolution location.
 ```
 r.mapcalc "difference_2004_2016 = elevation_2016 - elevation_2004"
-
-r.mapcalc "difference_2004_2012 = elevation_2012 - elevation_2004"
-
-r.mapcalc "difference_2012_2016 = elevation_2016 - elevation_2012"
-
 r.colors map=difference_2004_2016 color=differences
-
-r.colors map=difference_2004_2012 color=differences
-
-r.colors map=difference_2012_2016 color=differences
-
+r.colors map=difference_2004_2016 rules=color_difference.txt
 ```
 
-
-
-
-
-
-
+Calculate the average and range of the time series of elevation maps
+using the module
+[r.series](https://grass.osgeo.org/grass72/manuals/r.series.html).
 ```
-r.mapcalc
-r.color
-r.profile
-r.param.scale
-g.extension
-r.geomorphon
+r.series input=elevation2004,elevation_2012,elevation_2016 output=average_2004_2016,range_2004_2016 method=average,range
 ```
 
-https://grass.osgeo.org/grass72/manuals/r.param.scale.html
+Identify the landforms in our study area using
+a machine vision approach based on visibility
+with the add-on module
+[r.geomorphon](https://grass.osgeo.org/grass72/manuals/addons/r.geomorphon.html).
+First call
+[g.extension](https://grass.osgeo.org/grass72/manuals/g.extension.html)
+to install the add-on.
+Then run `r.geomorphon` to compute basic landforms.
+Experiment with the
+`search`, `skip`, and `flat` parameters.
+```
+g.extension extension=r.geomorphon
+r.geomorphon elevation=elevation_2016 forms=forms_2016 search=12
+```
+The landform types are: 1. flat, 2. summit, 3. ridge, 4. shoulder, 5. spur, 6. slope, 7. hollow, 8. footslope, 9. valley, and 10. depression.
+
+<p align="center"><img src="images/geomorphon_legend.png"></p>
 
 ### 3D terrain modeling in Rhino
 
