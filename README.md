@@ -29,30 +29,51 @@ models and renderings at the end of the course.
 [Rhino](https://www.rhino3d.com/) |
 [Blender](https://www.blender.org/)
 
+**Tutorials** [Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/)
+
+**Resources** [Geospatial data sources](geospatial-data-sources.md)
+
 ---
 ## Contents
-1. [**Terrain modeling**](#terrain-modeling)
-    1. [Lidar in GRASS GIS](#lidar-in-grass-gis)
-    2. [Topographic analysis in GRASS GIS](#topographic-analysis-in-grass-gis)
-    3. [3D terrain modeling in Rhino](#3d-terrain-modeling-in-rhino)
+2. [**Terrain modeling**](#terrain-modeling)
+    1. [Elevation data sources](#elevation-data-sources)
+    2. [Lidar in GRASS GIS](#lidar-in-grass-gis)
+    3. [Topographic analysis in GRASS GIS](#topographic-analysis-in-grass-gis)
+    4. [3D terrain modeling in Rhino](#3d-terrain-modeling-in-rhino)
 2. [**Hydrological modeling**](#hydrological-modeling)
 3. [**Geospatial simulation**](#geospatial-simulation)
+3. [**Image classification**](#image-classification)
 ---
 
+
+## Elevation data sources
+* [National Map Viewer](http://nationalmap.gov/viewer.html)
+* [US Interagency Elevation Inventory](https://coast.noaa.gov/inventory/)
+* [Open Topography](http://www.opentopography.org/)
+* [NC Spatial Data Download](https://sdd.nc.gov/sdd/)
+
+
 ## Terrain modeling
-In this section you will import lidar data into GRASS GIS,
+In this section you will process lidar data,
 model the point cloud as a digital elevation model, and
 analyze topographic parameters including
 contours, slope, hillshading, and landforms.
-You will also
 
 ### Lidar in GRASS GIS
 ```
-g.region
+r.in.lidar
 ```
+
+
+```
+v.in.lidar
+v.surf.rst
+```
+
 
 ### Topographic analysis in GRASS GIS
 ```
+g.region
 ```
 
 ### 3D terrain modeling in Rhino
