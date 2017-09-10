@@ -23,12 +23,17 @@ and a day developing your projects.
 You will work in small teams and present an exhibition of your
 models and renderings at the end of the course.
 
+**Software**
+* [GRASS GIS](https://grass.osgeo.org)
+* [Rhino](https://www.rhino3d.com/)
+* [Blender](https://www.blender.org/)
+
 ---
 
 ## Contents
-1. [**Terrain modeling**](#1-terrain-modeling) <br>
-  I. [Importing and modeling lidar data in GRASS GIS](#i-importing-and-modeling-lidar-data-in-grass-gis) <br>
-  II. Analyzing terrain data in GRASS GIS <br>
+[**1. Terrain modeling**](#1-terrain-modeling) <br>
+  [I. Importing and modeling lidar data in GRASS GIS](#i-importing-and-modeling-lidar-data-in-grass-gis) <br>
+  [II. Analyzing terrain data in GRASS GIS]() <br>
 2.
 
 
