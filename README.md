@@ -91,8 +91,8 @@ to filter for points in the ground class.
 See the [ASPRS LAS Specification](http://www.asprs.org/wp-content/uploads/2010/12/LAS_1_4_r13.pdf)
 for the definitive list of classes.
 ```
-r.in.lidar input=ncspm_I-08.las output=surface_5m_2012 method=mean resolution=5
-r.in.lidar input=ncspm_I-08.las output=elevation_5m_2012 method=mean resolution=5 class_filter=2
+r.in.lidar input=ncspm_I-08.las output=binned_surface_2012 method=mean resolution=5
+r.in.lidar input=ncspm_I-08.las output=binned_elevation_2012 method=mean resolution=5 class_filter=2
 ```
 
 Create a raster map of vegetation by importing the lidar dataset
@@ -118,11 +118,11 @@ implemented as the module
 [v.surf.rst](https://grass.osgeo.org/grass72/manuals/v.surf.rst.html).
 ```
 v.in.lidar -r -t input=I-08_spm.las output=points_2012 class_filter=2
-v.surf.rst input=points_2012 elevation=elevation_2012 tension=10 smooth=1
+v.surf.rst input=points_2012 elevation=interpolated_elevation_2012 tension=10 smooth=1
 ```
 
 See the
-(Lidar)[https://grasswiki.osgeo.org/wiki/LIDAR]
+[lidar](https://grasswiki.osgeo.org/wiki/LIDAR)
 guide on GRASS-Wiki for more information on lidar processing and analysis
 in GRASS GIS.
 
@@ -140,7 +140,59 @@ g.region region=region res=1
 ```
 or
 ```
-g.region raster=elevation_2012@PERMANENT res=1
+g.region raster=elevation_2012 res=1
+```
+
+Compute contours from the digital elevation model using the module
+[r.contour](https://grass.osgeo.org/grass72/manuals/r.contour.html)
+with a 1 meter contour interval set with option `step=1`.
+```
+r.contour input=elevation_2012 output=contour_1m_2012 step=1
+```
+
+Compute the slope and aspect of our study area's topography
+using the module
+[r.slope.aspect](https://grass.osgeo.org/grass72/manuals/r.slope.aspect.html).
+This module can calculate topographic parameters including
+slope, aspect, tangential and profile curvature,
+and partial derivatives from an elevation raster.
+```
+r.slope.aspect elevation=elevation_2012 slope=slope_2012 aspect=aspect_2012
+```
+
+Compute a relief map for our study area's topography using the module
+[r.relief](https://grass.osgeo.org/grass72/manuals/r.relief.html).
+Optionally choose to vertically exaggerate the relief
+using the option `zscale` or vary the `altitude` or `azimuth`.
+Then use [r.shade](https://grass.osgeo.org/grass72/manuals/r.shade.html)
+to create a composite of elevation and relief maps
+for the sake of visualization.
+Adjust the brightness with the `brighten` option until it looks good.
+```
+r.relief input=elevation_2012 output=relief_2012 zscale=3
+r.shade shade=relief_2012 color=elevation_2012 output=shaded_relief_2012 brighten=30
+```
+
+Calculate the difference between a time series of elevation maps using
+
+https://grass.osgeo.org/grass72/manuals/r.mapcalc.html
+
+https://grass.osgeo.org/grass72/manuals/r.series.html
+
+
+```
+r.mapcalc "difference_2004_2016 = elevation_2016 - elevation_2004"
+
+r.mapcalc "difference_2004_2012 = elevation_2012 - elevation_2004"
+
+r.mapcalc "difference_2012_2016 = elevation_2016 - elevation_2012"
+
+r.colors map=difference_2004_2016 color=differences
+
+r.colors map=difference_2004_2012 color=differences
+
+r.colors map=difference_2012_2016 color=differences
+
 ```
 
 
@@ -148,16 +200,17 @@ g.region raster=elevation_2012@PERMANENT res=1
 
 
 
+
 ```
-r.slope.aspect
-r.contours
 r.mapcalc
-r.relief
-r.shade
+r.color
 r.profile
+r.param.scale
 g.extension
 r.geomorphon
 ```
+
+https://grass.osgeo.org/grass72/manuals/r.param.scale.html
 
 ### 3D terrain modeling in Rhino
 
