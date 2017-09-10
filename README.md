@@ -29,12 +29,19 @@ models and renderings at the end of the course.
 * [Blender](https://www.blender.org/)
 
 ---
+## Contents
+1. [**Terrain modeling**](#terrain-modeling) <br>
+    i. [Importing and modeling lidar data in GRASS GIS](#importing-and-modeling-lidar-data-in-grass-gis)
+    ii. [Analyzing terrain data in GRASS GIS](#analyzing-terrain-data-in-grass-gis)
+2. ...
+
+
 
 ## Contents
 [**1. Terrain modeling**](#1-terrain-modeling) <br>
   [I. Importing and modeling lidar data in GRASS GIS](#i-importing-and-modeling-lidar-data-in-grass-gis) <br>
-  [II. Analyzing terrain data in GRASS GIS]() <br>
-2.
+  [II. Analyzing terrain data in GRASS GIS](#ii-analyzing-terrain-data-in-grass-gis) <br>
+2. ...
 
 
 
