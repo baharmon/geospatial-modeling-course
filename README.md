@@ -36,6 +36,8 @@ models and renderings at the end of the course.
     2. [Analyzing terrain data in GRASS GIS](#analyzing-terrain-data-in-grass-gis)
 
 ## Terrain modeling
+
+### Importing and modeling lidar data in GRASS GIS
 ```
 g.region
 ```
