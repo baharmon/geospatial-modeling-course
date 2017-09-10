@@ -26,16 +26,17 @@ You will work in small teams and present an exhibition of your
 models and renderings at the end of the course.
 
 **Software** | [GRASS GIS](https://grass.osgeo.org) |
-[Rhino](https://www.rhino3d.com/) | 
+[Rhino](https://www.rhino3d.com/) |
 [Blender](https://www.blender.org/)
 
 ---
 ## Contents
-1. [**Terrain modeling**](#terrain-modeling) <br>
+1. [**Terrain modeling**](#terrain-modeling)
     1. [Importing and modeling lidar data in GRASS GIS](#importing-and-modeling-lidar-data-in-grass-gis)
     2. [Analyzing terrain data in GRASS GIS](#analyzing-terrain-data-in-grass-gis)
-2. ...
 
+## Terrain modeling
+'g.region'
 
 ## License
 Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon :monkey_face:. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
