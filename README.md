@@ -25,10 +25,9 @@ and a day developing your projects.
 You will work in small teams and present an exhibition of your
 models and renderings at the end of the course.
 
-**Software**
-* [GRASS GIS](https://grass.osgeo.org)
-* [Rhino](https://www.rhino3d.com/)
-* [Blender](https://www.blender.org/)
+**Software** | [GRASS GIS](https://grass.osgeo.org) |
+[Rhino](https://www.rhino3d.com/) | 
+[Blender](https://www.blender.org/)
 
 ---
 ## Contents
