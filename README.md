@@ -1,3 +1,5 @@
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 # Geospatial modeling and fabrication
 
 <p align="center"><img src="images/yosemite_sq.png" height="500"></p>
@@ -31,19 +33,10 @@ models and renderings at the end of the course.
 ---
 ## Contents
 1. [**Terrain modeling**](#terrain-modeling) <br>
-    i. [Importing and modeling lidar data in GRASS GIS](#importing-and-modeling-lidar-data-in-grass-gis)
-    ii. [Analyzing terrain data in GRASS GIS](#analyzing-terrain-data-in-grass-gis)
+    1. [Importing and modeling lidar data in GRASS GIS](#importing-and-modeling-lidar-data-in-grass-gis)
+    2. [Analyzing terrain data in GRASS GIS](#analyzing-terrain-data-in-grass-gis)
 2. ...
-
-
-
-## Contents
-[**1. Terrain modeling**](#1-terrain-modeling) <br>
-  [I. Importing and modeling lidar data in GRASS GIS](#i-importing-and-modeling-lidar-data-in-grass-gis) <br>
-  [II. Analyzing terrain data in GRASS GIS](#ii-analyzing-terrain-data-in-grass-gis) <br>
-2. ...
-
 
 
 ## License
-Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
+Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon :monkey_face:. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
