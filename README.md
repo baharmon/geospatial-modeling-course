@@ -65,43 +65,98 @@ and create a new mapset called `lidar`.
 
 <p align="center"><img src="images/grass_start.png" height="250"></p>
 
+In the GRASS terminal
+reproject the lidar data from NAD83 NC Survey Feet (EPSG 6543)
+to NC State Plane Meters (EPSG 33580)
+using the [liblas](https://www.liblas.org/) library.
+```
+las2las --a_srs=EPSG:6543 --t_srs=EPSG:3358 -i I-08.las -o ncspm_I-08.las
+```
+
 Set your region to our study area with 1 meter resolution
-using the module`g.region`.
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
 ```
 g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
 ```
 
-Import the lidar dataset as a raster using binning
-with the module `r.in.lidar`.  
-```
-r.in.lidar
-```
-
-Import the lidar datasets as vector points
-using the module `v.in.lidar`.
-Limit the import to the current region with flag `r`.
-Filter the point clouds for ground points in class 2
-using the option `class_fitler=2`. 
+Import the lidar dataset as a raster digital surface model
+using binning to convert points into a regular raster grid
+with the module
+[r.in.lidar](https://grass.osgeo.org/grass72/manuals/r.in.lidar.html).
+Use the `mean` statistic and set the resolution to 5 meters.
+Then import the lidar data as a bare earth digital elevation model
+using `r.in.lidar` with the option `class_filter=2`
+to filter for points in the ground class.
 See the [ASPRS LAS Specification](http://www.asprs.org/wp-content/uploads/2010/12/LAS_1_4_r13.pdf)
-for a definitive list of classes.
-Then patch both point clouds together using the module `v.patch`.
-Delete the individual point clouds using `g.remove`.
-Interpolate the patched point cloud
-as a bare earth digital elevation model (DEM)
-using the regularized spline with tension (RST) algorithm
-implemented as the module `v.surf.rst`.
-
+for the definitive list of classes.
 ```
-v.in.lidar -r -t input=I-08_spm.las output=i_08 class_filter=2
-v.in.lidar -r -t input=J-08_spm.las output=j_08 class_filter=2
-v.patch input=i_08,j_08 output=points_2012
-g.remove -f type=vector name=i_08,j_08
+r.in.lidar input=ncspm_I-08.las output=surface_5m_2012 method=mean resolution=5
+r.in.lidar input=ncspm_I-08.las output=elevation_5m_2012 method=mean resolution=5 class_filter=2
+```
+
+Create a raster map of vegetation by importing the lidar dataset
+using binning with `r.in.lidar` at 2 meter resolution.
+Filter the point cloud for low, medium, and high vegetation points
+in classes 3, 4, and 5 using the option `class_filter=3,4,5`
+and for the first return using the option `return_filter=first`.
+Use the `max` statistic.
+```
+r.in.lidar input=ncspm_I-08.las output=vegetation_2012 method=max resolution=2 class_filter=3,4,5 return_filter=first
+r.colors map=vegetation_2012 color=viridis
+```
+
+Import the lidar datasets as vector points using the module
+[v.in.lidar](https://grass.osgeo.org/grass72/manuals/v.in.lidar.html).
+Limit the import to the current region with flag `-r`.
+Filter the point cloud for ground points in class 2
+using the option `class_filter=2`.
+Interpolate the point cloud
+as a bare earth digital elevation model (DEM)
+using the regularized spline with tension (RST) method
+implemented as the module
+[v.surf.rst](https://grass.osgeo.org/grass72/manuals/v.surf.rst.html).
+```
+v.in.lidar -r -t input=I-08_spm.las output=points_2012 class_filter=2
 v.surf.rst input=points_2012 elevation=elevation_2012 tension=10 smooth=1
 ```
 
+See the
+(Lidar)[https://grasswiki.osgeo.org/wiki/LIDAR]
+guide on GRASS-Wiki for more information on lidar processing and analysis
+in GRASS GIS.
+
 ### Topographic analysis in GRASS GIS
+Set your region to our study area with 1 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html)
+by specifying the boundaries, a saved region, or a reference raster map.
 ```
-g.region
+g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
+```
+or
+```
+g.region region=region res=1
+```
+or
+```
+g.region raster=elevation_2012@PERMANENT res=1
+```
+
+
+
+
+
+
+```
+r.slope.aspect
+r.contours
+r.mapcalc
+r.relief
+r.shade
+r.profile
+g.extension
+r.geomorphon
 ```
 
 ### 3D terrain modeling in Rhino
