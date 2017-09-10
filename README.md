@@ -60,16 +60,44 @@ analyze topographic parameters including
 contours, slope, hillshading, and landforms.
 
 ### Lidar in GRASS GIS
+Start GRASS GIS in the `nc_spm_evolution` location
+and create a new mapset called `lidar`.
+
+<p align="center"><img src="images/grass_start.png" height="250"></p>
+
+Set your region to our study area with 1 meter resolution
+using the module`g.region`.
+```
+g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
+```
+
+Import the lidar dataset as a raster using binning
+with the module `r.in.lidar`.  
 ```
 r.in.lidar
 ```
 
+Import the lidar datasets as vector points
+using the module `v.in.lidar`.
+Limit the import to the current region with flag `r`.
+Filter the point clouds for ground points in class 2
+using the option `class_fitler=2`. 
+See the [ASPRS LAS Specification](http://www.asprs.org/wp-content/uploads/2010/12/LAS_1_4_r13.pdf)
+for a definitive list of classes.
+Then patch both point clouds together using the module `v.patch`.
+Delete the individual point clouds using `g.remove`.
+Interpolate the patched point cloud
+as a bare earth digital elevation model (DEM)
+using the regularized spline with tension (RST) algorithm
+implemented as the module `v.surf.rst`.
 
 ```
-v.in.lidar
-v.surf.rst
+v.in.lidar -r -t input=I-08_spm.las output=i_08 class_filter=2
+v.in.lidar -r -t input=J-08_spm.las output=j_08 class_filter=2
+v.patch input=i_08,j_08 output=points_2012
+g.remove -f type=vector name=i_08,j_08
+v.surf.rst input=points_2012 elevation=elevation_2012 tension=10 smooth=1
 ```
-
 
 ### Topographic analysis in GRASS GIS
 ```
