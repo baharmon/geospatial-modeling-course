@@ -12,7 +12,7 @@ You will learn how to use geospatial data
 to model and analyze landscapes
 and visual programming to
 parametrically model and transform new landforms.
-You will learn how to model plants - from trees to grasses - in 3D, 
+You will learn how to model plants - from trees to grasses - in 3D,
 automatically distribute them across your digital landscape,
 and render photorealistic scenes.
 Through a series of 3D modeling projects you will
@@ -25,9 +25,10 @@ models and renderings at the end of the course.
 
 ---
 
-
 ## Contents
-
+1. **Terrain modeling**
+  i. Importing and modeling lidar data in GRASS GIS
+  ii. Analyzing terrain data in GRASS GIS
 
 
 
