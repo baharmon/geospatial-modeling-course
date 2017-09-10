@@ -32,15 +32,34 @@ models and renderings at the end of the course.
 ---
 ## Contents
 1. [**Terrain modeling**](#terrain-modeling)
-    1. [Importing and modeling lidar data in GRASS GIS](#importing-and-modeling-lidar-data-in-grass-gis)
-    2. [Analyzing terrain data in GRASS GIS](#analyzing-terrain-data-in-grass-gis)
+    1. [Lidar in GRASS GIS](#lidar-in-grass-gis)
+    2. [Topographic analysis in GRASS GIS](#topographic-analysis-in-grass-gis)
+    3. [3D terrain modeling in Rhino](#3d-terrain-modeling-in-rhino)
+2. [**Hydrological modeling**](#hydrological-modeling)
+3. [**Geospatial simulation**](#geospatial-simulation)
+---
 
 ## Terrain modeling
+In this section you will import lidar data into GRASS GIS,
+model the point cloud as a digital elevation model, and
+analyze topographic parameters including
+contours, slope, hillshading, and landforms.
+You will also
 
-### Importing and modeling lidar data in GRASS GIS
+### Lidar in GRASS GIS
 ```
 g.region
 ```
+
+### Topographic analysis in GRASS GIS
+```
+```
+
+### 3D terrain modeling in Rhino
+
+## Hydrological modeling
+
+## Geospatial simulation
 
 ## License
 Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon :monkey_face:. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
