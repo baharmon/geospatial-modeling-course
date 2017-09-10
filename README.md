@@ -1,6 +1,4 @@
-<img src="images/yosemite_cutout.png" height="250">
-
-![Terrain model of Yosemite](images/yosemite_500px.png)
+<img src="images/yosemite_cutout.png" height="500" align="center">
 
 # Geospatial modeling and fabrication
 Online, open educational materials for the landscape architecture course Geospatial Modeling and Fabrication.
