@@ -133,13 +133,7 @@ using the module
 by specifying the boundaries, a saved region, or a reference raster map.
 ```
 g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
-```
-or
-```
 g.region region=region res=1
-```
-or
-```
 g.region raster=elevation_2016 res=1
 ```
 
@@ -232,7 +226,10 @@ Experiment with the
 g.extension extension=r.geomorphon
 r.geomorphon elevation=elevation_2016 forms=forms_2016 search=12
 ```
-The landform types are: 1. flat, 2. summit, 3. ridge, 4. shoulder, 5. spur, 6. slope, 7. hollow, 8. footslope, 9. valley, and 10. depression.
+The landform types are:
+**1.** flat, **2.** summit, **3.** ridge, **4.** shoulder, **5.** spur,
+**6.** slope, **7.** hollow, **8.** footslope, **9.** valley,
+and **10.** depression.
 
 <p align="center"><img src="images/geomorphon_legend.png"></p>
 
