@@ -179,7 +179,7 @@ r.slope.aspect elevation=elevation_2016 slope=slope_2016 aspect=aspect_2016
 ```
 
 Use either the
-![profile](image/grass-gui/layer-raster-profile.png)
+![profile](images/grass-gui/layer-raster-profile.png)
 GUI profile surface map button,
 [d.profile](https://grass.osgeo.org/grass72/manuals/d.profile.html), or
 [r.profile](https://grass.osgeo.org/grass72/manuals/r.profile.html)
