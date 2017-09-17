@@ -2,7 +2,7 @@
 
 # Geospatial modeling and fabrication
 
-<p align="center"><img src="images/yosemite_sq.png" height="500"></p>
+<p align="center"><img src="images/yosemite/yosemite_sq.png" height="500"></p>
 
 This course is an introduction to digital design for landscape architects.
 In this course you will develop a creative digital design process
@@ -282,7 +282,7 @@ and increase the number to 1,000,000 for your final simulation.
 r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 depth=depth nwalkers=10000 niterations=10
 ```
 Display the legend for the water depth map with either the
-![legend](legend-add.png)
+![legend](images/grass-gui/legend-add.png)
 `Add raster legend` button
 or
 the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
@@ -296,7 +296,7 @@ add the latest orthophotograph `naip_2014` and
 the landcover, mannings, and infiltration maps
 to your map display.
 Display their legends with either the
-![legend](legend-add.png)
+![legend](images/grass-gui/legend-add.png)
 `Add raster legend` button
 or
 the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
@@ -330,7 +330,7 @@ Simulate net erosion-deposition (kg/m^2^s) with
 r.sim.sediment elevation=elevation_2016 water_depth=depth dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings erosion_deposition=erosion_deposition nwalkers=10000
 ```
 Display the legend for the erosion-deposition map with either the
-![legend](legend-add.png)
+![legend](images/grass-gui/legend-add.png)
 `Add raster legend` button
 or
 the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
