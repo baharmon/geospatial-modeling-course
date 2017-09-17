@@ -61,7 +61,7 @@ contours, slope, hillshading, and landforms.
 Start GRASS GIS in the `nc_spm_evolution` location
 and create a new mapset called `lidar`.
 
-<p align="center"><img src="images/grass_start.png" height="250"></p>
+<p align="center"><img src="images/grass-gui/grass_start.png" height="250"></p>
 
 In the GRASS terminal
 reproject the lidar data from NAD83 NC Survey Feet (EPSG 6543)
@@ -125,6 +125,9 @@ guide on GRASS-Wiki for more information on lidar processing and analysis
 in GRASS GIS.
 
 ### Topographic analysis in GRASS GIS
+Start GRASS GIS in the `nc_spm_evolution` location
+and create a new mapset called `terrain_analysis`.
+
 Set your region to our study area with 1 meter resolution
 using the module
 [g.region](https://grass.osgeo.org/grass72/manuals/g.region.html)
@@ -232,10 +235,136 @@ and **10.** depression.
 <p align="center"><img src="images/geomorphon_legend.png"></p>
 
 ### 3D terrain modeling in Rhino
+...
 
 ## Hydrological modeling
+Start GRASS GIS in the `nc_spm_evolution` location
+and create a new mapset called `hydrology`.
 
-## Geospatial simulation
+Set your region to our study area with 1 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
+```
+g.region region=region res=1
+```
+
+## Hydrological simulation
+In this section you will simulate overland water flow
+and then the resulting erosion and deposition.
+
+Start GRASS GIS in the `nc_spm_evolution` location
+and select the `hydrology` mapset.
+
+Set your region to our study area with 1 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
+```
+g.region region=region res=1
+```
+
+Compute the partial derivatives of the topography using the module
+[r.slope.aspect](https://grass.osgeo.org/grass72/manuals/r.slope.aspect.html).
+```
+r.slope.aspect elevation=elevation_2016 dx=dx dy=dy
+```
+
+### Shallow water flow
+Simulate shallow overland water flow with
+[r.sim.water](https://grass.osgeo.org/grass72/manuals/r.sim.water.html).
+for a 10 minute rain event
+with a rainfall intensity of 50 mm/hr.
+Walkers are the simulated particles of water in the computation.
+Increasing the number of walkers reduces errors,
+but increases computation time.
+Start with a relatively low number of walkers like 10,000
+and increase the number to 1,000,000 for your final simulation.
+```
+r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 depth=depth nwalkers=10000 niterations=10
+```
+Display the legend for the water depth map with either the
+![legend](legend-add.png)
+`Add raster legend` button
+or
+the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
+
+### Shallow water flow with landcover
+The first run of the simulation assumed constant landcover
+with no infiltration and a constant surface roughness
+with a default mannings n value of 0.1.
+To study the landcover for our region
+add the latest orthophotograph `naip_2014` and
+the landcover, mannings, and infiltration maps
+to your map display.
+Display their legends with either the
+![legend](legend-add.png)
+`Add raster legend` button
+or
+the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
+See the [Image classification](#image-classification) section
+to learn how to derive these maps from orthophotography.
+
+Now simulate overland water flow with
+spatially variable surface roughness and infiltration.
+Set `man=mannings` and `infil=infiltration`.
+Make sure to set the `--overwrite` flag
+because you are rerunning the simulation.
+```
+r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 man=mannings infil=infiltration depth=depth nwalkers=10000 niterations=10 --overwrite
+```
+
+### Erosion-deposition
+To simulate erosion-deposition you first need to compute
+the detachment coefficient, transport coefficient, and shear stress.
+Use map algebra with
+[r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
+to create new maps with constant values for these parameters.
+```
+r.mapcalc "detachment = 0.001"
+r.mapcalc "transport = 0.001"
+r.mapcalc "shear_stress = 0.0"
+```
+
+Simulate net erosion-deposition (kg/m^2^s) with
+[r.sim.sediment](https://grass.osgeo.org/grass72/manuals/r.sim.sediment.html).
+```
+r.sim.sediment elevation=elevation_2016 water_depth=depth dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings erosion_deposition=erosion_deposition nwalkers=10000
+```
+Display the legend for the erosion-deposition map with either the
+![legend](legend-add.png)
+`Add raster legend` button
+or
+the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
+
+
+### Sediment flow
+In a detachment limited soil erosion regime
+water can transport an infinite amount of sediment.
+Therefore there is no deposition, only erosion.
+In this regime erosion is only limited
+by the water flow's capacity to detach sediment.
+
+Overwrite the detachment and transport coefficients
+with [r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
+```
+r.mapcalc "detachment = 0.0001" --overwrite
+r.mapcalc "transport = 0.01" --overwrite
+```
+
+Simulate sediment flow (kg/ms)
+in a detachment limited soil erosion regime with
+[r.sim.sediment](https://grass.osgeo.org/grass72/manuals/r.sim.sediment.html).
+```
+r.sim.sediment elevation=elevation_2016 water_depth=depth dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings sediment_flux=sediment_flux nwalkers=10000
+
+```
+
+### Water flow animation
+
+
+Time series output
+flag `-t` and  `output_step=1`
+`g.gui.animation`
+
 
 ## License
 Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon :monkey_face:. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
