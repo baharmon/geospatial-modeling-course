@@ -45,13 +45,11 @@ models and renderings at the end of the course.
 3. [**Image classification**](#image-classification)
 ---
 
-
 ## Elevation data sources
 * [National Map Viewer](http://nationalmap.gov/viewer.html)
 * [US Interagency Elevation Inventory](https://coast.noaa.gov/inventory/)
 * [Open Topography](http://www.opentopography.org/)
 * [NC Spatial Data Download](https://sdd.nc.gov/sdd/)
-
 
 ## Terrain modeling
 In this section you will process lidar data,

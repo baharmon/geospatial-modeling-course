@@ -1,4 +1,4 @@
-## TODO
+## README TODO
 * Create a new GRASS location
 * Add screenshots
 * Lidar in ArcGIS
@@ -9,3 +9,8 @@
   * https://grass.osgeo.org/grass72/manuals/v.out.dxf.html
   * r.surf.contour
   * v.out.dxf
+
+## TEACHING TODO
+* QGIS GRASS plugin
+* Cartography in QGIS
+* Cartographic grid with [d.grid](https://grass.osgeo.org/grass72/manuals/d.grid.html)
