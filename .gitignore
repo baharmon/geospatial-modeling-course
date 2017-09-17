@@ -164,7 +164,7 @@ ehthumbs.db
 Thumbs.db
 
 # Text editors' files #
-###############$#######
+#######################
 *.kilepr
 *.backup
 *~
