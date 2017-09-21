@@ -25,13 +25,15 @@ and a day developing your projects.
 You will work in small teams and present an exhibition of your
 models and renderings at the end of the course.
 
+**Assignments** [Projects](projects.md)
+
+**Resources** [Geospatial data sources](geospatial-data-sources.md)
+
 **Software** | [GRASS GIS](https://grass.osgeo.org) |
 [Rhino](https://www.rhino3d.com/) |
 [Blender](https://www.blender.org/)
 
 **Tutorials** [Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/)
-
-**Resources** [Geospatial data sources](geospatial-data-sources.md)
 
 ---
 ## Contents
@@ -235,7 +237,7 @@ and **10.** depression.
 <p align="center"><img src="images/geomorphon_legend.png"></p>
 
 ### 3D terrain modeling in Rhino
-...
+*Under development...*
 
 ## Hydrological modeling
 Start GRASS GIS in the `nc_spm_evolution` location
@@ -247,6 +249,78 @@ using the module
 ```
 g.region region=region res=1
 ```
+
+### Watershed modeling and analysis
+Model flow accumulation for our study area using the module
+[r.watershed](https://grass.osgeo.org/grass72/manuals/r.watershed.html).
+Use the flag `-b` to beautify flat areas.  
+```
+r.watershed elevation=elevation_2016 accumulation=accumulation -b
+```
+
+By default `r.watershed` uses multiple flow direction algorithm.
+To compare multiple flow direction with single flow direction
+rerun the module with and without the flag `-s`.
+Be sure to set the `--overwrite` flag when rerunning the module.
+```
+r.watershed elevation=elevation_2016 accumulation=accumulation -s --overwrite
+r.watershed elevation=elevation_2016 accumulation=accumulation --overwrite
+```
+
+Model basins or watersheds for our study area
+using [r.watershed](https://grass.osgeo.org/grass72/manuals/r.watershed.html).
+The `threshold` parameter determines minimum size of the basins.
+Vary the threshold parameter
+until you compute a basin capturing the entire gully.
+```
+r.watershed elevation=elevation_2016 threshold=100000 basin=watersheds
+r.watershed elevation=elevation_2016 threshold=300000 basin=watersheds --overwrite
+```
+
+To create a vector map of the watershed containing the gully
+first use map algebra to delete the other watersheds.
+Query the watershed map to find the category value
+for the cells containing the gully.
+In this example the category was `4`.
+The expression `if(watersheds == 4, 1, null())`
+means if there are cells equal to 4 in the watershed raster map,
+then write the value 1, else write null values.
+Then convert the watershed raster to a vector with
+[r.to.vect](https://grass.osgeo.org/grass72/manuals/r.to.vect.html)
+and delete the rasters
+with [g.remove](https://grass.osgeo.org/grass72/manuals/g.remove.html).
+```
+r.mapcalc "watershed = if(watersheds == 4, 1, null())"
+r.to.vect -s input=watershed output=watershed type=area
+g.remove -f type=raster name=watersheds,watershed
+```
+
+### Stream modeling and analysis
+*Under development...*
+
+### Flood modeling
+*Under development...*
+
+### Flood animation
+*Under development...*
+
+Install r.lake.series add-on with
+[g.extension](https://grass.osgeo.org/grass72/manuals/g.extension.html).
+```
+g.extension extension=r.lake.series
+```
+
+Run r.lake.series...
+
+Launch the animation tool
+[g.gui.animation](https://grass.osgeo.org/grass72/manuals/g.gui.animation.html)
+and select the space time raster dataset `flood`.
+```
+g.gui.animation strds=flood
+```
+
+Optionally set a base map.
+
 
 ## Hydrological simulation
 In this section you will simulate overland water flow
@@ -281,11 +355,29 @@ and increase the number to 1,000,000 for your final simulation.
 ```
 r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 depth=depth nwalkers=10000 niterations=10
 ```
+
+To see only the concentrated water flow
+hide the cells with water depth less than value like `0.03` meters
+by either
+double clicking on the `depth` map in the layer manager
+and setting the list of values to display to `100-0.03`
+or running the command:
+```
+d.rast map=depth values=100-0.03
+```
+Experiment to find the right minimum value.
+
+In the layer manager move the vector contour map above the depth map
+and move the raster elevation or the shaded relief map below the depth map
+to better visualize the relationship between topography and water.
+
 Display the legend for the water depth map with either the
 ![legend](images/grass-gui/legend-add.png)
 `Add raster legend` button
 or
 the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
+Optionally use the range parameter set to `range=100-0.03`
+to show only the concentrated flow values.
 
 ### Shallow water flow with landcover
 The first run of the simulation assumed constant landcover
@@ -300,6 +392,8 @@ Display their legends with either the
 `Add raster legend` button
 or
 the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
+Use the `-n` flag to hide categories
+that are not represented in the data.
 See the [Image classification](#image-classification) section
 to learn how to derive these maps from orthophotography.
 
@@ -359,12 +453,33 @@ r.sim.sediment elevation=elevation_2016 water_depth=depth dx=dx dy=dy detachment
 ```
 
 ### Water flow animation
+To create a water flow animation first run the module
+[r.sim.water](https://grass.osgeo.org/grass72/manuals/r.sim.water.html)
+with the parameter `output_step=1` and the flag `-t` to
+create a time series of water depth rasters.
+With these settings this will output a water depth raster map
+for each minute of the simulation labelled
+`depth.01` through `depth.10`.
+```
+r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 man=mannings infil=infiltration depth=depth nwalkers=10000 niterations=10 output_step=1 -t
+```
 
+List this time series of rasters with the module
+[g.list](https://grass.osgeo.org/grass72/manuals/g.list.html).
+Use the wildcard notation `*` to list all raster maps
+with `depth.` in their names.
+Use the flag `-m` to include the mapset names in the output.
+Copy the list of maps from the output console.
+```
+g.list type=raster pattern=depth.* separator=comma -m
+```
 
-Time series output
-flag `-t` and  `output_step=1`
-`g.gui.animation`
-
+Launch the animation tool
+[g.gui.animation](https://grass.osgeo.org/grass72/manuals/g.gui.animation.html)
+and paste the list of depth maps into the raster parameter.
+```
+g.gui.animation raster=depth.01,depth.02,depth.03,depth.04,depth.05,depth.06,depth.07,depth.08,depth.09,depth.10
+```
 
 ## License
 Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon :monkey_face:. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
