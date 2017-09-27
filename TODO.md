@@ -3,6 +3,14 @@
 * Add screenshots
 * Lidar in ArcGIS
 * Topographic analysis in ArcGIS
+* Topography
+  * r.skyview
+* Hydrology
+  * r.lake.series and g.gui.animation
+  * r.stream*
+* Solar
+  * r.sun, r.sun.hourly, r.sun.daily
+  * r.cpt2grass, custom color tables, t.rast.color
 * Import / Export contours from GRASS GIS
   * https://grasswiki.osgeo.org/wiki/How_to_create_an_elevation_profile
   * https://grasswiki.osgeo.org/wiki/Contour_lines_to_DEM

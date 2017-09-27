@@ -181,15 +181,10 @@ and partial derivatives from an elevation raster.
 r.slope.aspect elevation=elevation_2016 slope=slope_2016 aspect=aspect_2016
 ```
 
-Use either the
+Use the
 ![profile](images/grass-gui/layer-raster-profile.png)
-GUI profile surface map button,
-[d.profile](https://grass.osgeo.org/grass72/manuals/d.profile.html), or
-[r.profile](https://grass.osgeo.org/grass72/manuals/r.profile.html)
+GUI profile surface map button
 to find the profile, i.e. section, of the digital elevation model.
-```
-r.profile -i input=elevation_2016 output=- null=*
-```
 
 Compare a time series of elevation maps using
 map algebra with
@@ -208,11 +203,11 @@ r.colors map=difference_2004_2016 color=differences
 r.colors map=difference_2004_2016 rules=color_difference.txt
 ```
 
-Calculate the average and range of the time series of elevation maps
+Calculate the range of the time series of elevation maps
 using the module
 [r.series](https://grass.osgeo.org/grass72/manuals/r.series.html).
 ```
-r.series input=elevation2004,elevation_2012,elevation_2016 output=average_2004_2016,range_2004_2016 method=average,range
+r.series input=elevation2004,elevation_2012,elevation_2016 output=range_2004_2016 method=range
 ```
 
 Identify the landforms in our study area using
@@ -299,28 +294,66 @@ g.remove -f type=raster name=watersheds,watershed
 *Under development...*
 
 ### Flood modeling
-*Under development...*
+Model a flood using the module
+[r.lake](https://grass.osgeo.org/grass72/manuals/r.lake.html).
+Set the water level to an elevation value
+within the range of the study landscape,
+ie. between 90 and 112 m.
+In the seed tab use the ![pointer](images/grass-gui/pointer.png)
+to pick coordinates near the lower right corner on the map display
+for the starting point.
+```
+r.lake elevation=elevation_2016@PERMANENT water_level=98 lake=flood
+```
 
 ### Flood animation
-*Under development...*
-
-Install r.lake.series add-on with
+Install the `r.lake.series` add-on with
 [g.extension](https://grass.osgeo.org/grass72/manuals/g.extension.html).
 ```
 g.extension extension=r.lake.series
 ```
 
-Run r.lake.series...
+Create a time series of flood maps using the add-on module
+[r.lake.series](https://grass.osgeo.org/grass72/manuals/addons/r.lake.series.html).
+In the water tab
+set the starting water level to 90 m, the end water level to 110 m,
+and the water level step to 1 m.
+Use the ![pointer](images/grass-gui/pointer.png)
+to pick coordinates near the lower right corner on the map display
+for the starting point.
+In the time tab set the time step to 1 minute
+to model flooding over a 20 minute period.
+This module will create a time series of raster maps
+named `flood_90.0`, `flood_91.0`, `flood_92.0`, etc...
+that will all be registered in a space time raster dataset.
+```
+r.lake.series elevation=elevation_2016@PERMANENT output=flood start_water_level=90 end_water_level=110 water_level_step=1 coordinates=597636.035857,150588.067729 time_step=1
+```
 
-Launch the animation tool
-[g.gui.animation](https://grass.osgeo.org/grass72/manuals/g.gui.animation.html)
-and select the space time raster dataset `flood`.
+To animate this sea level rise time series launch the GRASS Animation Tool
+[g.gui.animation](https://grass.osgeo.org/grass72/manuals/g.gui.animation.html).
+If you launch the Animation Tool from the File menu in the GUI
+follow the these instructions.
+Create a new animation,
+add a space-time dataset layer,
+choose `space time raster dataset` as the input data type,
+and choose the `flood` space time raster dataset.
+Then add a raster map layer
+and choose `elevation_2016`.
+Move this raster map layer beneath the space time raster dataset.
+Check the `Show raster legend` button
+and choose `elevation_2016`
+as the raster map in the d.legend dialog.
+Press `Ok` to create to the animation.
+Press `Play` to run the animation.
+Export your animation as an animated gif.
+Press the `Export` button,
+select export to `animated GIF`,
+then browse and name your file,
+and press `Export`.
 ```
 g.gui.animation strds=flood
 ```
-
-Optionally set a base map.
-
 
 ## Hydrological simulation
 In this section you will simulate overland water flow
@@ -428,7 +461,6 @@ Display the legend for the erosion-deposition map with either the
 `Add raster legend` button
 or
 the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
-
 
 ### Sediment flow
 In a detachment limited soil erosion regime
