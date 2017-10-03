@@ -294,7 +294,7 @@ Export your 3D view with the
 `Save display to graphic file`
 ![export](images/grass-gui/map-export.png)
 button.
-![3d-view](images/3d-view.png)
+<p align="center"><img src="images/3d-view.png"></p>
 
 ### 3D terrain modeling in Rhino
 Start GRASS GIS in the `nc_spm_evolution` location
