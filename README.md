@@ -37,33 +37,54 @@ models and renderings at the end of the course.
 
 ---
 ## Contents
-2. [**Terrain modeling**](#terrain-modeling)
+1. [**Terrain modeling**](#terrain-modeling)
     1. [Elevation data sources](#elevation-data-sources)
-    2. [Lidar in GRASS GIS](#lidar-in-grass-gis)
-    3. [Topographic analysis in GRASS GIS](#topographic-analysis-in-grass-gis)
-    4. [3D terrain modeling in Rhino](#3d-terrain-modeling-in-rhino)
+    2. [Lidar](#lidar)
+    3. [Topographic analysis](#topographic-analysis)
+    4. [3D terrain visualization](#3d-terrain-visualization)
+    4. [3D terrain modeling](#3d-terrain-modeling)
 2. [**Hydrological modeling**](#hydrological-modeling)
-3. [**Geospatial simulation**](#geospatial-simulation)
-3. [**Image classification**](#image-classification)
+    1. [Watershed modeling and analysis](#watershed-modeling-and-analysis)
+    2. [Stream modeling and analysis](#stream-modeling-and-analysis)
+    3. [Flood modeling](#flood-modeling)
+    4. [Flood animation](#flood-animation)
+3. [**Hydrological simulation**](#hydrological-simulation)
+    1. [Shallow water flow](#shallow-water-flow)
+    2. [Shallow water flow with landcover](#shallow-water-flow-with-landcover)
+    3. [Erosion-deposition](#erosion-deposition)
+    4. [Sediment flow](#sediment-flow)
+    5. [Water flow animation](#water-flow-animation)
+4. [**Parametric modeling**](#parametric-modeling)
+    1. [Surface modeling](#surface-modeling)
+    2. [Parametric surface modeling](#parametric-surface-modeling)
+    3. [Attractors](#attractors)
+5. [**3D ecosystems**](#3d-ecosystems)
+    1. [Image classification](#image-classification)
+    2. [3D planting](#3d-planting)
+    3. [Particle systems](#particle-systems)
+    4. [Rendering](#rendering)
+    4. [Physics](#physics)
 ---
 
-## Elevation data sources
+## Terrain modeling
+In this section you will
+process lidar data,
+model the point cloud as a digital elevation model, and
+analyze topographic parameters including
+contours, slope, hillshading, and landforms.
+
+### Elevation data sources
 * [National Map Viewer](http://nationalmap.gov/viewer.html)
 * [US Interagency Elevation Inventory](https://coast.noaa.gov/inventory/)
 * [Open Topography](http://www.opentopography.org/)
 * [NC Spatial Data Download](https://sdd.nc.gov/sdd/)
 
-## Terrain modeling
-In this section you will process lidar data,
-model the point cloud as a digital elevation model, and
-analyze topographic parameters including
-contours, slope, hillshading, and landforms.
-
-### Lidar in GRASS GIS
+### Lidar
 Start GRASS GIS in the `nc_spm_evolution` location
 and create a new mapset called `lidar`.
 
 <p align="center"><img src="images/grass-gui/grass_start.png" height="250"></p>
+[Guide to starting GRASS GIS](https://grass.osgeo.org/grass72/manuals/helptext.html)
 
 In the GRASS terminal
 reproject the lidar data from NAD83 NC Survey Feet (EPSG 6543)
@@ -126,7 +147,7 @@ See the
 guide on GRASS-Wiki for more information on lidar processing and analysis
 in GRASS GIS.
 
-### Topographic analysis in GRASS GIS
+### Topographic analysis
 Start GRASS GIS in the `nc_spm_evolution` location
 and create a new mapset called `terrain_analysis`.
 
@@ -231,7 +252,63 @@ and **10.** depression.
 
 <p align="center"><img src="images/geomorphon_legend.png"></p>
 
+### 3D terrain visualization
+Start GRASS GIS in the `nc_spm_evolution` location
+and select the `terrain_analysis` mapset.
+
+Set your region to our study area with 1 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html)
+by specifying a reference raster map.
+```
+g.region raster=elevation_2016 res=1
+```
+
+Add the `elevation_2016` raster map layer to your map.
+
+Change the map display mode from `2D` to `3D` view.
+The map display will switch to 3D view
+and the layer manager will switch to the `3D view` tab.
+In the 3D view tab switch to `Data` tab.
+Set the `Raster map` box to `elevation_2016`.
+In the `Draw` box set `Fine mode: resolution` to `1`.
+In the `Surface attributes` box set `Color` to
+the elevation map `elevation_2016`,
+the orthophoto `naip_2014`,
+or another map of your choice.
+This color map will be draped over the elevation surface.
+In the `View` tab set `Z-exag` to `3`
+to vertically exaggerate the elevation by a factor of 3.
+In the `View` tab also
+set the `Control view` to `SE`
+and set the `Height` to `350`.
+In the `Appearance` tab
+expand the `Fringe` dropdown menu,
+then in the `Edge with fringe` box check `S & E`
+and in the `Settings` box set the
+`elevation of the fringe from bottom` to `80`.
+Experiment with different light source positions
+in the `Lighting` menu in the `Appearance` tab.
+
+Export your 3D view with the
+`Save display to graphic file`
+![export](images/grass-gui/map-export.png)
+button.
+![3d-view](images/3d-view.png)
+
 ### 3D terrain modeling in Rhino
+Start GRASS GIS in the `nc_spm_evolution` location
+and select the `terrain_analysis` mapset.
+
+Set your region to our study area with 3 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html)
+by specifying a reference raster map.
+```
+g.region raster=elevation_2016 res=3
+```
+
+
 *Under development...*
 
 ## Hydrological modeling
