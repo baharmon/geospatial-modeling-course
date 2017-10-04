@@ -297,6 +297,11 @@ button.
 <p align="center"><img src="images/3d-view.png"></p>
 
 ### 3D terrain modeling in Rhino
+In this section you will export
+a digital elevation model from GRASS GIS
+and import it into Rhino for 3D modeling and visualization.
+
+**Heightfield**
 Start GRASS GIS in the `nc_spm_evolution` location
 and select the `terrain_analysis` mapset.
 
@@ -308,7 +313,36 @@ by specifying a reference raster map.
 g.region raster=elevation_2016 res=3
 ```
 
+Convert the 2016 elevation raster map
+from floating point values to integers
+using the raster map calculator
+[r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html).
+```
+r.mapcalc expression="integer_elevation_2016 = round(elevation_2016)"
+```
 
+Export `integer_elevation_2016` to `.png` with
+[r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
+```
+r.out.gdal input=integer_elevation_2016@terrain_analysis output=elevation_2016.png format=PNG
+```
+
+Start Rhino5.
+
+*Under development...*
+
+**Point cloud patching**
+```
+g.region raster=elevation_2016 res=3
+r.out.xyz input=elevation_2016 output=D:\rhino\elevation_3m.xyz separator=comma
+```
+*Under development...*
+
+**RhinoTerrain**
+```
+g.region raster=elevation_2016 res=1
+r.out.gdal input=elevation_2016 output=elevation_2016.tif format=GTiff
+```
 *Under development...*
 
 ## Hydrological modeling
@@ -350,7 +384,7 @@ r.watershed elevation=elevation_2016 threshold=300000 basin=watersheds --overwri
 ```
 
 To create a vector map of the watershed containing the gully
-first use map algebra to delete the other watersheds.
+first use bra to delete the other watersheds.
 Query the watershed map to find the category value
 for the cells containing the gully.
 In this example the category was `4`.
