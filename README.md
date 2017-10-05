@@ -302,6 +302,7 @@ a digital elevation model from GRASS GIS
 and import it into Rhino for 3D modeling and visualization.
 
 **Heightfield**
+
 Start GRASS GIS in the `nc_spm_evolution` location
 and select the `terrain_analysis` mapset.
 
@@ -377,6 +378,7 @@ _SaveAs
 ```
 
 **Heightfield mesh**
+
 In Rhino 5 open `heightfield.3dm`
 
 Turn off the `surface` layer.
@@ -403,6 +405,7 @@ _Save
 ```
 
 **Point cloud patching**
+
 Start GRASS GIS in the `nc_spm_evolution` location
 and select the `terrain_analysis` mapset.
 
@@ -500,6 +503,7 @@ _SaveAs
 ```
 
 **RhinoTerrain**
+
 Start GRASS GIS in the `nc_spm_evolution` location
 and select the `terrain_analysis` mapset.
 
