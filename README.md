@@ -313,7 +313,7 @@ by specifying a reference raster map.
 g.region raster=elevation_2016 res=3
 ```
 
-Convert the 2016 elevation raster map
+Round the 2016 elevation raster map
 from floating point values to integers
 using the raster map calculator
 [r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html).
@@ -329,21 +329,259 @@ r.out.gdal input=integer_elevation_2016@terrain_analysis output=elevation_2016.p
 
 Start Rhino5.
 
-*Under development...*
+Open the template `Large Objects - Meters.3dm`.
+
+Create a layer called `region` and make it the current layer.
+
+Turn on `Grid Snap` and `Ortho`.
+Create a 450m x 450m rectangle the size of our study landscape
+with the corner-to-corner
+[Rectangle](http://docs.mcneel.com/rhino/5/help/en-us/commands/rectangle.htm)
+command.
+```
+_Rectangle
+First corner of rectangle: 0,0
+Other corner or length: 450,450
+```
+
+Create a layer called `surface` and make it the current layer.
+
+Run the command [Heightfield from Image](http://docs.mcneel.com/rhino/5/help/en-us/commands/heightfield.htm).
+Open bitmap `elevation.png`.
+Use the 450m x 450m rectangle to define
+the first and second corners of the heightfield.
+Set `Number of sample points: 30 x 30`,
+set `Height: 113 meters`,
+check `Set image as texture`,
+and select `Create object by: Surface from control points at sample locations`.
+```
+_Heightfield
+First Corner: 0,0
+Second corner or length: 450
+```
+
+Create contours with the [Contour](http://docs.mcneel.com/rhino/5/help/en-us/commands/contour.htm) command.
+```
+_Contour
+Select objects for contours
+_Enter
+Contour plane base point: 0,0,0
+Direction perpendicular to contour planes: 0,0,1
+Distance between contours: 1.00
+_Enter
+```
+
+Save as `heightfield.3dm`.
+```
+_SaveAs
+```
+
+**Heightfield mesh**
+In Rhino 5 open `heightfield.3dm`
+
+Turn off the `surface` layer.
+Create a layer called `mesh`
+and make it the current layer.
+
+Run the command [Heightfield from Image](http://docs.mcneel.com/rhino/5/help/en-us/commands/heightfield.htm).
+Open bitmap `elevation.png`.
+Use the 450m x 450m rectangle to define
+the first and second corners of the heightfield.
+Set `Number of sample points: 150 x 150`,
+set `Height: 113 meters`,
+check `Set image as texture`,
+and select `Create object by: Mesh with vertices at sample locations`.
+```
+_Heightfield
+First Corner: 0,0
+Second corner or length: 450
+```
+
+Save `heightfield.3dm`.
+```
+_Save
+```
 
 **Point cloud patching**
+Start GRASS GIS in the `nc_spm_evolution` location
+and select the `terrain_analysis` mapset.
+
+Set your region to our study area with 3 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html)
+by specifying a reference raster map.
+Export `elevation_2016` as a comma delimited xyz point cloud.
 ```
 g.region raster=elevation_2016 res=3
 r.out.xyz input=elevation_2016 output=D:\rhino\elevation_3m.xyz separator=comma
 ```
-*Under development...*
+
+Start Rhino5.
+
+Open the template `Large Objects - Meters.3dm`.
+
+Create a layer called `point_cloud` and make it the current layer.
+
+Import the comma-delimited 3m resolution xyz point cloud.
+For `Delimiters` select comma. Check `Create point cloud`.
+Then zoom all viewports to the extent of the data.
+```
+_Import
+Zoom
+All
+Extents
+```
+
+Use the
+[Scale1D](http://docs.mcneel.com/rhino/5/help/en-us/commands/scale1d.htm)
+command to vertically exaggerate your elevation data by a factor of 3.
+```
+Scale1D
+Origin point: 0,0,0
+Scale factor: 3
+Scale direction: 0,0,1
+```
+
+Create a layer called `plane` and make it the current layer.
+
+Create a corner to corner rectangular plane
+with the [Plane](http://docs.mcneel.com/rhino/5/help/en-us/commands/plane.htm)
+command.
+Designate opposite corners of the point cloud.
+Then use the Gumball to move the plane beneath the lowest point.
+```
+_Plane
+```
+
+Create a layer called `surface` and make it the current layer.
+
+Use the [Patch](http://docs.mcneel.com/rhino/5/help/en-us/commands/patch.htm)
+command to create a NURBS surface.
+Set `Sample point spacing` to `1.0`,
+set `Surface U spans` to `150`,
+set `Surface V spans` to `150`,
+and set the `Starting surface` to the plane.
+```
+Patch
+```
+
+Hide or delete the point cloud layer.
+
+Set all viewports to `Rendered` mode.
+
+Make the plane larger with the
+[Scale2D](http://docs.mcneel.com/rhino/5/help/en-us/commands/scale2d.htm)
+command
+```
+Command: Scale2D
+Origin point
+Scale factor: 1.25
+```
+
+Create a layer called `solid` and make it the current layer.
+
+Use the
+[Extrude surface to boundary](http://docs.mcneel.com/rhino/5/help/en-us/commands/extrudesrf.htm)
+command to extrude the topographic NURBS surface to the plane
+to create a solid model with a base.
+Select the plane as the boundary surface.
+```
+_ExtrudeSrf
+_Solid=_Yes
+_ToBoundary
+Select a boundary surface
+```
+
+Hide or delete the plane layer.
+
+Save as `nc_spm_evolution_3m.3dm`.
+```
+_SaveAs
+```
 
 **RhinoTerrain**
+Start GRASS GIS in the `nc_spm_evolution` location
+and select the `terrain_analysis` mapset.
+
+Set your region to our study area with 1 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html)
+by specifying a reference raster map.
+Export `elevation_2016` as a georeferenced tif image (GeoTIFF).
 ```
 g.region raster=elevation_2016 res=1
 r.out.gdal input=elevation_2016 output=elevation_2016.tif format=GTiff
 ```
-*Under development...*
+
+Start Rhino5.
+
+Open the template `Large Objects - Meters.3dm`.
+
+Create a layer called `point_cloud` and make it the current layer.
+
+Use the RhinoTerrain plugin to import
+the elevation geotif raster as a point cloud.
+Alternatively you could import an xyz point cloud or a .las file.
+Run the RhinoTerrain command `Import elevation raster file`,
+select `elevation_2016.tif`,
+for `Choose target coordinate system` select `Use input data coordinate system`,
+for `Output type` select `Point cloud`.
+```
+RtImportElevation
+```
+
+Use the
+[Scale1D](http://docs.mcneel.com/rhino/5/help/en-us/commands/scale1d.htm)
+command to vertically exaggerate your elevation data by a factor of 3.
+```
+Scale1D
+Origin point: 0,0,0
+Scale factor: 3
+Scale direction: 0,0,1
+```
+
+Create a layer called `mesh` and make it the current layer.
+
+Create a triangulated mesh using the RhinoTerrain command `Create Terrain Mesh`.
+Select the point cloud when prompted `Select objects for triangulation`.
+Accept the previewed result.
+```
+RtMeshTerrainCreate
+_Accept
+```
+
+Turn off or delete the `point_cloud` layer.
+Set viewports to `Rendered` mode.
+
+Create a 50m base for the terrain model
+using the RhinoTerrain command `Create Terrain Base`
+```
+RtMeshTerrainBase
+Select mesh (BaseHeightStyle=Relative  BaseHeight=50)
+_Enter
+```
+
+Optionally use the RhinoTerrain `Create contour curves` command
+to compute contours.  
+```
+RtCartographyContoursCurvesCreate
+Select mesh
+_Enter
+Select mesh (FirstInterval=1  SecondInterval=10  ThirdInterval=0  FourthInterval=0  ContourSmoothness=0  Complete)
+_Complete
+```
+
+Turn on the `Sun`,
+set `Date and time` to `Now`,
+and set `Location` to `Here`.
+```
+Sun
+```
+
+Save as `rhinoterrain.3dm`
+```
+_SaveAs
+```
 
 ## Hydrological modeling
 Start GRASS GIS in the `nc_spm_evolution` location
@@ -405,7 +643,8 @@ g.remove -f type=raster name=watersheds,watershed
 *Under development...*
 
 ### Flood modeling
-Model a flood using the module
+There is a wetland in the low ground of this study landscape.
+Model the wetland as a lake using the module
 [r.lake](https://grass.osgeo.org/grass72/manuals/r.lake.html).
 Set the water level to an elevation value
 within the range of the study landscape,
@@ -414,7 +653,7 @@ In the seed tab use the ![pointer](images/grass-gui/pointer.png)
 to pick coordinates near the lower right corner on the map display
 for the starting point.
 ```
-r.lake elevation=elevation_2016@PERMANENT water_level=98 lake=flood
+r.lake elevation=elevation_2016@PERMANENT water_level=91 lake=flood
 ```
 
 ### Flood animation
@@ -427,21 +666,21 @@ g.extension extension=r.lake.series
 Create a time series of flood maps using the add-on module
 [r.lake.series](https://grass.osgeo.org/grass72/manuals/addons/r.lake.series.html).
 In the water tab
-set the starting water level to 90 m, the end water level to 110 m,
+set the starting water level to 90 m, the end water level to 100 m,
 and the water level step to 1 m.
 Use the ![pointer](images/grass-gui/pointer.png)
 to pick coordinates near the lower right corner on the map display
 for the starting point.
 In the time tab set the time step to 1 minute
-to model flooding over a 20 minute period.
+to model flooding over a 10 minute period.
 This module will create a time series of raster maps
 named `flood_90.0`, `flood_91.0`, `flood_92.0`, etc...
 that will all be registered in a space time raster dataset.
 ```
-r.lake.series elevation=elevation_2016@PERMANENT output=flood start_water_level=90 end_water_level=110 water_level_step=1 coordinates=597636.035857,150588.067729 time_step=1
+r.lake.series elevation=elevation_2016@PERMANENT output=flood start_water_level=90 end_water_level=100 water_level_step=1 coordinates=597636.035857,150588.067729 time_step=1
 ```
 
-To animate this sea level rise time series launch the GRASS Animation Tool
+To animate this flooding time series launch the GRASS Animation Tool
 [g.gui.animation](https://grass.osgeo.org/grass72/manuals/g.gui.animation.html).
 If you launch the Animation Tool from the File menu in the GUI
 follow the these instructions.
@@ -592,7 +831,6 @@ in a detachment limited soil erosion regime with
 [r.sim.sediment](https://grass.osgeo.org/grass72/manuals/r.sim.sediment.html).
 ```
 r.sim.sediment elevation=elevation_2016 water_depth=depth dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings sediment_flux=sediment_flux nwalkers=10000
-
 ```
 
 ### Water flow animation

@@ -6,10 +6,9 @@
 * Topography
   * r.skyview
 * Hydrology
-  * r.lake.series and g.gui.animation
   * r.stream*
 * Solar
-  * r.sun, r.sun.hourly, r.sun.daily
+  * r.sun, r.sun.hourly, r.sun.daily, g.gui.animation
   * r.cpt2grass, custom color tables, t.rast.color
 * Import / Export contours from GRASS GIS
   * https://grasswiki.osgeo.org/wiki/How_to_create_an_elevation_profile
