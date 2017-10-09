@@ -297,7 +297,7 @@ Export your 3D view with the
 button.
 <p align="center"><img src="images/3d-view.png"></p>
 
-### 3D terrain modeling in Rhino
+### 3D terrain modeling
 In this section you will export
 a digital elevation model from GRASS GIS
 and import it into Rhino for 3D modeling and visualization.
