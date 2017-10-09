@@ -33,7 +33,8 @@ models and renderings at the end of the course.
 [Rhino](https://www.rhino3d.com/) |
 [Blender](https://www.blender.org/)
 
-**Tutorials** [Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/)
+**Tutorials** | [Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/) |
+[lecture.lsu.edu/](https://lecture.lsu.edu/)
 
 ---
 ## Contents
