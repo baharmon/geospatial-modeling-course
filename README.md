@@ -503,6 +503,35 @@ Save as `nc_spm_evolution_3m.3dm`.
 _SaveAs
 ```
 
+**Material and texture mapping**
+
+Start GRASS GIS in the `nc_spm_evolution` location
+and select the `PERMANENT` mapset.
+
+![layer-raster-add](images/grass-gui/layer-raster-add.png)
+Add the raster map layer `naip_2014` with the latest orthophoto
+to your map display. Resize your map display so that is square and
+zoom to the selected map.
+Export this map with the
+`Save display to graphic file`
+![export](images/grass-gui/map-export.png)
+button. Save as `naip_2014.png`.
+
+
+Start Rhino5 and open `nc_spm_evolution_3m.3dm`.
+
+Select the polysurface model of the topography.
+In the `properties` tab click the `material` button.
+Set `Assign material by:` to `Object`.
+In the `Textures` section
+set `Color` to the file `naip_2014.png`
+Click the `Texture mapping` button and
+set `Type` to `Planar (UVW)`.
+Optionally turn on the sun with the command `sun`.
+```
+_SaveAs
+```
+
 **RhinoTerrain**
 
 Start GRASS GIS in the `nc_spm_evolution` location
