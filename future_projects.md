@@ -58,6 +58,41 @@ and [hydrological modeling](README.md#hydrological-modeling)
 * Layout and print all 5 maps on a 36"x72" plot
 * Submit digital and print versions
 
+## Generative design project
+In **groups of 3**
+you will use visual programming to generatively design
+erosion control features to restore your degraded study landscape.
+Through a series of algorithmically generated design interventions
+you will explore interactions between
+topographic form and hydrologic processes.
+Your goal is to catalyze topographic changes that will
+restore the landscape to a dynamic equilibrium.  
+You will produce 3D printed models of your designs
+and augment these with projected water flow and sediment flux.
+
+### Screenshots
+Complete the following tutorials
+and take a screenshot of each completed task.
+* Screenshots for [surface modeling](README.md#surface-modeling) **due: 10/10**.
+* Screenshots for [parametric surface modeling](README.md#parametric-surface-modeling) **due: 10/17**.
+* Screenshots for [attractors](README.md#attractors) **due: 10/24**.
+
+### Exhibition design
+Design the layout and setup of the final exhibition.
+Then select and revise work from last project for the final exhibition.
+* Exhibition concept **due: 10/12**
+* Exhibition design **due: 10/26**
+* Revised select work **due: 10/26**
+
+### Families of form
+You will design at least 6 different landforms
+to control water and sediment flow.
+For each landform make a 3D print, a 3D rendering,
+and a water flow and erosion-deposition map.
+* 6 4"x4" 3D prints **due: 10/26**
+* 6 3D renderings **due: 10/26**
+* 6 water and sediment flow maps **due: 10/26**
+
 ## Ecosystem modeling project
 In **groups of 3** you will
 map the existing vegetation
@@ -66,38 +101,13 @@ Then you will design, model, and render in 3D
 a planting plan to restore this degraded landscape.
 You will produce beautiful, photorealistic 3D renderings  
 of the existing landscape and your design.
-
-### 3D ecosystem library
-Develop a list of plants for the study landscape,
-organize the plants by community,
-find the species or proxies for them in the Xfrog libary,
-and prepare 3D models for these species in Blender.
-* Spreadsheet with plant communities and species
-* Blender library of 3D tree models
-
-### 3D model of existing landscape
-Build a terrain model in Blender.
-Use image classification in GIS to identify landcover types.
-Then use particle systems to automatically populate
-the 3D scene with 3D plants based on landcover.
-* Blender file with a 3D model of the existing landscape
-* 2+ 3D renderings of the existing landscape
-* 3D print of existing topography
-
-### 3D model of designed landscape
-Develop a design to restore the study landscape
-and build a 3D model in Blender of your design.
-Include 3D plants, physics-based water,
-and optionally elements like 3D stones.
-* Blender file with a 3D model of the existing landscape
-* 2+ 3D renderings of the designed landscape
-* Optional: Blender4Web scene for VR
+* ...
+* ...
+* ...
 
 ## Exhibition
 As a class you will create an exhibition of your work.
 * 3 36"x72" plots with maps analyzing the study landscape
 * 3 18"x18" laser cut contour models augmented with projected maps and animations
-* 1-2 3D prints
+* 30 4"x4" 3D prints
 * 3 36"x72" plots with 3D renderings of the restored ecosystem
-* Projection or display with 3D renderings and/or animations
-* Optional: VR headset with 3D scene
