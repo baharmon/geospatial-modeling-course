@@ -75,6 +75,12 @@ and prepare 3D models for these species in Blender.
 * Spreadsheet with plant communities and species
 * Blender library of 3D tree models
 
+### 3D garden
+As practice 3D model and 3D render a small garden.
+Create particle systems of grass on a small plane.
+Add a couple trees and shrubs to scene.
+Then 3D render the scene.
+
 ### 3D model of existing landscape
 Build a terrain model in Blender.
 Use image classification in GIS to identify landcover types.
