@@ -75,10 +75,11 @@ models and renderings at the end of the course.
     3. [Attractors](#attractors)
 5. [**3D ecosystems**](#3d-ecosystems)
     1. [Image classification](#image-classification)
-    2. [3D planting](#3d-planting)
-    3. [Particle systems](#particle-systems)
-    4. [Rendering](#rendering)
-    4. [Physics](#physics)
+    2. [3D terrain](#3d-terrain)
+    3. [3D planting](#3d-planting)
+    4. [Particle systems](#particle-systems)
+    5. [Rendering](#rendering)
+    6. [Physics](#physics)
 ---
 
 ## Terrain modeling
@@ -971,7 +972,7 @@ If you did not create `vegetation_2012`
 you can use the copy in the `PERMANENT` mapset.
 Use map algebra with
 [r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
-combine the lidar based trees and shrub
+to combine the lidar based trees and shrub
 (reassigned as NLCD class 43, i.e. Mixed Forest)
 with the imagery based grass and barren land.
 Then assign the NLCD color table from the
@@ -987,29 +988,33 @@ r.colors map=landcover rules=color_landcover.txt
 r.category map=landcover separator=pipe rules=landcover_categories.txt
 ```
 
+### 3D Terrain
+
 **Export geospatial data from GRASS GIS**
 Start GRASS GIS in the `nc_spm_evolution` location
 and open the `PERMANENT` mapset.
-Set your region to our study area with 1 meter resolution
+Set a new region for a smaller study area
 using the module
 [g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
 Export the 2016 digital elevation model as a GeoTIFF using
 [r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
-Then change the mapset to `hydrology` using
-[g.mapset](https://grass.osgeo.org/grass72/manuals/g.mapset.html)
-and export the raster depth map as a GeoTIFF using
-[r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
 Then change the mapset to `imagery` using
-[g.mapset](https://grass.osgeo.org/grass72/manuals/g.mapset.html)
-and export the landcover as a GeoTIFF using
+[g.mapset](https://grass.osgeo.org/grass72/manuals/g.mapset.html).
+Use map algebra with
+[r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
+to create separate grass and mixed forest maps
+and then export these landcover maps as GeoTIFFs using
 [r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
 ```
-g.region raster=elevation_2016@PERMANENT res=1
-r.out.gdal input=elevation_2016@PERMANENT output=elevation_2016.tif format=GTiff
-g.mapset mapset=hydrology
-r.out.gdal input=depth@hydrology output=depth.tif format=GTiff
+g.region n=150862 s=150712 w=597290 e=597440 save=subregion res=1
+r.out.gdal input=elevation_2016@PERMANENT output=subregion.tif format=GTiff
 g.mapset mapset=imagery
-r.out.gdal input=landcover@imagery output=landcover.tif format=GTiff
+r.mapcalc "grass = if(landcover@PERMANENT == 71 , 1, 0)"
+r.mapcalc "mixed_forest = if(landcover@PERMANENT == 43 , 1, 0)"
+r.colors map=grass color=grey
+r.colors map=mixed_forest color=grey
+r.out.gdal input=grass@imagery output=grass.tif format=GTiff
+r.out.gdal input=mixed_forest@imagery output=mixed_forest.tif format=GTiff
 ```
 
 Run g.region with the `p` flag to print the boundaries.
@@ -1024,15 +1029,15 @@ projection: 99 (NAD83(HARN) / North Carolina)
 zone:       0
 datum:      nad83harn
 ellipsoid:  grs80
-north:      151030
-south:      150580
-west:       597195
-east:       597645
+north:      150862
+south:      150712
+west:       597290
+east:       597440
 nsres:      1
 ewres:      1
-rows:       450
-cols:       450
-cells:      202500
+rows:       150
+cols:       150
+cells:      22500
 ```
 
 **Importing geospatial data into Blender**
@@ -1052,11 +1057,11 @@ Check and then expand `3D View: BlenderGIS`.
 Set the BlenderGIS' `Spatial Reference Systems`
 to North Carolina State Plane Meters
 by clicking `Add` and then setting the EPSG code with
-`Definition: 32119`,
-`Description: NAD83 / North Carolina`,
+`Definition: 3358`,
+`Description: NAD83(HARN) / North Carolina`,
 and checking `Save to addon preferences`.
 Then click `Ok`.
-Select the new `NAD83 / North Carolina` spatial reference system.
+Select the new `NAD83(HARN) / North Carolina` spatial reference system.
 Click `Save User Settings`
 and close the User Preferences dialog.
 
@@ -1065,8 +1070,9 @@ and close the User Preferences dialog.
 or [http://spatialreference.org/](http://spatialreference.org/).
 Try searching either site for `North Carolina` then select
 the result with the North American Datum of 1983 (NAD83)
-and North Carolina State Plane with meters as the unit.
-The EPSG code will be `32119`.
+and North Carolina State Plane
+(High Accuracy Reference Network) with meters as the unit.
+The EPSG code will be `3358`.
 
 In Blender set the 3D viewport to `Top Ortho`.
 First set `Ortho` by pressing `5` on the numeric keypad
@@ -1083,10 +1089,10 @@ Under `Geoscene` click the
 and select `NAD83 / North Carolina`
 from the dropdown menu and press `Ok`.
 Then set the `scene origin coordinates` to `Proj` and
-set `crs x: 597195` and `crs y: 150580`
+set `crs x: 597290` and `crs y: 150712`
 to match the west and south boundaries determined in GRASS GIS.
 
-Import `elevation_2016.tif` into Blender using
+Import `subregion.tif` into Blender using
 `File > Import > Georeferenced raster`
 or the
 ![import](images/blender-gui/gis_import.png)
@@ -1100,7 +1106,7 @@ See the BlenderGIS
 for more details about importing georeferenced rasters.
 
 To vertically exaggerate the digital elevation model
-select `elevation_2016` in the Outliner
+select `subregion` in the Outliner,
 and open the
 ![modifiers](images/blender-gui/modifiers.png)
 `Modifiers` panel.
@@ -1109,23 +1115,7 @@ This will show the parameters for the
 modifier used to generate a mesh from the raster values.
 Set `Strength: 2.0`
 to vertically exaggerate by a factor of 2.
-Optionally click `Apply` to make this displace modifier permanent.
-
-Import `landcover.tif` into Blender using the
-![import](images/blender-gui/gis_import.png)
-`Import georeferenced raster with world file` button in the GIS tab.
-Select `landcover.tif`. then in the `Import georaster` panel
-set `Mode: On mesh`,
-set `Objects: elevation_2016`
-and finally click `Import georaster`.
-Open the
-![textures](images/blender-gui/textures.png)
-`Textures` panel and double click on the texture
-`rastMat.001` to rename it `Landcover`.
-Open the
-![materials](images/blender-gui/materials.png)
-`Materials` panel and double click on the material
-`rastMat.001` to rename it `Landcover`.
+Click `Apply` to make this displace modifier permanent.
 
 Create a base for the terrain.
 First either copy and paste elevation_2016
@@ -1134,7 +1124,7 @@ Select this new copy.
 Rename it `Base`.
 Enter edit mode with `tab`.
 Extrude Region with `e `
-then type `-50` to extrude -50 meter vertically.
+then type `-25` to extrude -50 meter vertically.
 Scale with `s`, type `z` to constrain to the z-axis,
 and type `0` to flatten the base.
 Press `tab` to return to object mode.
@@ -1149,14 +1139,111 @@ Move the sun 1000 units vertically.
 
 Save your scene as `nspm_evolution.blend` (Shift + Ctrl + S).
 
-
 ### 3D planting
 *Under development...*
 
+
 ### Particle systems
-*Under development...*
+**Ground texture**
+Select our terrain mesh `subregion` in the Outliner.
+In the ![materials](images/blender-gui/materials.png)
+`Material` panel
+open the `Cycles Material Vault`,
+click on `Category Type`,
+select `Ground`,
+browse to select `Ground01`,
+and click `Assign Material`.
+Then in the `Surface` tab of the `Material` panel
+set `Scale: 10`.
+
+Save your scene (Ctrl + S).
+
+**Forest particle system**
+First on a new layer append
+`plant_library\c_eastern_white_pine_a.blend\Group\eastern_white_pine`.
+
+In the ![textures](images/blender-gui/textures.png)
+`Textures` panel
+create a `Mixed forest` texture with
+`mixed_forest.tif`.
+
+Open the
+![particle systems](images/blender-gui/particle_systems.png)
+`Particles` panel.
+Click `New` to create a new particle system.
+Rename as `Forest`.
+In the `Emission` tab
+set `Type` to `Emitter`,
+`Number` to `500`,
+`Start` to `-1`, and
+`End` to `-1`
+(so that all particle will appear in the first time step).
+
+In the `Texture` tab of the `Particles` panel
+add the `Mixed forest` texture.
+
+Switch to the `Texture` panel.
+Select the `Mixed forest` texture.
+In the `Influence` tab uncheck
+`Time` and check `Influence: 1.0`
+
+Back in the `Particles` panels
+in the `Rendered` tab
+select `Group`, click `Dupli Group` and browse to select the
+`eastern_white_pine` group.
+Set `Size: 0.1` amd `Random Size: 0.05`
+
+Save your scene (Ctrl + S).
+
+**Grass particle system**
+In a new layer append
+`D:\GrassEssentials\Grass Essentials - Grass Models v1.2\Grass\Kentucky Bluegrass\Grass_Kentucky Bluegrass.blend\Group\APPEND - Grass_Kentucky_Bluegrass - Particles Setup`.
+
+In another new layer append
+`D:\GrassEssentials\Grass Essentials - Grass Models v1.2\Grass\Meadow Fescues\Grass_Meadow Fescues.blend\Group\APPEND - Grass_Meadow Fescues - Particles Setup`.
+
+In the ![textures](images/blender-gui/textures.png)
+`Textures` panel
+create a `Grass` texture with
+`grass.tif`.
+
+Open the
+![particle systems](images/blender-gui/particle_systems.png)
+`Particles` panel.
+Click `New` to create a new particle system.
+Rename as `Bluegrass`.
+Under `Settings` use the
+![grass particle systems](images/blender-gui/grass_particles.png)
+`Browse particle settings to be linked` dropdown menu
+to select the appended Kentucky Bluegrass particle system.
+In the `Emissions` tab of the `Particles` panel
+set `Number: 100000`
+and `Hair Length: 50`
+In the `Texture` tab of the `Particles` panel
+add the `Grass` texture.
+Switch to the `Texture` panel.
+Select the `Grass` texture.
+In the `Influence` tab uncheck
+`Time` and check `Influence: 1.0`
+
+Repeat for the Meadow Fescues particle system.
+Use a lower number of emissions (e.g. 10000).
+
+Save your scene (Ctrl + S).
 
 ### Rendering
+Select the terrain mesh `subregion` in the Outliner.
+Use `Numpad .` to focus your viewport on your selection.
+
+Align your camera with the viewport using
+`Ctrl + Alt + Numpad 0`.
+
+Use `Numpad 0` to toggle between camera view and the viewport view.
+
+Press `F12` to Render.
+Once the rendering finishes
+click `Image > Save as`.
+
 *Under development...*
 
 ### Physics
