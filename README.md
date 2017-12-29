@@ -2,7 +2,7 @@
 
 # Geospatial modeling and fabrication
 
-<p align="center"><img src="images/yosemite/yosemite_sq.png" height="500"></p>
+<p align="center"><img src="images/3d-ecosystems/ncspm_rendering_1.png" height="500"></p>
 
 This course is an introduction to digital design for landscape architects.
 In this course you will develop a creative digital design process
@@ -25,9 +25,9 @@ and a day developing your projects.
 You will work in small teams and present an exhibition of your
 models and renderings at the end of the course.
 
-**Assignments** [Projects](projects.md)
+**Assignments** | [Projects](projects.md)
 
-**Resources** [Geospatial data sources](geospatial-data-sources.md)
+**Resources** | [Geospatial data sources](geospatial-data-sources.md)
 
 **Software** | [GRASS GIS](https://grass.osgeo.org) |
 [Rhino](https://www.rhino3d.com/) |
@@ -45,10 +45,14 @@ models and renderings at the end of the course.
 [BlenderGIS](https://github.com/domlysz/BlenderGIS) |
 [TheGrove3D](https://www.thegrove3d.com/)
 
+**Libraries** | [Xfrog](http://xfrog.com/)
+
 **Tutorials** |
 [Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/) |
 [lecture.lsu.edu/](https://lecture.lsu.edu/) |
 [BlenderGIS wiki](https://github.com/domlysz/BlenderGIS/wiki)
+
+**Gallery** | [Student work 2017](gallery.md#student-work-2017)
 
 ---
 ## Contents
@@ -81,8 +85,6 @@ models and renderings at the end of the course.
     5. [Rendering](3d-ecosystems.md#rendering)
     6. [Physics](3d-ecosystems.md#physics)
 ---
-
-
 
 ## License
 Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon :monkey_face:. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
