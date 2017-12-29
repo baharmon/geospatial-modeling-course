@@ -42,10 +42,9 @@ models and renderings at the end of the course.
 [r.sun.hourly](https://grass.osgeo.org/grass72/manuals/addons/r.sun.hourly.html) |
 [RhinoTerrain](http://www.rhinoterrain.com/en/home.html) |
 [Neon](http://v5.rhino3d.com/group/neon) |
-[BlenderGIS](https://github.com/domlysz/BlenderGIS) |
-[TheGrove3D](https://www.thegrove3d.com/)
+[BlenderGIS](https://github.com/domlysz/BlenderGIS)
 
-**Libraries** | [Xfrog](http://xfrog.com/)
+**Libraries** | [Xfrog](http://xfrog.com/) | [TheGrove3D](https://www.thegrove3d.com/)
 
 **Tutorials** |
 [Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/) |
