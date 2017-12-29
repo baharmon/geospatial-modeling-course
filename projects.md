@@ -12,7 +12,10 @@ The aim of this project is to restore the degraded watershed
 and reduce sediment transport  
 in order to enhance downstream mussel habitat.
 
-<p align="center"><img src="images/student_gardens/lott_garden_1.png" height="500"></p>
+<p align="center">
+<img src="images/student_gardens/lott_garden_1.png" height="500">
+Garden, Sophie Lott, 2017
+</p>
 
 ## Geospatial modeling project
 In order to understand the physical patterns and processes
