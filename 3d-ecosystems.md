@@ -1,11 +1,13 @@
 # Contents
 1. [**3D ecosystems**](#3d-ecosystems)
     1. [Image classification](#image-classification)
-    2. [3D terrain](#3d-terrain)
-    3. [3D planting](#3d-planting)
-    4. [Particle systems](#particle-systems)
-    5. [Rendering](#rendering)
-    6. [Physics](#physics)
+    2. [Landform classification](#landform-classification)
+    3. [Export geospatial data](#export-geospatial-data)
+    4. [3D terrain](#3d-terrain)
+    5. [3D planting](#3d-planting)
+    6. [Particle systems](#particle-systems)
+    7. [Rendering](#rendering)
+    8. [Physics](#physics)
 
 # 3D ecosystems
 
@@ -87,35 +89,92 @@ r.colors map=landcover rules=color_landcover.txt
 r.category map=landcover separator=pipe rules=landcover_categories.txt
 ```
 
-## 3D Terrain
+## Landform classification
+Start GRASS GIS in the `nc_spm_evolution` location
+and open the `terrain_analysis` mapset.
+Set your region to the study area
+with 1 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
+Specifying the saved region `region`.
+```
+g.region region=region res=1
+```
 
-### Export geospatial data from GRASS GIS
+Compute landform types uses the add-on module
+[r.geomorphon](https://grass.osgeo.org/grass72/manuals/addons/r.geomorphon.html).
+ ```
+r.geomorphon elevation=elevation_2016 forms=forms search=24 skip=0 flat=1 dist=0
+ ```
+<p align="center">
+  <img src="images/3d-ecosystems/landforms.png" height="250">
+</p>
+
+## Export geospatial data
 Start GRASS GIS in the `nc_spm_evolution` location
 and open the `PERMANENT` mapset.
+
+### Export terrain data
 Set a new region for a smaller study area
 using the module
 [g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
-Export the 2016 digital elevation model as a GeoTIFF using
-[r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
-Then change the mapset to `imagery` using
-[g.mapset](https://grass.osgeo.org/grass72/manuals/g.mapset.html).
 Use map algebra with
 [r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
-to create separate grass and mixed forest maps
-and then export these landcover maps as GeoTIFFs using
+to create a cropped version of the elevation map.
+Export this cropped digital elevation model as a GeoTIFF using
 [r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
 ```
 g.region n=150862 s=150712 w=597290 e=597440 save=subregion res=1
-r.out.gdal input=elevation_2016@PERMANENT output=subregion.tif format=GTiff
-g.mapset mapset=imagery
-r.mapcalc "grass = if(landcover@PERMANENT == 71 , 1, 0)"
-r.mapcalc "mixed_forest = if(landcover@PERMANENT == 43 , 1, 0)"
-r.colors map=grass color=grey
-r.colors map=mixed_forest color=grey
-r.out.gdal input=grass@imagery output=grass.tif format=GTiff
-r.out.gdal input=mixed_forest@imagery output=mixed_forest.tif format=GTiff
+r.mapcalc expression="elevation = elevation_2016"
+r.out.gdal input=elevation output=elevation.tif format=GTiff
 ```
 
+### Export imagery
+Set your region to our smaller, detailed study area
+with 1 meter resolution using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
+Specify the saved region `subregion`.
+Use map algebra with
+[r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
+to create separate maps of bare ground, mixed forest, and grass.
+Then export these landcover maps as GeoTIFFs using
+[r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
+You will use these landcover maps to generate particle systems of 3D plants.
+```
+r.mapcalc expression="bare_ground = if(landcover==31,1,0)"
+r.colors map=bare_ground color=grey
+r.mapcalc expression="mixed_forest = if(landcover==43,1,0)"
+r.colors map=mixed_forest color=grey
+r.mapcalc expression="grass = if(landcover==71,1,0)"
+r.colors map=grass color=grey
+```
+
+### Export landform data
+Change the mapset to `terrain_analysis` using
+[g.mapset](https://grass.osgeo.org/grass72/manuals/g.mapset.html).
+Set your region to our smaller, detailed study area
+with 1 meter resolution using the module
+[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
+Specify the saved region `subregion`.
+Use the map algebra with the raster map calculator
+[r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
+to create maps of similar landforms typologies.
+Export these as GeoTIFFs using
+[r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
+You will use these landform maps to map earth and ground cover textures.
+```
+g.mapset mapset=terrain_analysis
+g.region region=subregion res=1
+r.mapcalc expression="landforms = landforms_2016"
+r.mapcalc expression="ridges = if(landforms==8 ||| landforms==9 ||| landforms==10,1,0)"
+r.colors map=valleys color=grey
+r.mapcalc expression="ridges = if(landforms==2 ||| landforms==3 ||| landforms==4,1,0)" --overwrite
+r.colors map=ridges color=grey
+r.mapcalc expression="slopes = if(landforms==6,1,0)" --overwrite
+r.colors map=slopes color=grey
+```
+
+### Print region
 Run g.region with the `p` flag to print the boundaries.
 Copy the `south` and `west` boundary values.
 You will use these to set your origin of your scene in Blender.
@@ -128,8 +187,8 @@ projection: 99 (NAD83(HARN) / North Carolina)
 zone:       0
 datum:      nad83harn
 ellipsoid:  grs80
-north:      150862
-south:      150712
+north:      150870
+south:      150720
 west:       597290
 east:       597440
 nsres:      1
@@ -138,6 +197,8 @@ rows:       150
 cols:       150
 cells:      22500
 ```
+
+## 3D terrain
 
 ### Importing geospatial data into Blender
 Download the
@@ -188,15 +249,15 @@ Under `Geoscene` click the
 and select `NAD83 / North Carolina`
 from the dropdown menu and press `Ok`.
 Then set the `scene origin coordinates` to `Proj` and
-set `crs x: 597290` and `crs y: 150712`
+set `crs x: 597290` and `crs y: 150720`
 to match the west and south boundaries determined in GRASS GIS.
 
-Import `subregion.tif` into Blender using
+Import `elevation.tif` into Blender using
 `File > Import > Georeferenced raster`
 or the
 ![import](images/blender-gui/gis_import.png)
 `Import georeferenced raster with world file` button in the GIS tab.
-Select `elevation_2016.tif`. then in the `Import georaster` panel
+Select `elevation.tif`. then in the `Import georaster` panel
 set `Mode: As DEM`,
 set `Subdivision: Mesh`
 and finally click `Import georaster`.
@@ -205,7 +266,7 @@ See the BlenderGIS
 for more details about importing georeferenced rasters.
 
 To vertically exaggerate the digital elevation model
-select `subregion` in the Outliner,
+select `elevation` in the Outliner,
 and open the
 ![modifiers](images/blender-gui/modifiers.png)
 `Modifiers` panel.
@@ -245,7 +306,7 @@ Save your scene as `nspm_evolution.blend` (Shift + Ctrl + S).
 ## Particle systems
 
 ### Simple ground texture
-Select our terrain mesh `subregion` in the Outliner.
+Select our terrain mesh `elevation` in the Outliner.
 In the ![materials](images/blender-gui/materials.png)
 `Material` panel
 open the `Cycles Material Vault`,
@@ -260,37 +321,6 @@ Save your scene (Ctrl + S).
 
 
 ### Ground texture from landforms
-Start GRASS GIS in the `nc_spm_evolution` location
-and open the `terrain_analysis` mapset.
-Set your region to our smaller, detailed study area
-with 1 meter resolution
-using the module
-[g.region](https://grass.osgeo.org/grass72/manuals/g.region.html).
-Specifying the saved region `subregion`.
-```
-g.region region=subregion res=1
-```
-
-Compute landform types uses the add-on module
-[r.geomorphon](https://grass.osgeo.org/grass72/manuals/addons/r.geomorphon.html).
- ```
-r.geomorphon elevation=elevation_2016 forms=forms search=24 skip=0 flat=1 dist=0
- ```
-<p align="center">
-  <img src="images/3d-ecosystems/landforms.png" height="250">
-</p>
-
-Use the raster map calculator
-[r.mapcalc](https://grass.osgeo.org/grass72/manuals/r.mapcalc.html)
-to create maps of similar landforms typologies.
-Export these as GeoTIFFs using
-[r.out.gdal](https://grass.osgeo.org/grass72/manuals/r.out.gdal.html).
-
-```
-r.mapcalc expression="valleys = if(forms@gully==9 ||| forms@gully==10,1,0)"
-r.colors map=valleys@gully color=grey
-```
-
 *Under development...*
 
 ### Forest particle system

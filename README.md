@@ -78,6 +78,8 @@ models and renderings at the end of the course.
     3. [Attractors](parametric-modeling.md#attractors)
 5. [**3D ecosystems**](3d-ecosystems.md)
     1. [Image classification](3d-ecosystems.md#image-classification)
+    1. [Landform classification](3d-ecosystems.md#landform-classification)
+    1. [Export geospatial data](3d-ecosystems.md#export-geospatial-data)
     2. [3D terrain](3d-ecosystems.md#3d-terrain)
     3. [3D planting](3d-ecosystems.md#3d-planting)
     4. [Particle systems](3d-ecosystems.md#particle-systems)
