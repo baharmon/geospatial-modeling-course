@@ -277,11 +277,12 @@ Set `Strength: 2.0`
 to vertically exaggerate by a factor of 2.
 Click `Apply` to make this displace modifier permanent.
 
-Create a base for the terrain.
-First either copy and paste elevation_2016
-or import it again.
+Create a base for the terrain
+by copying and pasting the `elevation` mesh.
+Make sure that the displacement modifier has been applied
+or you will get an error in following steps.
 Select this new copy.
-Rename it `Base`.
+Rename it `base`.
 Enter edit mode with `tab`.
 Extrude Region with `e `
 then type `-25` to extrude -50 meter vertically.
@@ -299,12 +300,6 @@ Move the sun 1000 units vertically.
 
 Save your scene as `nspm_evolution.blend` (Shift + Ctrl + S).
 
-## 3D planting
-*Under development...*
-
-
-## Particle systems
-
 ### Simple ground texture
 Select our terrain mesh `elevation` in the Outliner.
 In the ![materials](images/blender-gui/materials.png)
@@ -319,9 +314,16 @@ set `Scale: 10`.
 
 Save your scene (Ctrl + S).
 
-
 ### Ground texture from landforms
 *Under development...*
+
+
+## 3D planting
+*Under development...*
+
+
+## Particle systems
+
 
 ### Forest particle system
 First on a new layer append
@@ -367,11 +369,6 @@ In a new layer append
 In another new layer append
 `D:\GrassEssentials\Grass Essentials - Grass Models v1.2\Grass\Meadow Fescues\Grass_Meadow Fescues.blend\Group\APPEND - Grass_Meadow Fescues - Particles Setup`.
 
-In the ![textures](images/blender-gui/textures.png)
-`Textures` panel
-create a `Grass` texture with
-`grass.tif`.
-
 Open the
 ![particle systems](images/blender-gui/particle_systems.png)
 `Particles` panel.
@@ -385,9 +382,11 @@ In the `Emissions` tab of the `Particles` panel
 set `Number: 100000`
 and `Hair Length: 50`
 In the `Texture` tab of the `Particles` panel
-add the `Grass` texture.
-Switch to the `Texture` panel.
-Select the `Grass` texture.
+add a new texture called `grass`.
+Use the `Show texture in texture tab` button
+![show texture tab](images/blender-gui/show_texture_tab.png)
+to open the `Texture` panel.
+In the `Texture` panel set the image texture to `grass.tif`.
 In the `Influence` tab uncheck
 `Time` and check `Influence: 1.0`
 
