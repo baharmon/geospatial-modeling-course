@@ -2,7 +2,7 @@
 
 # Geospatial modeling and fabrication
 
-<p align="center"><img src="images/3d-ecosystems/ncspm_rendering_1.png" height="500"></p>
+<p align="center"><img src="images/3d-ecosystems/ncspm_rendering_3.png" height="500"></p>
 
 This course is an introduction to digital design for landscape architects.
 In this course you will develop a creative digital design process
