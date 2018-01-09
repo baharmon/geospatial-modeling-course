@@ -317,6 +317,8 @@ Save your scene (Ctrl + S).
 ### Ground texture from landforms
 *Under development...*
 
+![Ground nodes](images/3d-ecosystems/ground_material_nodes.png)
+![Ground view](images/3d-ecosystems/ground_material_view.png)
 
 ## 3D planting
 *Under development...*
@@ -413,6 +415,9 @@ click `Image > Save as`.
   <img src="images/3d-ecosystems/ncspm_rendering_2.png" height="250">
 </p>
 
+<p align="center">
+  <img src="images/3d-ecosystems/ncspm_rendering_3.png" height="500">
+</p>
 
 *Under development...*
 
