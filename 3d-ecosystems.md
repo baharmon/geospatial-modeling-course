@@ -415,9 +415,7 @@ click `Image > Save as`.
   <img src="images/3d-ecosystems/ncspm_rendering_2.png" height="250">
 </p>
 
-<p align="center">
-  <img src="images/3d-ecosystems/ncspm_rendering_3.png" height="500">
-</p>
+![rendering](images/3d-ecosystems/ncspm_rendering_3.png)
 
 *Under development...*
 
