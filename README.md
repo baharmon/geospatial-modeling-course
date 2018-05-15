@@ -1,10 +1,10 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-# Geospatial modeling and fabrication
+# Geospatial Modeling
 
 <p align="center"><img src="images/3d-ecosystems/ncspm_rendering_3.png" height="500"></p>
 
-This course is an introduction to digital design for landscape architects.
+This course is an introduction to geospatial modeling for landscape architects.
 In this course you will develop a creative digital design process
 seamlessly integrating research and design
 using geographic information systems (GIS),
@@ -19,11 +19,8 @@ automatically distribute them across your digital landscape,
 and render photorealistic scenes.
 Through a series of 3D modeling projects you will
 design the restoration of a highly eroded landscape with a deep gully.
-Each week you will spend a day in a workshop
-learning new methods
-and a day developing your projects.
-You will work in small teams and present an exhibition of your
-models and renderings at the end of the course.
+
+---
 
 **Assignments** | [Projects](projects.md)
 
@@ -40,6 +37,7 @@ models and renderings at the end of the course.
 [r.stream](https://grasswiki.osgeo.org/wiki/R.stream.*_modules) |
 [r.sun.daily](https://grass.osgeo.org/grass72/manuals/addons/r.sun.daily.html) |
 [r.sun.hourly](https://grass.osgeo.org/grass72/manuals/addons/r.sun.hourly.html) |
+[r.evolution](https://github.com/baharmon/landscape_evolution) |
 [RhinoTerrain](http://www.rhinoterrain.com/en/home.html) |
 [Neon](http://v5.rhino3d.com/group/neon) |
 [BlenderGIS](https://github.com/domlysz/BlenderGIS)
@@ -47,45 +45,88 @@ models and renderings at the end of the course.
 **Libraries** | [Xfrog](http://xfrog.com/) | [TheGrove3D](https://www.thegrove3d.com/)
 
 **Tutorials** |
-[Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/) |
 [lecture.lsu.edu/](https://lecture.lsu.edu/) |
+[Intro to GRASS GIS](http://ncsu-geoforall-lab.github.io/grass-intro-workshop/) |
 [BlenderGIS wiki](https://github.com/domlysz/BlenderGIS/wiki)
 
 **Gallery** | [Student work 2017](gallery.md#student-work-2017)
 
+**Required readings**
+* Mario Carpo, The Alphabet and Algorithm
+* Catherine Belsey, Poststructuralism: A Very Short Introduction
+* Roland Barthes, [The Death of the Author](http://artsites.ucsc.edu/faculty/Gustafson/FILM%20162.W10/readings/barthes.death.pdf)
+
 ---
 ## Contents
-1. [**Terrain modeling**](terrain-modeling.md)
-    1. [Elevation data sources](terrain-modeling.md#elevation-data-sources)
-    2. [Lidar](terrain-modeling.md#lidar)
-    3. [Topographic analysis](terrain-modeling.md#topographic-analysis)
-    4. [3D terrain visualization](terrain-modeling.md#3d-terrain-visualization)
-    4. [3D terrain modeling](terrain-modeling.md#3d-terrain-modeling)
-2. [**Hydrological modeling**](hydrological-modeling.md)
-    1. [Watershed modeling and analysis](hydrological-modeling.md#watershed-modeling-and-analysis)
-    2. [Stream modeling and analysis](hydrological-modeling.md#stream-modeling-and-analysis)
-    3. [Flood modeling](hydrological-modeling.md#flood-modeling)
-    4. [Flood animation](hydrological-modeling.md#flood-animation)
-3. [**Hydrological simulation**](hydrological-simulation.md)
-    1. [Shallow water flow](hydrological-simulation.md#shallow-water-flow)
-    2. [Shallow water flow with landcover](hydrological-simulation.md#shallow-water-flow-with-landcover)
-    3. [Erosion-deposition](hydrological-simulation.md#erosion-deposition)
-    4. [Sediment flow](hydrological-simulation.md#sediment-flow)
-    5. [Water flow animation](hydrological-simulation.md#water-flow-animation)
-4. [**Parametric modeling**](parametric-modeling.md)
-    1. [Surface modeling](parametric-modeling.md#surface-modeling)
-    2. [Parametric surface modeling](parametric-modeling.md#parametric-surface-modeling)
-    3. [Attractors](parametric-modeling.md#attractors)
-5. [**3D ecosystems**](3d-ecosystems.md)
-    1. [Image classification](3d-ecosystems.md#image-classification)
-    1. [Landform classification](3d-ecosystems.md#landform-classification)
-    1. [Export geospatial data](3d-ecosystems.md#export-geospatial-data)
-    2. [3D terrain](3d-ecosystems.md#3d-terrain)
-    3. [3D planting](3d-ecosystems.md#3d-planting)
-    4. [Particle systems](3d-ecosystems.md#particle-systems)
-    5. [Rendering](3d-ecosystems.md#rendering)
-    6. [Physics](3d-ecosystems.md#physics)
+
+1. **Geospatial modeling**
+    1. [Airborne lidar](airborne-lidar.md)
+    2. [Terrestrial lidar](terrestrial-lidar.md)
+    3. [Unmanned aerial systems](unmanned-aerial-systems.md)
+    4. [Photospheres](photospheres.md)
+
+    **Project** | [Gully monitoring](projects.md#gully-monitoring)
+
+    5. [Terrain modeling](terrain-modeling.md)
+    6. [Digital fabrication](digital-fabrication.md)
+    7. [Hydrological modeling](hydrological-modeling.md)
+    8. [Erosion modeling](erosion-modeling.md)
+    9. [Landscape evolution](landscape-evolution.md)
+
+    **Project** | [Physical simulation](projects.md#physical-simulation)
+
+2. **Generative design**
+    1. [The alphabet and algorithm](the-alphabet-and-algorithm.md)
+    2. [Map algebra](map-algebra.md)
+    3. [Visual programming](visual-programming.md)
+    4. [Parametric landforms](parametric-landforms.md)
+    5. [Generative processes](generative-processes.md)
+    6. [Attractors](attractors.md)
+
+    **Project** | [Families of form](projects.md#families-of-form)
+
+3. **Ecosystem modeling**
+    1. [3D plants](3d-plants.md)
+    2. [Particle systems](particle-systems.md)
+
+    **Project** | [The great piece of turf](projects.md#the-great-piece-of-turf)
+
+    3. [Image classification](image-classification.md)
+    4. [Landform classification](landform-classification.md)
+    5. [Landscape modeling](landscape-modeling.md)
+    6. [Landscape rendering](landscape-rendering.md)
+    7. [Bioengineering](bioengineering.md)
+    8. [Freeform modeling](freeform-modeling.md)
+    9. [Virtual reality](virtual-reality.md)
+
+    **Project** | [Gully restoration](projects.md#gully-restoration)
+
+---
+
+## Course data
+Open access data for this course can be downloaded from:
+* [GRASS GIS Mapset](https://github.com/baharmon/landscape_evolution_dataset)
+* [Open Science Framework Repository](osf.io/f6egw)
+
+---
+
+## Network drives
+Students enrolled in the Louisiana State University course LA 7032 Media III
+should submit their work via the course network drive.
+* Windows: `\\desn-knox.lsu.edu\Landscape-Classes`
+* Mac: `smb://desn-knox.lsu.edu/Landscape-Classes`
+
+Additional resources are available on the lab network drive.
+* Windows: `\\desn-knox.lsu.edu\CADGIS_SHARE`
+* Mac: `smb://desn-knox.lsu.edu/CADGIS_SHARE`
+
 ---
 
 ## License
-Open educational materials licensed CC BY-SA 4.0 by Brendan Harmon :monkey_face:. The license does not apply to logos, fonts, linked material, quotations, or reprinted images by other authors, which may have different licenses. The fonts used in this repository are licensed under the SIL Open Font License by their authors. The syllabus is based on a latex template by Kieran Healy hosted at https://github.com/kjhealy/latex-custom-kjh.
+Open educational materials licensed CC BY-SA 4.0
+by Brendan Harmon :monkey_face:.
+The license does not apply to logos, fonts, linked material, data, quotations,
+or reprinted images by other authors, which may have different licenses.
+The fonts used in this repository are licensed under the SIL Open Font License
+by their authors. The syllabus is based on a latex template by Kieran Healy
+hosted at https://github.com/kjhealy/latex-custom-kjh.

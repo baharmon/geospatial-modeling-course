@@ -1,0 +1,419 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+%%%  Syllabus template for use with style files at http://kjhealy.github.com/latex-custom-kjh
+%%%  Kieran Healy
+
+\documentclass[11pt,article,oneside]{memoir}
+
+% packages
+\usepackage{org-preamble-xelatex}
+\usepackage{wallpaper}
+\usepackage{xcolor}
+
+\AtBeginBibliography{\small}
+
+% Definitions
+\def\myauthor{Author}
+\def\mytitle{Title}
+\def\mycopyright{\myauthor}
+\def\mykeywords{}
+\def\mybibliostyle{plain}
+\def\mybibliocommand{}
+\def\mysubtitle{}
+\def\myaffiliation{Louisiana State University}
+\def\myaddress{100 Design}
+\def\myemail{baharmon@lsu.edu} %harmon1@lsu.edu
+\def\myweb{https://baharmon.github.io/}
+\def\myphone{919.622.8414}
+\def\myversion{}
+\def\myrevision{}
+\def\myaffiliation{\ \\Louisiana State University}
+\def\myauthor{Brendan Harmon}
+\def\mykeywords{Landscape Architecture, Syllabus, Graduate}
+\def\mysubtitle{Syllabus}
+\def\mytitle{{\normalsize \textsc{LA} 7032\newline} \huge \bfseries Geospatial modeling and fabrication}
+
+% color
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+  \color{#1}\global\let\default@color\current@color
+}
+\makeatother
+
+% begin
+\begin{document}
+
+\setlength\bibitemsep{0.75em}
+
+% fonts
+\defaultfontfeatures{}
+\defaultfontfeatures{Scale=MatchLowercase}         
+\setmainfont[Scale=1, Path = fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
+\setsansfont[Scale=1, Path = fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
+\setmonofont[Mapping=tex-text,Scale=0.8,Path = fonts/inconsolata/]{i}
+
+\def\ind{\hangindent=1 true cm\hangafter=1 \noindent}
+\def\labelitemi{$\cdot$}
+\chapterstyle{article-4-sans}  
+\title{\LARGE \mytitle}     
+\author{\Large\myauthor \newline \footnotesize\texttt{\noindent\myemail}}
+\date{Fall 2017. Design 217.\newline Tuesday \& Thursday 1:30am--5:20pm.}
+\published{\,}
+
+% -------------------------------- COVER PAGE -------------------------------- 
+
+\pagenumbering{gobble}
+\globalcolor{black}
+\vspace*{-10em}
+\maketitle
+%\ThisCenterWallPaper{1}{../images/half_dome_grayscale.jpg}
+\ThisCenterWallPaper{1}{../images/yosemite/yosemite_portrait_2.png}
+\clearpage
+
+% -------------------------------- DESCRIPTION -------------------------------- 
+
+\pagenumbering{arabic}
+\globalcolor{black}
+\vspace*{-10em}
+\maketitle
+
+\section{Course Description}
+
+This course is an introduction to digital design for landscape architects. 
+%
+In this course you will develop a creative digital design process 
+seamlessly integrating research and design
+using geographic information systems (GIS),
+3D modeling and rendering, and
+visual programming. 
+%
+You will learn how to use geospatial data 
+to model and analyze landscapes
+and visual programming to 
+parametrically model and transform new landforms. 
+%
+You will learn how to model plants -- from trees to grasses -- in 3D, 
+automatically distribute them across your digital landscape,
+and render photorealistic scenes. 
+%
+Through a series of 3D modeling projects you will 
+design the restoration of a highly eroded landscape with a deep gully.
+%
+Each week you will spend a day in a workshop
+learning new methods
+and a day developing your projects.
+%
+You will work in small teams and present an exhibition of your
+models and renderings at the end of the course.\\
+
+
+%\clearpage
+
+% -------------------------------- SCHEDULE -------------------------------- 
+%\section{Course Schedule}
+%
+%\begin{table}[H]
+%\small
+%\begin{tabular}{l l @{\hskip 1cm}l}
+%%
+%\textbf{1} & Terrain modeling & \textbf{Paper:} Alphabet \& Algorithm\\
+%\textbf{2} & Digital fabrication\\
+%\textbf{3} & Geospatial analysis & \textbf{Workshop:} Lost foam casting\\
+%\textbf{4} & Geospatial simulation & \textbf{Project:} Geospatial modeling\\
+%%
+%\textbf{5} & Surface modeling\\
+%\textbf{6} & Visual programming\\
+%\textbf{7} & Families of form\\
+%\textbf{8} & Generative processes & \textbf{Project:} Generative design\\
+%%
+%\textbf{9} & Image classification\\
+%\textbf{10} & 3D plants\\
+%\textbf{11} & Particle systems\\
+%\textbf{12} & Rendering\\
+%\textbf{13} & Physics & \textbf{Project:} Ecosystem modeling\\
+%\textbf{14} & Exhibition\\
+%%
+%\end{tabular}
+%\end{table}
+
+%\clearpage
+
+% -------------------------------- SCHEDULE -------------------------------- 
+\section{Course Schedule}
+
+\begin{table}[H]
+\small
+\begin{tabular}{l r @{\hskip 0.1cm} l @{\hskip 0.5cm} l}
+%
+\textbf{08.24.2017} & \textbf{Lecture |} & Introduction & \textbf{Paper assigned:} The Alphabet \& Algorithm\\
+%
+\textbf{09.05.2017} & \textbf{Workshop |} & Terrain modeling & \textbf{Paper due:} The Alphabet \& Algorithm\\
+\textbf{09.07.2017} & \textbf{Studio |} & Terran modeling & \textbf{Project assigned:} Geospatial modeling\\
+%
+\textbf{09.12.2017} & \textbf{Workshop |} & Digital fabrication & \\
+\textbf{09.14.2017} & \textbf{Studio |} & Digital fabrication & \\
+%
+\textbf{09.19.2017} & \textbf{Workshop |} & Geospatial analysis & \\
+\textbf{09.21.2017} & \textbf{Studio |} & Geospatial analysis & \\
+\textbf{09.23.2017} & \textbf{Workshop |} & Lost foam casting\\
+%
+\textbf{09.26.2017} & \textbf{Workshop |} & Geospatial simulation & \\
+\textbf{09.28.2017} & \textbf{Studio |} & Geospatial simulation  & \textbf{Project due:} Geospatial modeling\\
+%
+\\
+%
+\textbf{10.03.2017} & \textbf{Workshop |} & Surface modeling & \textbf{Project assigned:} Generative design\\
+\textbf{10.05.2017} & \textbf{Studio |} & Surface modeling & \\
+%
+\textbf{10.10.2017} & \textbf{Workshop |} & Visual programming & \\
+\textbf{10.12.2017} & \textbf{Studio |} & Visual programming & \\
+%
+\textbf{10.17.2017} & \textbf{Workshop |} & Families of form & \\
+%\textbf{10.19.2017} & \textbf{Studio |} & Families of form & \\ % holiday: fall break
+%
+\textbf{10.24.2017} & \textbf{Workshop |} & Generative processes& \\
+\textbf{10.26.2017} & \textbf{Studio |} & Generative processes & \textbf{Project due:} Generative design\\
+%
+\\
+%
+\textbf{10.31.2017} & \textbf{Workshop |} & Image classification & \textbf{Project assigned:} Ecosystem modeling\\
+\textbf{11.02.2017} & \textbf{Studio |} & Image classification & \\
+%
+\textbf{11.07.2017} & \textbf{Workshop |} & 3D plants & \\
+\textbf{11.09.2017} & \textbf{Studio |} & 3D plants & \\
+%
+\textbf{11.14.2017} & \textbf{Workshop |} & Particle systems & \\
+\textbf{11.16.2017} & \textbf{Studio |} & Particle systems & \\
+%
+\textbf{11.21.2017} & \textbf{Workshop |} & Rendering \& physics & \\
+%\textbf{11.22.2017} & \textbf{Studio |} & Rendering & \\ % holiday: thanksgiving
+%
+%\textbf{} & \textbf{Workshop |} & Physics & \\
+%\textbf{} & \textbf{Studio |} & Physics & \\
+%
+\textbf{11.28.2017} & \textbf{Studio |} & Exhibition & \textbf{Project due:} Ecosystem modeling\\
+\textbf{11.30.2017} & \textbf{Gallery |} & Exhibition & \\
+%
+\end{tabular}
+\end{table}
+
+\clearpage
+
+% -------------------------------- Paper -------------------------------- 
+\section{Paper}
+\noindent \textbf{The Alphabet and Algorithm}
+Read Mario Carpo's book \emph{The Alphabet and Algorithm}
+and write a 2000-word critical essay about
+the evolving nature of architectural authorship.
+Address how digital tools have transformed 
+the practice of landscape architecture
+and envision how they will shape 
+the future of the discipline. 
+
+%\noindent In preparation for this course please read:
+\nocite{*} \printbibliography[keyword=intro, heading=none]
+
+% overleaf
+
+% -------------------------------- Projects -------------------------------- 
+\section{Projects}
+
+\noindent \textbf{Geospatial modeling}
+Using lidar data you will model, analyze, and digitally fabricate
+the topography of the study landscape. 
+%
+%After processing the lidar point cloud
+%and generating digital models of the topography,
+Each group will CNC mill a physical model of the landscape
+in a different media -- either medium density fiberboard, 
+polystyrene foam, or urethane foam.
+Then each group will prepare a different set of 
+-- either topographic, hydrologic, or sedimentation -- 
+analyses and simulations.\\
+
+% Topographic: contours, slope, hillshade, landforms
+% Hydrologic: watershed, flow accumulation, water flow
+% Sedimentation: sediment flux, erosion-deposition, landscape evolution
+
+\noindent \textbf{Generative design}
+Using visual programming you will generatively design
+erosion control features to restore your degraded study landscape.
+Through a series of algorithmically generated design interventions 
+you will explore interactions between 
+topographic form and hydrologic processes.
+Your goal is to catalyze topographic changes that will 
+restore the landscape to a dynamic equilibrium.  
+You will produce 3D printed models of your designs
+and augment these with projected water flow and sediment flux. \\
+
+\noindent \textbf{Ecosystem modeling}
+After mapping the existing vegetation 
+you will design, model, and render in 3D
+a planting plan to restore this degraded landscape. 
+You will produce beautiful, photorealistic 3D renderings  
+of the existing landscape and your design. \\
+
+%\clearpage
+
+% -------------------------------- SESSIONS -------------------------------- 
+\section{Sessions}
+
+\renewcommand*{\bibfont}{\footnotesize}
+
+\noindent \textbf{Terrain modeling}
+Model topography in 3D from lidar data.\\
+
+\noindent \textbf{Digital fabrication}
+Use computer numerical control (CNC) machining 
+to carve physical models of topography. 
+Learn how to cast a topographic model
+in aluminum.
+%
+\nocite{*} \printbibliography[keyword=fabrication, heading=none]
+\vspace*{0.5em}
+
+\noindent \textbf{Geospatial analysis}
+Model and analyze topographic parameters including 
+contours, slope, hillshading, and landforms
+and hydrologic parameters 
+including watersheds and flow accumulation. \\
+
+%\noindent \textbf{Lost foam casting}
+%In this workshop learn how to cast a topographic model
+%in aluminum using a CNC milled foam form.\\
+
+\noindent \textbf{Geospatial simulation}
+Simulate the physical processes that shape landscapes including
+water flow, sediment flux, erosion-deposition, and landscape evolution.\\
+
+\noindent \textbf{Surface modeling}
+Model complex, continuous, 3D surfaces 
+using non-uniform rational basis splines (NURBS).\\
+
+\noindent \textbf{Visual programming}
+Use visual programming to automatically generate
+patterns and forms.
+%
+\nocite{*} \printbibliography[keyword=algorithmic, heading=none]
+\vspace*{0.5em}
+
+\noindent \textbf{Families of form}
+Use visual programming to procedurally generate families of form
+based on parametric variations.
+%
+\nocite{*} \printbibliography[keyword=procedural, heading=none]
+\vspace*{0.5em}
+
+\noindent \textbf{Generative processes}
+Procedurally generate dynamic forms using 
+parametric equations and attractors.\\
+
+\noindent \textbf{Image classification}
+Use aerial photography to automatically classify 
+different types of landcover.\\
+
+\noindent \textbf{3D plants}
+Procedurally model unique specimens 
+of trees and other plants in 3D.
+Model an ecosystem in 3D using 3D plant libraries.
+%
+\nocite{*} \printbibliography[keyword=plants, heading=none]
+\vspace*{0.5em}
+
+\noindent \textbf{Particle systems}
+Generate fields of plants 
+using particle systems. \\
+
+\noindent \textbf{Rendering}
+Setup lights, prepare materials and textures, 
+and render 3D scenes with raytracing.\\
+
+\noindent \textbf{Physics}
+Simulate processes like water flow and rock fall
+using a physics engine.\\
+
+%\noindent \textbf{Exhibition}
+%Present your work at a gallery style exhibition.\\
+%% n.b.: project simulations over wall-mounted models
+
+% -------------------------------- Software -------------------------------- 
+\section{Software}
+GRASS GIS | \url{https://grass.osgeo.org/} \\
+Rhinoceros | \url{https://www.rhino3d.com/}\\
+RhinoTerrain | \url{http://www.rhinoterrain.com/}\\
+RhinoCAM | \url{https://mecsoft.com/rhinocam-software/}\\
+Grasshopper | \url{http://grasshopper3d.com/}\\
+Blender | \url{https://www.blender.org/}\\
+
+% -------------------------------- Resources -------------------------------- 
+\section{Resources}
+Intro to GRASS GIS | \url{https://ncsu-geoforall-lab.github.io/grass-intro-workshop/}\\
+Hydrology in GRASS GIS | \url{https://grasswiki.osgeo.org/wiki/Hydrological_Sciences}\\
+Grasshopper Primer | \url{http://grasshopperprimer.com}\\
+BlenderGIS tutorial | \url{https://github.com/ptabriz/ICC_2017_Workshop}
+
+% -------------------------------- Readings -------------------------------- 
+\section{Readings}
+\renewcommand*{\bibfont}{\normalsize} %\small
+\vspace*{0.5cm}
+\nocite{*}
+\setlength\bibitemsep{1\baselineskip}
+\printbibliography[heading=none]
+
+\clearpage
+
+% -------------------------------- Policies -------------------------------- 
+\section{Policies}
+
+\noindent \textbf{Time Commitment Expectations}
+LSU's general policy states that for each credit hour, you (the student) should plan to
+spend at least two hours working on course related activities outside of class. Since this course is for three credit hours, you should expect to spend a minimum of six hours outside of class each week working on assignments for this course. For more information see: 
+\url{http://catalog.lsu.edu/content.php?catoid=12&navoid=822}.\\
+
+\noindent \textbf{LSU student code of conduct}
+The LSU student code of conduct explains student rights, excused absences, and what is expected of student behavior. Students are expected to understand this code:  \url{http://students.lsu.edu/saa/students/code}.\\ %Any violations of the LSU student code will be duly reported to the Dean of Students.\\
+
+\noindent \textbf{Disability Code}
+The University is committed to making reasonable efforts to assist individuals with disabilities in
+their efforts to avail themselves of services and programs offered by the University. To this end,
+Louisiana State University will provide reasonable accommodations for persons with
+documented qualifying disabilities. If you have a disability and feel you need accommodations in
+this course, you must present a letter to me from Disability Services in 115 Johnston Hall,
+indicating the existence of a disability and the suggested accommodations.\\
+
+\noindent \textbf{Academic Integrity}
+According to section 10.1 of the LSU Code of Student Conduct, ``A student may be charged with Academic Misconduct'' for a variety of offenses, including the following: unauthorized copying, collusion, or collaboration; ``falsifying'' data or citations; ``assisting someone in the commission or attempted commission of an offense''; and plagiarism, which is defined in section 10.1.H as a ``lack of appropriate citation, or the unacknowledged inclusion of someone else's words, structure, ideas, or data; failure to identify a source, or the submission of essentially the same work for two assignments without permission of the instructor(s).''\\
+
+\noindent \textbf{Plagiarism and Citation Method}
+Plagiarism is the ``lack of appropriate citation, or the unacknowledged inclusion of someone else's words, structure, ideas, or data; failure to identify a source, or the submission of essentially the same work for two assignments without permission of the instructor(s)'' (Sec. 10.1.H of the LSU Code of Student Conduct). As a student at LSU, it is your responsibility to refrain from plagiarizing the academic property of another and to utilize appropriate citation method for all coursework. In this class, it is recommended that you use Chicago Style author-date citations. Ignorance of the citation method is not an excuse for academic misconduct.\\ 
+
+\noindent \textbf{Graduate Certificate in GIS}
+This course counts as an applied topics course for the 
+Graduate Certificate in Geographic Information Science.
+The Graduate Certificate in Geographic Information Science at LSU 
+is a 12 credit hour standalone certificate with courses offered 
+in the Department of Geography and Anthropology, College of Art and Design, 
+Department of Economics, School of the Coast and Environment, 
+Department of Civil and Environmental Engineering, 
+and Department of Computer Science. 
+For more information about the Graduate Certificate in GIS visit: 
+\url{http://ga.lsu.edu/gis-certificate/}. \\
+
+\noindent \textbf{Grading}
+%
+\begin{table}[H]
+\small
+%\begin{tabular}{l r @{\hskip 0.1cm} l @{\hskip 0.5cm} l}
+\begin{tabular}{l l}
+%
+\textbf{Paper |} Alphabet and Algorithm & 20\% \\
+\textbf{Project |} Geospatial modeling & 20\% \\
+\textbf{Project |} Generative design & 20\% \\
+\textbf{Project |} Ecosystem modeling & 20\% \\
+\textbf{Exhibition} & 20\% \\
+%
+\end{tabular}
+\end{table}
+
+\end{document}

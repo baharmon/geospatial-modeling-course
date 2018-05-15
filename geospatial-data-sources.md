@@ -15,9 +15,13 @@
 * [EU-DEM](http://land.copernicus.eu/pan-european/satellite-derived-products/eu-dem)
 * [ALOS Global Digital Surface Model](http://www.eorc.jaxa.jp/ALOS/en/aw3d30/index.htm)
 
+## USGS WMS for GRASS GIS
+* [r.in.wms](https://grass.osgeo.org/grass74/manuals/addons/r.in.usgs.html)
+
 ## Ecological data
 * [USGS GAP Analysis Program](https://gapanalysis.usgs.gov/data/)
 * [Landfire](https://www.landfire.gov/)
+* [Bison Biodiversity Data](https://bison.usgs.gov/)
 
 ## Soil data
 * [USDA Soil Survey](https://websoilsurvey.nrcs.usda.gov/app/WebSoilSurvey.aspx)

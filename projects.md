@@ -1,4 +1,5 @@
 # Projects
+
 The study landscape is a highly eroded watershed
 feeding into Patterson Branch Creek in Fort Bragg, North Carolina.
 This geomorphologically active watershed has deep gullies and
@@ -12,103 +13,114 @@ The aim of this project is to restore the degraded watershed
 and reduce sediment transport  
 in order to enhance downstream mussel habitat.
 
-<p align="center">
-<img src="images/student_gardens/lott_garden_1.png" height="500">
-Garden, Sophie Lott, 2017
-</p>
-
-## Geospatial modeling project
-In order to understand the physical patterns and processes
-that shape and change this landscape,
-you will use lidar data to
-model and digitally fabricate the topography,
-analyze topographic parameters,
-and simulate water and sediment flows.
-
-In **groups of 5** complete the following assignments by **09/26**.
-On 09/28 you will pin-up your work for a critique.
-Upload digital copies of your work to the class network drive
+All work should be submitted via the course network drive
 at `\\desn-knox.lsu.edu\Landscape-Classes` on Windows
 or `smb://desn-knox.lsu.edu/Landscape-Classes` on Mac.
-Upload your GRASS mapsets, finished maps, perspectives, animations,
-drawing for laser cutting, photos of your laser cut model,
-and screenshots for the tutorials.
 
-### Laser cut model
-* Material: chipboard, museum board, or basswood (1/16" thick)
-* Dimensions: 18"x18"
-* Contour interval: 1m
-* Hollow
+---
 
-### Tutorial
-Complete the following sections of the tutorials on the course website.
-Take screenshots to illustrate key steps in the tutorials.
-* Screenshots for [Topographic analysis in GRASS GIS](README.md#topographic-analysis-in-grass-gis)
-* Screenshots for [Hydrological modeling](README.md#hydrological-modeling)
-* Screenshots for [Hydrological simulation](README.md#hydrological-simulation)
+## Contents
+1. [**Projects**](#projects)
+    1. [Gully monitoring](#gully-monitoring)
+    2. [Physical simulation](#physical-simulation)
+    3. [Families of form](#families-of-form)
+    4. [The great piece of turf](#the-great-piece-of-turf)
+    5. [Gully restoration](#gully-restoration)
 
-### Maps
-Design 5 *beautiful* maps, perspectives, and/or animations
-for our study landscape
-using GRASS GIS and optionally Rhino
-The maps should address topics covered in the
-[terrain modeling](README.md#terrain-modeling)
-and [hydrological modeling](README.md#hydrological-modeling)
-modules of this course.
-Include cartographic elements like legends, labels, scale bars, north arrows,
-and cartographic grids.
-Impress me with you cartography, graphic skills, style, and creativity.
-* 5 maps about [terrain modeling](README.md#terrain-modeling)
-and [hydrological modeling](README.md#hydrological-modeling)
-* Layout and print all 5 maps on a 36"x72" plot
-* Submit digital and print versions
+---
 
-## Ecosystem modeling project
-In **groups of 3** you will
-map the existing vegetation
-using automated image classification.
+## Gully monitoring
+We will visit Clark Creek to survey active gullies.
+In addition to taking photographs and 360 degree photospheres,
+We will conduct terrestrial lidar and
+unmanned aerial systems (UAS) surveys.
+Back in the lab you will generate digital surface models (DSM)
+from the lidar and structure-from-motion (SfM).
+* Orthophoto
+* Digital surface model from orthophoto
+* Digital surface model from lidar
+* Photosphere
+
+## Physical simulation
+You will use the CNC router to machine a physical model
+of a landscape out of high density foam or medium density fiberboard (MDF).
+Use this model as a base to develop a physical simulation of sediment flow.
+Record your physical simulation as a video.
+* Physical model
+* Video of physical simulation (*.mp4*)
+
+## Families of form
+You will use map algebra and visual programming to generatively design
+erosion control features to restore your degraded study landscape.
+Through a series of algorithmically generated design interventions
+and GIS-based simulations you will explore interactions between
+topographic form and hydrologic processes.
+Your goal is to catalyze topographic changes that will
+restore the landscape to a dynamic equilibrium.  
+You will produce digitally fabricated models of your designs
+and augment these with projected water flow and sediment flux.
+
+* Rhino 3D model (*.3dm*)
+* Grasshopper data (*.gh*)
+* 3D renderings(*.png*)
+* CNC milled or 3D printed models
+
+## The great piece of turf
+You will create a 3D model and 3D rendering of
+Albrecht Dürer's Great Piece of Turf.
+Use particle systems to distribute 3D flowers, grasses,
+and other ground cover across a block of soil.
+* Blender file with a 3D model of the existing landscape (*.blend*)
+* 3D rendering (*.png*)
+
+<p align="center">
+<img src="images/the-great-piece-of-turf.jpg" height="500">
+Das große Rasenstück | The Great Piece of Turf, Albrecht Dürer, 1503.
+</p>
+
+## Gully restoration
+You will map the existing vegetation and landforms
+using automated classification algorithms.
 Then you will design, model, and render in 3D
-a planting plan to restore this degraded landscape.
+a bioswale to restore this degraded landscape.
+You will produce 3D printed models of your designs
+and augment these with projected water flow and sediment flux.
 You will produce beautiful, photorealistic 3D renderings  
-of the existing landscape and your design.
+of the existing and restored landscape.
 
-### 3D ecosystem library
+### 3D plant library
 Develop a list of plants for the study landscape,
 organize the plants by community,
 find the species or proxies for them in the Xfrog libary,
 and prepare 3D models for these species in Blender.
-* Spreadsheet with plant communities and species
-* Blender library of 3D tree models
+* Markdown spreadsheet with plant communities and species (*.md*)
+* Blender library of 3D tree models (*.blend*)
 
-### 3D garden
-As practice 3D model and 3D render a small garden.
-Create particle systems of grass on a small plane.
-Add a couple trees and shrubs to scene.
-Then 3D render the scene.
-
-### 3D model of existing landscape
+### 3D model of the existing landscape
 Build a terrain model in Blender.
-Use image classification in GIS to identify landcover types.
+Use image classification and geomorphons in GIS
+to identify landcover types and landforms.
 Then use particle systems to automatically populate
-the 3D scene with 3D plants based on landcover.
-* Blender file with a 3D model of the existing landscape
-* 2+ 3D renderings of the existing landscape
-* 3D print of existing topography
+the 3D scene with 3D plants based on the landcover.
+* Blender 3D model(*.blend*)
+* 2+ 3D renderings (*.png*)
 
-### 3D model of designed landscape
+### 3D bioengineering design
+Model a bioengineering intervention such as a tree stump,
+gabion, or live willow sculpture.
+* Physical prototype
+* Rhino or Blender 3D model (*.3dm* or *.blend*)
+* 3D rendering (*.png*)
+
+### 3D model of the restored landscape
 Develop a design to restore the study landscape
 and build a 3D model in Blender of your design.
-Include 3D plants, physics-based water,
-and optionally elements like 3D stones.
-* Blender file with a 3D model of the existing landscape
-* 2+ 3D renderings of the designed landscape
-* Optional: Blender4Web scene for VR
-
-## Exhibition
-As a class you will create an exhibition of your work.
-* 3 36"x72" plots with maps analyzing the study landscape
-* 3 18"x18" laser cut contour models augmented with projected maps and animations
-* 1-2 3D prints
-* 3 36"x72" plots with 3D renderings of the restored ecosystem
-* Projection or display with 3D renderings and/or animations
-* Optional: VR headset with 3D scene
+Include 3D trees, 3D grasses, soil textures
+and 3D bioengineering interventions.
+Test your design using water flow, erosion,
+and landscape evolution simulations in GIS.
+* Blender 3D model (*.blend*)
+* 2+ 3D renderings (*.png*)
+* GRASS GIS mapset
+* 2D GRASS GIS renderings (*.png*)
+* Blend4Web scene for VR (*.html* or *.json*)
