@@ -52,9 +52,18 @@ design the restoration of a highly eroded landscape with a deep gully.
 **Gallery** | [Student work 2017](gallery.md#student-work-2017)
 
 **Required readings**
+* Anderson & Anderson, Geomorphology: The Mechanics and Chemistry of Landscapes
 * Mario Carpo, The Alphabet and Algorithm
 * Catherine Belsey, Poststructuralism: A Very Short Introduction
 * Roland Barthes, [The Death of the Author](http://artsites.ucsc.edu/faculty/Gustafson/FILM%20162.W10/readings/barthes.death.pdf)
+* Choma, Morphing: A Guide to Mathematical Transformations for Architects and Designers
+* Tedeschi, Algorithms-Aided Design
+
+**Recommended readings**
+* Goudie and Viles, Landscapes and Geomorphology: A Very Short Introduction
+* Picon, Digital Culture in Architecture
+
+
 
 ---
 ## Contents
