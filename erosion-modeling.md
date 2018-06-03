@@ -1,17 +1,21 @@
 # Contents
-1. [**Hydrological simulation**](#hydrological-simulation)
-    1. [Shallow water flow](#shallow-water-flow)
-    2. [Shallow water flow with landcover](#shallow-water-flow-with-landcover)
-    3. [Erosion-deposition](#erosion-deposition)
-    4. [Sediment flow](#sediment-flow)
-    5. [Water flow animation](#water-flow-animation)
+1. [**Erosion modeling**](#erosion-modeling)
+    1. [RULSE](#rusle)
+    2. [USPED](#usped)
+    3. [Shallow water flow](#shallow-water-flow)
+    4. [Shallow water flow with landcover](#shallow-water-flow-with-landcover)
+    5. [Erosion-deposition](#erosion-deposition)
+    6. [Sediment flow](#sediment-flow)
+    7. [Water flow animation](#water-flow-animation)
 
-# Hydrological simulation
-In this section you will simulate overland water flow
+# Erosion modeling
+In this section you will learn about
+the RUSLE, USPED, and SIMWE erosion models.
+You will use SIMWE to simulate overland water flow
 and then the resulting erosion and deposition.
 
 Start GRASS GIS in the `nc_spm_evolution` location
-and select the `hydrology` mapset.
+and select the `erosion` mapset.
 
 Set your region to our study area with 1 meter resolution
 using the module
@@ -20,13 +24,19 @@ using the module
 g.region region=region res=1
 ```
 
+## RUSLE
+*Under development*
+
+## USPED
+*Under development*
+
+## Shallow water flow
 Compute the partial derivatives of the topography using the module
 [r.slope.aspect](https://grass.osgeo.org/grass72/manuals/r.slope.aspect.html).
 ```
 r.slope.aspect elevation=elevation_2016 dx=dx dy=dy
 ```
 
-## Shallow water flow
 Simulate shallow overland water flow with
 [r.sim.water](https://grass.osgeo.org/grass72/manuals/r.sim.water.html).
 for a 10 minute rain event
