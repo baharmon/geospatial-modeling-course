@@ -59,7 +59,6 @@ Your goal is to catalyze topographic changes that will
 restore the landscape to a dynamic equilibrium.  
 You will produce digitally fabricated models of your designs
 and augment these with projected water flow and sediment flux.
-
 * Rhino 3D model (*.3dm*)
 * Grasshopper data (*.gh*)
 * 3D renderings(*.png*)
@@ -75,6 +74,8 @@ and other ground cover across a block of soil.
 
 <p align="center">
 <img src="images/the-great-piece-of-turf.jpg" height="500">
+</p>
+<p align="center">
 Das große Rasenstück | The Great Piece of Turf, Albrecht Dürer, 1503.
 </p>
 
