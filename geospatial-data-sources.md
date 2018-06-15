@@ -7,13 +7,19 @@
 * [Global Landcover Facility](http://glcf.umd.edu/data/)
 * [CGIAR-CSI](http://www.cgiar-csi.org/data)
 * [GRASS-Wiki List of Global Datasets](https://grasswiki.osgeo.org/wiki/Global_datasets)
+* [Global Map](https://globalmaps.github.io/)
+* [Natural Earth](https://www.naturalearthdata.com/)
 
 ## Elevation data
 * [National Map Viewer](http://nationalmap.gov/viewer.html)
+* [National Map Small-Scale Data](https://nationalmap.gov/small_scale/atlasftp.html)
 * [US Interagency Elevation Inventory](https://coast.noaa.gov/inventory/)
 * [Open Topography](http://www.opentopography.org/)
 * [EU-DEM](http://land.copernicus.eu/pan-european/satellite-derived-products/eu-dem)
 * [ALOS Global Digital Surface Model](http://www.eorc.jaxa.jp/ALOS/en/aw3d30/index.htm)
+
+## WMS
+* [National Map Small-Scale Data WMS](https://nationalmap.gov/small_scale/infodocs/webservices.html)
 
 ## USGS WMS for GRASS GIS
 * [r.in.wms](https://grass.osgeo.org/grass74/manuals/addons/r.in.usgs.html)
@@ -22,6 +28,7 @@
 * [USGS GAP Analysis Program](https://gapanalysis.usgs.gov/data/)
 * [Landfire](https://www.landfire.gov/)
 * [Bison Biodiversity Data](https://bison.usgs.gov/)
+* [NEON](http://data.neonscience.org/home)
 
 ## Soil data
 * [USDA Soil Survey](https://websoilsurvey.nrcs.usda.gov/app/WebSoilSurvey.aspx)

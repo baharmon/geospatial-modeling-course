@@ -22,11 +22,12 @@ design the restoration of a highly eroded landscape with a deep gully.
 
 ---
 
-**Assignments** | [Projects](projects.md) | [Readings](readings.md)
+**Assignments** | [Projects](projects.md) | [Readings](readings.md) | [Terminology](terminology.md)
 
 **Resources** | [Geospatial data sources](geospatial-data-sources.md)
 
 **Software** | [GRASS GIS](https://grass.osgeo.org) |
+[ArcGIS](https://www.esri.com/) |
 [Rhino](https://www.rhino3d.com/) |
 [Blender](https://www.blender.org/)
 
@@ -42,7 +43,9 @@ design the restoration of a highly eroded landscape with a deep gully.
 [Neon](http://v5.rhino3d.com/group/neon) |
 [BlenderGIS](https://github.com/domlysz/BlenderGIS)
 
-**Libraries** | [Xfrog](http://xfrog.com/) | [TheGrove3D](https://www.thegrove3d.com/)
+**Libraries** | [Xfrog](http://xfrog.com/) |
+[TheGrove3D](https://www.thegrove3d.com/) |
+[Cycles Material Vault](https://www.cyclesmaterialvault.com/)
 
 **Tutorials** |
 [lecture.lsu.edu/](https://lecture.lsu.edu/) |

@@ -1,25 +1,32 @@
 # [Contents](readme.md#contents)
 1. [**Terrain modeling**](#terrain-modeling)
     1. [Elevation data sources](#elevation-data-sources)
-    2. [Topographic analysis](#topographic-analysis)
+    1. [Topographic analysis in ArcGIS](#topographic-analysis-in-arcgis)
+      1. [Contours](#contours)
+      1. [Slope and aspect](#slope-and-aspect)
+      1. [Shaded relief](#shaded-relief)
+      1. [Visual programming](#visual-programming)
+    1. [Topographic analysis in GRASS](#topographic-analysis-in-grass)
         1. [Contours](#contours)
-        2. [Shaded relief](#shaded-relief)
-        3. [Slope and aspect](#slope-and-aspect)
-        4. [Profile](#profile)
-        5. [Time series analysis](time-series-analysis)
-    3. [3D terrain visualization](#3d-terrain-visualization)
-    4. [3D terrain modeling](#3d-terrain-modeling)
+        1. [Slope and aspect](#slope-and-aspect)
+        1. [Shaded relief](#shaded-relief)
+        1. [Skyview factor](#skyview-factor)
+        1. [Visual programming](#visual-programming)
+        1. [Profile](#profile)
+        1. [Time series analysis](time-series-analysis)
+    1. [3D terrain visualization in GRASS](#3d-terrain-visualization-in-grass)
+    1. [3D terrain modeling in Rhino](#3d-terrain-modeling-in-rhino)
         1. [Heightfield](#heightfield)
-        2. [Heightfield mesh](#heightfield-mesh)
-        3. [Point cloud patching](#point-cloud-patching)
-        4. [Material and texture mapping](material-and-texture-mapping)
-        5. [Delaunay triangulation](delaunay-triangulation)
+        1. [Heightfield mesh](#heightfield-mesh)
+        1. [Point cloud patching](#point-cloud-patching)
+        1. [Material and texture mapping](material-and-texture-mapping)
+        1. [Delaunay triangulation](delaunay-triangulation)
 
 ---
 
 # Terrain modeling
 In this section you will model, analyze and visualize topography
-in GRASS GIS and Rhino.
+in GRASS GIS, ArcGIS, and Rhino.
 
 ---
 
@@ -31,7 +38,24 @@ in GRASS GIS and Rhino.
 
 ---
 
-## Topographic analysis
+## Topographic analysis in ArcGIS
+*Under development...*
+
+### Contours
+*Under development...*
+
+### Slope and aspect
+*Under development...*
+
+### Shaded relief
+*Under development...*
+
+### Visual programming
+*Under development...*
+
+---
+
+## Topographic analysis in GRASS
 Start GRASS GIS in the `nc_spm_evolution` location
 and create a new mapset called `terrain_analysis`.
 
@@ -62,6 +86,19 @@ r.contour input=elevation_2016 output=contour_5m_2016 step=5
 
 ---
 
+### Slope and aspect
+Compute the slope and aspect of our study area's topography
+using the module
+[r.slope.aspect](https://grass.osgeo.org/grass74/manuals/r.slope.aspect.html).
+This module can calculate topographic parameters including
+slope, aspect, tangential and profile curvature,
+and partial derivatives from an elevation raster.
+```
+r.slope.aspect elevation=elevation_2016 slope=slope_2016 aspect=aspect_2016
+```
+
+---
+
 ### Shaded relief
 Compute a relief map for our study area's topography using the module
 [r.relief](https://grass.osgeo.org/grass74/manuals/r.relief.html).
@@ -80,20 +117,16 @@ r.shade shade=relief_2016 color=elevation_2016 output=shaded_relief_2016 brighte
 In the layer manager turn off all layers except
 the shaded relief and the contours.
 Move the contour maps above the shaded relief map.
-Export the map as a .png file.
 
 ---
 
-### Slope and aspect
-Compute the slope and aspect of our study area's topography
-using the module
-[r.slope.aspect](https://grass.osgeo.org/grass74/manuals/r.slope.aspect.html).
-This module can calculate topographic parameters including
-slope, aspect, tangential and profile curvature,
-and partial derivatives from an elevation raster.
-```
-r.slope.aspect elevation=elevation_2016 slope=slope_2016 aspect=aspect_2016
-```
+### Skyview factor
+*Under development...*
+
+---
+
+### Visual programming
+*Under development...*
 
 ---
 
