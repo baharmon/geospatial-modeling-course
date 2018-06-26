@@ -43,7 +43,7 @@ from the lidar and structure-from-motion (SfM).
 
 ## Physical simulation
 You will use the CNC router to machine a physical model
-of a landscape out of high density foam or medium density fiberboard (MDF).
+of a landscape out of high density urethane foam.
 Use this model as a base to develop a physical simulation of sediment flow.
 Record your physical simulation as a video.
 * Physical model
@@ -124,4 +124,4 @@ and landscape evolution simulations in GIS.
 * 2+ 3D renderings (*.png*)
 * GRASS GIS mapset
 * 2D GRASS GIS renderings (*.png*)
-* Blend4Web scene for VR (*.html* or *.json*)
+* SketchFab or Blend4Web scene for VR (*.html* or *.json*)
