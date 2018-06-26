@@ -1,12 +1,14 @@
 # [Contents](readme.md#contents)
 1. [**Terrain modeling**](#terrain-modeling)
     1. [Elevation data sources](#elevation-data-sources)
+        1. [Data acquisition in GRASS](data-acquisition-in-grass)
     1. [Topographic analysis in ArcGIS](#topographic-analysis-in-arcgis)
-      1. [Contours](#contours)
-      1. [Slope and aspect](#slope-and-aspect)
-      1. [Shaded relief](#shaded-relief)
-      1. [Visual programming](#visual-programming)
+        1. [Contours](#contours)
+        1. [Slope and aspect](#slope-and-aspect)
+        1. [Shaded relief](#shaded-relief)
+        1. [Visual programming](#visual-programming)
     1. [Topographic analysis in GRASS](#topographic-analysis-in-grass)
+        1. [Color tables](#color-tables)
         1. [Contours](#contours)
         1. [Slope and aspect](#slope-and-aspect)
         1. [Shaded relief](#shaded-relief)
@@ -38,6 +40,36 @@ in GRASS GIS, ArcGIS, and Rhino.
 
 ---
 
+### Data acquisition in GRASS
+Download, import, and re-project data from the USGS National Map
+directly into GRASS GIS using the add-on module
+[r.in.usgs](https://grass.osgeo.org/grass74/manuals/addons/r.in.usgs.html).
+
+Start GRASS GIS in the `nc_spm_evolution` location
+and create a new mapset called `data_acquisition`.
+Set your region to our study area with 1 meter resolution
+using the module
+[g.region](https://grass.osgeo.org/grass74/manuals/g.region.html)
+by specifying the boundaries.
+```
+g.region n=151030 s=150580 w=597195 e=597645 res=1
+```
+
+Use the add-on module
+[r.in.usgs](https://grass.osgeo.org/grass74/manuals/addons/r.in.usgs.html)
+to import a topographic map from the National Elevation Dataset (NED)
+at 1/9 arcsecond or approximately 3.4 meter resolution,
+orthophotography from the National Agriculture Imagery Program (NAIP)
+at 1 meter resolution,
+and a landcover map at 30 meter resolution.
+```
+r.in.usgs product=ned output_name=elevation_30m output_directory=usgs ned_dataset=ned19sec resampling_method=bilinear
+r.in.usgs product=naip output_name=imagery_1m output_directory=usgs resampling_method=nearest
+r.in.usgs product=nlcd output_name=landcover_2011 output_directory=usgs nlcd_dataset=nlcd2011 nlcd_subset=landcover resampling_method=nearest
+```
+
+---
+
 ## Topographic analysis in ArcGIS
 *Under development...*
 
@@ -59,6 +91,7 @@ in GRASS GIS, ArcGIS, and Rhino.
 Start GRASS GIS in the `nc_spm_evolution` location
 and create a new mapset called `terrain_analysis`.
 
+**Region**
 Set your region to our study area with 1 meter resolution
 using the module
 [g.region](https://grass.osgeo.org/grass74/manuals/g.region.html)
@@ -67,6 +100,42 @@ by specifying the boundaries, a saved region, or a reference raster map.
 g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
 g.region region=region res=1
 g.region raster=elevation_2016 res=1
+```
+
+---
+
+### Color tables
+Test different colors tables to find the best way to represent the topography.
+GRASS GIS has a topographic color table called `elevation`.
+Use the module [r.colors](https://grass.osgeo.org/grass74/manuals/r.colors.html)
+to apply this color.
+Use the `e` flag for histogram equalization.
+```
+r.colors map=elevation_2016 color=elevation -e
+```
+
+Try the beautiful perceptually uniform sequential color table *viridis* using the module [r.colors](https://grass.osgeo.org/grass74/manuals/r.colors.html).
+```
+r.colors map=elevation_2016 color=viridis
+```
+
+Try more
+[perceptually uniform sequential color tables](http://soliton.vm.bytemark.co.uk/pub/cpt-city/mpl/index.html)
+using the extension
+[r.cpt2grass](https://grass.osgeo.org/grass74/manuals/addons/r.cpt2grass.html).
+```
+g.extension extension=r.cpt2grass
+r.cpt2grass map=elevation_2016 url=http://soliton.vm.bytemark.co.uk/pub/cpt-city/mpl/inferno.cpt -s
+```
+
+Also experiment with the collection of
+[http://soliton.vm.bytemark.co.uk/pub/cpt-city/views/topo.html](topographic color tables)
+hosted by the [cpt-city](http://soliton.vm.bytemark.co.uk/pub/cpt-city/) repository
+using the extension
+[r.cpt2grass](https://grass.osgeo.org/grass74/manuals/addons/r.cpt2grass.html).
+```
+g.extension extension=r.cpt2grass
+r.cpt2grass map=elevation_2016 url=http://soliton.vm.bytemark.co.uk/pub/cpt-city/wkp/schwarzwald/wiki-schwarzwald-cont.cpt -s
 ```
 
 ---
