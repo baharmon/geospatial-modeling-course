@@ -22,7 +22,9 @@ design the restoration of a highly eroded landscape with a deep gully.
 
 ---
 
-**Syllabus** | [2018](geospatial-modeling-syllabus-2018.pdf)
+**Syllabi** |
+[2017](geospatial-modeling-syllabus-2017.pdf)
+[2018](geospatial-modeling-syllabus-2018.pdf)
 
 **Assignments** | [Projects](projects.md) | [Readings](readings.md) | [Terminology](terminology.md)
 
