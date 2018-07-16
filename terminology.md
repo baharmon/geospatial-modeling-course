@@ -39,7 +39,7 @@
 * Interpolation
 * Bilinear interpolation
 * Nearest neighbors
-* Relaxed spline with tension
+* Regularized spline with tension (RST)
 * Map algebra
 * Null value
 * Least cost path (LCP)
@@ -56,7 +56,7 @@
 * Head mounted display (HMD)
 * Cave automatic virtual environment (CAVE)
 
-## Digital fabrication terms
+## Digital fabrication
 * 3D printing
 * Computer numeric control (CNC)
 * Collet

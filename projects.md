@@ -3,7 +3,7 @@
 The study landscape is a highly eroded watershed
 feeding into Patterson Branch Creek in Fort Bragg, North Carolina.
 This geomorphologically active watershed has deep gullies and
-extensive areas of bare, exposed soils.
+extensive areas of bare soils.
 The creeks, streams, and rivers in this region are critical habitat
 for endangered species of mussels.
 Mussels, however, require stable stream habitat
@@ -22,24 +22,23 @@ or `smb://desn-knox.lsu.edu/Landscape-Classes` on Mac.
 ## Contents
 1. [**Projects**](#projects)
     1. [Gully monitoring](#gully-monitoring)
-    2. [Physical simulation](#physical-simulation)
-    3. [Families of form](#families-of-form)
-    4. [The great piece of turf](#the-great-piece-of-turf)
-    5. [Gully restoration](#gully-restoration)
+    1. [Physical simulation](#physical-simulation)
+    1. [Parametric bench](#parametric-bench)
+    1. [Families of form](#families-of-form)
+    1. [The great piece of turf](#the-great-piece-of-turf)
+    1. [Gully restoration](#gully-restoration)
 
 ---
 
 ## Gully monitoring
 We will visit Clark Creek to survey active gullies.
 In addition to taking photographs and 360 degree photospheres,
-We will conduct terrestrial lidar and
-unmanned aerial systems (UAS) surveys.
-Back in the lab you will generate digital surface models (DSM)
-from the lidar and structure-from-motion (SfM).
-* Orthophoto
-* Digital surface model from orthophoto
-* Digital surface model from lidar
+We will conduct a terrestrial lidar survey.
+Back in the lab you will generate a digital surface model (DSM)
+from the lidar data.
 * Photosphere
+* Digital surface model from lidar
+
 
 ## Physical simulation
 You will use the CNC router to machine a physical model
@@ -48,6 +47,15 @@ Use this model as a base to develop a physical simulation of sediment flow.
 Record your physical simulation as a video.
 * Physical model
 * Video of physical simulation (*.mp4*)
+
+## Parametric bench
+With Rhino or Grasshopper
+design a parametric bench and cut it into slices
+for digital fabrication.
+Build a laser-cut prototype.
+* Rhino 3D model (*.3dm*)
+* 3D rendering (*.png*)
+* Laser-cut prototype
 
 ## Families of form
 You will use map algebra and visual programming to generatively design

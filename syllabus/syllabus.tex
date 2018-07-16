@@ -10,6 +10,9 @@
 \usepackage{org-preamble-xelatex}
 \usepackage{wallpaper}
 \usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
 
 \AtBeginBibliography{\small}
 
@@ -22,8 +25,8 @@
 \def\mybibliocommand{}
 \def\mysubtitle{}
 \def\myaffiliation{Louisiana State University}
-\def\myaddress{100 Design}
-\def\myemail{baharmon@lsu.edu} %harmon1@lsu.edu
+\def\myaddress{309 Design}
+\def\myemail{baharmon@lsu.edu} 
 \def\myweb{https://baharmon.github.io/}
 \def\myphone{919.622.8414}
 \def\myversion{}
@@ -32,7 +35,7 @@
 \def\myauthor{Brendan Harmon}
 \def\mykeywords{Landscape Architecture, Syllabus, Graduate}
 \def\mysubtitle{Syllabus}
-\def\mytitle{{\normalsize \textsc{LA} 7032\newline} \huge \bfseries Geospatial modeling and fabrication}
+\def\mytitle{ \includegraphics[width=6cm]{../images/logos/lsu_art_design_logo.pdf} \\[0.1cm] {\normalfont \normalsize LA 7032 |} \Large Geospatial Modeling} % and fabrication
 
 % color
 \makeatletter
@@ -57,9 +60,9 @@
 \def\labelitemi{$\cdot$}
 \chapterstyle{article-4-sans}  
 
-\title{\LARGE \mytitle}     
+\title{\LARGE \mytitle}
 \author{\Large\myauthor \newline \footnotesize\texttt{\noindent\myemail}}
-\date{Fall 2017. Design 217.\newline Tuesday \& Thursday 1:30am--5:20pm.}
+\date{Fall 2018. Design 217.\newline Tuesday \& Thursday 1:30am--3:20pm.}
 \published{\,}
 
 % -------------------------------- COVER PAGE -------------------------------- 
@@ -82,120 +85,116 @@
 
 \section{Course Description}
 
-This course is an introduction to digital design for landscape architects. 
-%
-In this course you will develop a creative digital design process 
+This course is an introduction to 
+geospatial modeling for landscape architects.
+In this course you will develop a creative digital design process
 seamlessly integrating research and design
 using geographic information systems (GIS),
 3D modeling and rendering, and
-visual programming. 
-%
-You will learn how to use geospatial data 
+visual programming.
+You will learn how to use geospatial data
 to model and analyze landscapes
-and visual programming to 
-parametrically model and transform new landforms. 
-%
-You will learn how to model plants -- from trees to grasses -- in 3D, 
+and visual programming to
+parametrically model and transform new landforms.
+You will learn how to model plants -- from trees to grasses -- in 3D,
 automatically distribute them across your digital landscape,
-and render photorealistic scenes. 
-%
-Through a series of 3D modeling projects you will 
-design the restoration of a highly eroded landscape with a deep gully.
-%
-Each week you will spend a day in a workshop
-learning new methods
-and a day developing your projects.
-%
-You will work in small teams and present an exhibition of your
-models and renderings at the end of the course.\\
+and render photorealistic scenes.
+Through a series of projects you will design the restoration 
+of a highly eroded landscape with a deep gully.\\
 
-
-%\clearpage
+%\noindent \textbf{Objectives}
+%\begin{itemize}
+%\item To model, analyze, and simulate physical patterns and processes
+%\item To integrate geospatial modeling into your creative design process
+%\item To design the restoration of a highly eroded landscape
+%\end{itemize}
 
 % -------------------------------- SCHEDULE -------------------------------- 
-%\section{Course Schedule}
+\section{Topics}
 %
-%\begin{table}[H]
-%\small
-%\begin{tabular}{l l @{\hskip 1cm}l}
-%%
-%\textbf{1} & Terrain modeling & \textbf{Paper:} Alphabet \& Algorithm\\
-%\textbf{2} & Digital fabrication\\
-%\textbf{3} & Geospatial analysis & \textbf{Workshop:} Lost foam casting\\
-%\textbf{4} & Geospatial simulation & \textbf{Project:} Geospatial modeling\\
-%%
-%\textbf{5} & Surface modeling\\
-%\textbf{6} & Visual programming\\
-%\textbf{7} & Families of form\\
-%\textbf{8} & Generative processes & \textbf{Project:} Generative design\\
-%%
-%\textbf{9} & Image classification\\
-%\textbf{10} & 3D plants\\
-%\textbf{11} & Particle systems\\
-%\textbf{12} & Rendering\\
-%\textbf{13} & Physics & \textbf{Project:} Ecosystem modeling\\
-%\textbf{14} & Exhibition\\
-%%
-%\end{tabular}
-%\end{table}
+\begin{table}[H]
+\begin{tabular}{l @{\hskip 1.25cm} l @{\hskip 1.8cm} l}
+\textbf{Geospatial modeling} & \textbf{Generative design} & \textbf{Ecosystem modeling}\\
+\end{tabular}
+\end{table}
+%
+\vspace*{-1em}
+%
+\begin{table}[H]
+\begin{tabular}{l l l l l l}
+\small
+\textbf{1} & Lidar & \textbf{6} & Parametric design & \textbf{11} & Particle systems\\
+\textbf{2} & Terrain modeling & \textbf{7} & Parametric landforms & \textbf{12} & Image classification\\
+\textbf{3} & Digital fabrication & \textbf{8} & Visual programming & \textbf{13} & 3D rendering\\
+\textbf{4} & Hydrological modeling & \textbf{9} & Generative processes & \textbf{14} & Freeform modeling\\
+\textbf{5} & Erosion modeling & \textbf{10} & Attractors & \textbf{15} & Virtual reality\\
+\end{tabular}
+\end{table}
+%
 
-%\clearpage
+%\begin{tabular}{l l @{\hskip 1cm}l}
+
+\clearpage
 
 % -------------------------------- SCHEDULE -------------------------------- 
 \section{Course Schedule}
 
 \begin{table}[H]
-\small
 \begin{tabular}{l r @{\hskip 0.1cm} l @{\hskip 0.5cm} l}
-%
-\textbf{08.24.2017} & \textbf{Lecture |} & Introduction & \textbf{Paper assigned:} The Alphabet \& Algorithm\\
-%
-\textbf{09.05.2017} & \textbf{Workshop |} & Terrain modeling & \textbf{Paper due:} The Alphabet \& Algorithm\\
-\textbf{09.07.2017} & \textbf{Studio |} & Terran modeling & \textbf{Project assigned:} Geospatial modeling\\
-%
-\textbf{09.12.2017} & \textbf{Workshop |} & Digital fabrication & \\
-\textbf{09.14.2017} & \textbf{Studio |} & Digital fabrication & \\
-%
-\textbf{09.19.2017} & \textbf{Workshop |} & Geospatial analysis & \\
-\textbf{09.21.2017} & \textbf{Studio |} & Geospatial analysis & \\
-\textbf{09.23.2017} & \textbf{Workshop |} & Lost foam casting\\
-%
-\textbf{09.26.2017} & \textbf{Workshop |} & Geospatial simulation & \\
-\textbf{09.28.2017} & \textbf{Studio |} & Geospatial simulation  & \textbf{Project due:} Geospatial modeling\\
-%
 \\
-%
-\textbf{10.03.2017} & \textbf{Workshop |} & Surface modeling & \textbf{Project assigned:} Generative design\\
-\textbf{10.05.2017} & \textbf{Studio |} & Surface modeling & \\
-%
-\textbf{10.10.2017} & \textbf{Workshop |} & Visual programming & \\
-\textbf{10.12.2017} & \textbf{Studio |} & Visual programming & \\
-%
-\textbf{10.17.2017} & \textbf{Workshop |} & Families of form & \\
-%\textbf{10.19.2017} & \textbf{Studio |} & Families of form & \\ % holiday: fall break
-%
-\textbf{10.24.2017} & \textbf{Workshop |} & Generative processes& \\
-\textbf{10.26.2017} & \textbf{Studio |} & Generative processes & \textbf{Project due:} Generative design\\
-%
+\normalsize
+\textbf{Geospatial}\\
+\small
 \\
+\textbf{08.21.2018} & \textbf{Tutorial |} & Lidar \\
+\textbf{08.23.2018} & \textbf{Fieldwork |} & Surveying & \textbf{Project:} Geospatial monitoring \\
 %
-\textbf{10.31.2017} & \textbf{Workshop |} & Image classification & \textbf{Project assigned:} Ecosystem modeling\\
-\textbf{11.02.2017} & \textbf{Studio |} & Image classification & \\
+\textbf{08.28.2018} & \textbf{Tutorial |} & Terrain modeling I \\
+\textbf{08.30.2018} & \textbf{Tutorial |} & Terran modeling  II \\
 %
-\textbf{11.07.2017} & \textbf{Workshop |} & 3D plants & \\
-\textbf{11.09.2017} & \textbf{Studio |} & 3D plants & \\
+\textbf{09.04.2018} & \textbf{Tutorial |} & Digital fabrication \\
+\textbf{09.06.2018} & \textbf{Lab |} & Digital fabrication & \textbf{Project:} CNC machining\\
 %
-\textbf{11.14.2017} & \textbf{Workshop |} & Particle systems & \\
-\textbf{11.16.2017} & \textbf{Studio |} & Particle systems & \\
+\textbf{09.11.2018} & \textbf{Tutorial |} & Hydrological modeling I \\
+\textbf{09.13.2018} & \textbf{Tutorial |} & Hydrological modeling II \\
+\textbf{09.15.2018} & \textbf{Workshop |} & Drone photogrammetry \\
 %
-\textbf{11.21.2017} & \textbf{Workshop |} & Rendering \& physics & \\
-%\textbf{11.22.2017} & \textbf{Studio |} & Rendering & \\ % holiday: thanksgiving
+\textbf{09.18.2018} & \textbf{Tutorial |} & Erosion modeling \\
+\textbf{09.20.2018} & \textbf{Tutorial |} & Landscape evolution & \textbf{Project:} Physical simulation \\
+\\
+\normalsize
+\textbf{Generative}\\
+\small
+\\
+\textbf{09.25.2018} & \textbf{Tutorial |} & Parametric design & \textbf{Project:} Laser-cut bench \\
+\textbf{09.27.2018} & \textbf{Tutorial |} & Parametric landforms \\
 %
-%\textbf{} & \textbf{Workshop |} & Physics & \\
-%\textbf{} & \textbf{Studio |} & Physics & \\
+\textbf{10.02.2018} & \textbf{Tutorial |} & Visual programming\\
 %
-\textbf{11.28.2017} & \textbf{Studio |} & Exhibition & \textbf{Project due:} Ecosystem modeling\\
-\textbf{11.30.2017} & \textbf{Gallery |} & Exhibition & \\
+\textbf{10.09.2018} & \textbf{Tutorial |} & Generative processes I \\
+\textbf{10.11.2018} & \textbf{Tutorial |} & Generative processes II \\ 
+%
+\textbf{10.16.2018} & \textbf{Tutorial |} & Attractors \\
+\textbf{10.18.2018} & \textbf{Studio |} & Attractors & \textbf{Project:} Families of form \\
+\\
+\normalsize
+\textbf{Ecosystem}\\
+\small
+\\
+\textbf{10.30.2018} & \textbf{Tutorial |} & 3D plants \\
+\textbf{11.01.2018} & \textbf{Tutorial |} & Particle systems & \textbf{Project:} The Great Piece of Turf \\
+%
+\textbf{11.06.2018} & \textbf{Tutorial |} & Image classification \\
+\textbf{11.08.2018} & \textbf{Tutorial |} & Landscape modeling \\
+%
+\textbf{11.13.2018} & \textbf{Tutorial |} & Landscape rendering I \\
+\textbf{11.15.2018} & \textbf{Tutorial |} & Landscape rendering II \\
+%
+\textbf{11.20.2018} & \textbf{Tutorial |} & Freeform modeling I \\
+\textbf{11.22.2018} & \textbf{Studio |} & Freeform modeling II \\
+%
+\textbf{11.28.2018} & \textbf{Tutorial |} & Virtual reality\\
+\textbf{11.30.2018} & \textbf{Gallery |} & Final review & \textbf{Project:} Gully restoration \\ 
 %
 \end{tabular}
 \end{table}
@@ -203,150 +202,103 @@ models and renderings at the end of the course.\\
 \clearpage
 
 % -------------------------------- Paper -------------------------------- 
-\section{Paper}
-\noindent \textbf{The Alphabet and Algorithm}
-Read Mario Carpo's book \emph{The Alphabet and Algorithm}
-and write a 2000-word critical essay about
-the evolving nature of architectural authorship.
-Address how digital tools have transformed 
-the practice of landscape architecture
-and envision how they will shape 
-the future of the discipline. 
-
-%\noindent In preparation for this course please read:
-\nocite{*} \printbibliography[keyword=intro, heading=none]
+%\section{Paper}
+%\noindent \textbf{The Alphabet and Algorithm}
+%Read Mario Carpo's book \emph{The Alphabet and Algorithm}
+%and write a 2000-word critical essay about
+%the evolving nature of architectural authorship.
+%Address how digital tools have transformed 
+%the practice of landscape architecture
+%and envision how they will shape 
+%the future of the discipline. 
+%
+%%\noindent In preparation for this course please read:
+%\nocite{*} \printbibliography[keyword=intro, heading=none]
 
 % overleaf
 
 % -------------------------------- Projects -------------------------------- 
 \section{Projects}
+The study landscape is a highly eroded watershed
+feeding into Patterson Branch Creek in Fort Bragg, North Carolina.
+This geomorphologically active watershed has deep gullies and
+extensive areas of bare soils.
+The creeks, streams, and rivers in this region are critical habitat
+for endangered species of mussels.
+Mussels, however, require stable stream habitat
+and these actively eroding watersheds with sandy-loam soils
+cause high sediment bed loads in streams and shifting streambeds.
+The aim of this project is to restore the degraded watershed
+and reduce sediment transport  
+in order to enhance downstream mussel habitat.\\
 
-\noindent \textbf{Geospatial modeling}
-Using lidar data you will model, analyze, and digitally fabricate
-the topography of the study landscape. 
-%
-%After processing the lidar point cloud
-%and generating digital models of the topography,
-Each group will CNC mill a physical model of the landscape
-in a different media -- either medium density fiberboard, 
-polystyrene foam, or urethane foam.
-Then each group will prepare a different set of 
--- either topographic, hydrologic, or sedimentation -- 
-analyses and simulations.\\
+\noindent \textbf{Gully monitoring}
+Visit Clark Creek to survey active gullies.
+Take photographs and 360 degree photospheres and
+conduct a terrestrial lidar scan.
+Back in the lab generate digital surface models (DSM)
+from the lidar data.\\
 
-% Topographic: contours, slope, hillshade, landforms
-% Hydrologic: watershed, flow accumulation, water flow
-% Sedimentation: sediment flux, erosion-deposition, landscape evolution
+\noindent \textbf{CNC machining}
+Use the CNC router to machine a physical model
+of the study landscape out of high density urethane foam.\\
 
-\noindent \textbf{Generative design}
-Using visual programming you will generatively design
-erosion control features to restore your degraded study landscape.
-Through a series of algorithmically generated design interventions 
-you will explore interactions between 
-topographic form and hydrologic processes.
-Your goal is to catalyze topographic changes that will 
-restore the landscape to a dynamic equilibrium.  
-You will produce 3D printed models of your designs
-and augment these with projected water flow and sediment flux. \\
+\noindent \textbf{Physical simulation}
+Using the CNC-machined model as a base
+develop a physical simulation of sediment flow.
+Experiment with casting, melting, and pouring. 
+Try materials like hot wax or molten aluminum. 
+Record your physical simulation as a video.\\
 
-\noindent \textbf{Ecosystem modeling}
-After mapping the existing vegetation 
-you will design, model, and render in 3D
-a planting plan to restore this degraded landscape. 
-You will produce beautiful, photorealistic 3D renderings  
-of the existing landscape and your design. \\
-
-%\clearpage
-
-% -------------------------------- SESSIONS -------------------------------- 
-\section{Sessions}
-
-\renewcommand*{\bibfont}{\footnotesize}
-
-\noindent \textbf{Terrain modeling}
-Model topography in 3D from lidar data.\\
-
-\noindent \textbf{Digital fabrication}
-Use computer numerical control (CNC) machining 
-to carve physical models of topography. 
-Learn how to cast a topographic model
-in aluminum.
-%
-\nocite{*} \printbibliography[keyword=fabrication, heading=none]
-\vspace*{0.5em}
-
-\noindent \textbf{Geospatial analysis}
-Model and analyze topographic parameters including 
-contours, slope, hillshading, and landforms
-and hydrologic parameters 
-including watersheds and flow accumulation. \\
-
-%\noindent \textbf{Lost foam casting}
-%In this workshop learn how to cast a topographic model
-%in aluminum using a CNC milled foam form.\\
-
-\noindent \textbf{Geospatial simulation}
-Simulate the physical processes that shape landscapes including
-water flow, sediment flux, erosion-deposition, and landscape evolution.\\
-
-\noindent \textbf{Surface modeling}
-Model complex, continuous, 3D surfaces 
-using non-uniform rational basis splines (NURBS).\\
-
-\noindent \textbf{Visual programming}
-Use visual programming to automatically generate
-patterns and forms.
-%
-\nocite{*} \printbibliography[keyword=algorithmic, heading=none]
-\vspace*{0.5em}
+\noindent \textbf{Parametric bench}
+With Rhino or Grasshopper
+design a parametric bench and cut it into slices
+for digital fabrication.
+Build a laser-cut prototype.\\
 
 \noindent \textbf{Families of form}
-Use visual programming to procedurally generate families of form
-based on parametric variations.
-%
-\nocite{*} \printbibliography[keyword=procedural, heading=none]
-\vspace*{0.5em}
+Use map algebra and visual programming to generatively design
+erosion control features to restore your degraded study landscape.
+Catalyze topographic changes 
+with algorithmically generated interventions
+to restore the landscape to a dynamic equilibrium.  
+Digitally fabricate models of your designs
+and augment these with projected water flow and sediment flux.\\
 
-\noindent \textbf{Generative processes}
-Procedurally generate dynamic forms using 
-parametric equations and attractors.\\
+\noindent \textbf{The Great Piece of Turf}
+Create a 3D model and 3D rendering of
+Albrecht Dürer's Great Piece of Turf.
+Use particle systems to distribute 3D flowers, grasses,
+and other ground cover across a block of soil.\\
 
-\noindent \textbf{Image classification}
-Use aerial photography to automatically classify 
-different types of landcover.\\
+\noindent \textbf{Gully restoration}
+Map the existing vegetation and landforms
+using automated classification algorithms.
+Design, model, and render in 3D
+a bioswale to restore this degraded landscape.
+Produce beautiful, photorealistic 3D renderings  
+of the existing and restored landscape.\\
 
-\noindent \textbf{3D plants}
-Procedurally model unique specimens 
-of trees and other plants in 3D.
-Model an ecosystem in 3D using 3D plant libraries.
-%
-\nocite{*} \printbibliography[keyword=plants, heading=none]
-\vspace*{0.5em}
-
-\noindent \textbf{Particle systems}
-Generate fields of plants 
-using particle systems. \\
-
-\noindent \textbf{Rendering}
-Setup lights, prepare materials and textures, 
-and render 3D scenes with raytracing.\\
-
-\noindent \textbf{Physics}
-Simulate processes like water flow and rock fall
-using a physics engine.\\
-
-%\noindent \textbf{Exhibition}
-%Present your work at a gallery style exhibition.\\
-%% n.b.: project simulations over wall-mounted models
+% -------------------------------- Workshop -------------------------------- 
+\section{Drone Workshop}
+Conduct a topographic survey with an unmanned aerial system (UAS)
+at Hilltop Arboretum. 
+After a morning theory session, 
+survey the arboretum grounds with a drone,
+and then use stereophotogrammetry to generate a digital surface model.
 
 % -------------------------------- Software -------------------------------- 
 \section{Software}
+\begin{multicols}{2}
+\raggedright
 GRASS GIS | \url{https://grass.osgeo.org/} \\
+ArcGIS | \url{https://www.esri.com/} \\
 Rhinoceros | \url{https://www.rhino3d.com/}\\
-RhinoTerrain | \url{http://www.rhinoterrain.com/}\\
-RhinoCAM | \url{https://mecsoft.com/rhinocam-software/}\\
+%RhinoTerrain | \url{http://www.rhinoterrain.com/}\\
+%RhinoCAM | \url{https://mecsoft.com/rhinocam-software/}\\
 Grasshopper | \url{http://grasshopper3d.com/}\\
-Blender | \url{https://www.blender.org/}\\
+Blender | \url{https://www.blender.org/}
+\end{multicols}
 
 % -------------------------------- Resources -------------------------------- 
 \section{Resources}
@@ -354,6 +306,127 @@ Intro to GRASS GIS | \url{https://ncsu-geoforall-lab.github.io/grass-intro-works
 Hydrology in GRASS GIS | \url{https://grasswiki.osgeo.org/wiki/Hydrological_Sciences}\\
 Grasshopper Primer | \url{http://grasshopperprimer.com}\\
 BlenderGIS tutorial | \url{https://github.com/ptabriz/ICC_2017_Workshop}
+
+% -------------------------------- Certificate -------------------------------- 
+\section{Graduate Certificate in GIS}
+This course counts as an applied topics course for the 
+Graduate Certificate in Geographic Information Science.
+The Graduate Certificate in Geographic Information Science at LSU 
+is a 12 credit hour standalone certificate. 
+%with courses offered 
+%in the Department of Geography and Anthropology, 
+%College of Art and Design, 
+%Department of Economics, 
+%School of the Coast and Environment, 
+%Department of Civil and Environmental Engineering, 
+%and Department of Computer Science. 
+For more information about the Graduate Certificate in GIS visit: 
+\url{http://ga.lsu.edu/gis-certificate/}.
+
+% -------------------------------- Grading -------------------------------- 
+\section{Grading}
+%
+\begin{table}[H]
+%\small
+\begin{tabular}{l r @{\hskip 2cm} l @{\hskip 0.5cm} l}
+%\begin{tabular}{l l}
+%
+Gully monitoring & 10\% & Families of form & 25\% \\
+CNC Machining & 10\% & The Great Piece of Turf & 10\% \\
+Physical simulation & 10\% & Gully restoration & 25\% \\
+Parametric bench & 10\% \\
+%
+\end{tabular}
+\end{table}
+
+\clearpage
+
+% -------------------------------- Terminology -------------------------------- 
+\section{Terminology}
+\begin{multicols}{2}
+\raggedright
+\small
+%
+\textbf{Digital culture}
+\begin{itemize}
+\item Mass customization
+\item Generative design
+\item Parametric design
+\item Performative design
+\item Algorithm
+%\item Scripting
+\end{itemize}
+
+\textbf{Spatial data}
+\begin{itemize}
+\item Raster \& Vector
+\item Array
+\item Point cloud
+\item Mesh
+\item Triangulated irregular network (TIN)
+\item Discrete \& continuous data
+\item Plain text
+\item Comma separated values (CSV)
+\item Integer \& floating point numbers
+%\item Quadtree
+\item Non-uniform rational basis spline (NURBS)
+\end{itemize}
+
+\textbf{Geospatial}
+\begin{itemize}
+\item Geographic information system (GIS)
+\item Digital terrain model (DTM)
+\item Digital elevation model (DEM)
+\item Digital surface model (DSM)
+\item Lidar
+\item Delaunay triangulation
+\item Interpolation
+\item Bilinear interpolation
+\item Nearest neighbors
+\item Regularized spline with tension (RST)
+\item Map algebra
+\item Null value
+\item Least cost path (LCP)
+\item Resampling
+\item Image classification
+\end{itemize}
+
+\textbf{3D rendering}
+\begin{itemize}
+\item Ray tracing
+\item Diffuse shading
+\item Texture map
+\item Particle system
+\item Head mounted display (HMD)
+\item Cave automatic virtual environment (CAVE)
+\end{itemize}
+
+\textbf{Digital fabrication}
+\begin{itemize}
+\item 3D printing
+\item Computer numeric control (CNC)
+\item Collet \& Bit
+\item High density urethane (HDU)
+\item Medium density fiberboard (MDF)
+\end{itemize}
+
+\textbf{Geomorphology}
+\begin{itemize}
+\item Watershed
+\item Multiple flow direction (MDF)
+\item Revised Universal Soil Loss Equation (RUSLE)
+\item Unit Stream Power-based Erosion Deposition (USPED)
+\item Simulated Water Erosion (SIMWE)
+\item R-factor
+\item Mannings
+\item Sediment mass density
+\item Gully
+\item Knickpoint
+\end{itemize}
+%
+\end{multicols}
+
+\clearpage
 
 % -------------------------------- Readings -------------------------------- 
 \section{Readings}
@@ -364,7 +437,6 @@ BlenderGIS tutorial | \url{https://github.com/ptabriz/ICC_2017_Workshop}
 \printbibliography[heading=none]
 
 \clearpage
-
 % -------------------------------- Policies -------------------------------- 
 \section{Policies}
 
@@ -388,34 +460,6 @@ indicating the existence of a disability and the suggested accommodations.\\
 According to section 10.1 of the LSU Code of Student Conduct, ``A student may be charged with Academic Misconduct'' for a variety of offenses, including the following: unauthorized copying, collusion, or collaboration; ``falsifying'' data or citations; ``assisting someone in the commission or attempted commission of an offense''; and plagiarism, which is defined in section 10.1.H as a ``lack of appropriate citation, or the unacknowledged inclusion of someone else's words, structure, ideas, or data; failure to identify a source, or the submission of essentially the same work for two assignments without permission of the instructor(s).''\\
 
 \noindent \textbf{Plagiarism and Citation Method}
-Plagiarism is the ``lack of appropriate citation, or the unacknowledged inclusion of someone else's words, structure, ideas, or data; failure to identify a source, or the submission of essentially the same work for two assignments without permission of the instructor(s)'' (Sec. 10.1.H of the LSU Code of Student Conduct). As a student at LSU, it is your responsibility to refrain from plagiarizing the academic property of another and to utilize appropriate citation method for all coursework. In this class, it is recommended that you use Chicago Style author-date citations. Ignorance of the citation method is not an excuse for academic misconduct.\\ 
-
-\noindent \textbf{Graduate Certificate in GIS}
-This course counts as an applied topics course for the 
-Graduate Certificate in Geographic Information Science.
-The Graduate Certificate in Geographic Information Science at LSU 
-is a 12 credit hour standalone certificate with courses offered 
-in the Department of Geography and Anthropology, College of Art and Design, 
-Department of Economics, School of the Coast and Environment, 
-Department of Civil and Environmental Engineering, 
-and Department of Computer Science. 
-For more information about the Graduate Certificate in GIS visit: 
-\url{http://ga.lsu.edu/gis-certificate/}. \\
-
-\noindent \textbf{Grading}
-%
-\begin{table}[H]
-\small
-%\begin{tabular}{l r @{\hskip 0.1cm} l @{\hskip 0.5cm} l}
-\begin{tabular}{l l}
-%
-\textbf{Paper |} Alphabet and Algorithm & 20\% \\
-\textbf{Project |} Geospatial modeling & 20\% \\
-\textbf{Project |} Generative design & 20\% \\
-\textbf{Project |} Ecosystem modeling & 20\% \\
-\textbf{Exhibition} & 20\% \\
-%
-\end{tabular}
-\end{table}
+Plagiarism is the ``lack of appropriate citation, or the unacknowledged inclusion of someone else's words, structure, ideas, or data; failure to identify a source, or the submission of essentially the same work for two assignments without permission of the instructor(s)'' (Sec. 10.1.H of the LSU Code of Student Conduct). As a student at LSU, it is your responsibility to refrain from plagiarizing the academic property of another and to utilize appropriate citation method for all coursework. In this class, it is recommended that you use Chicago Style author-date citations. Ignorance of the citation method is not an excuse for academic misconduct.
 
 \end{document}

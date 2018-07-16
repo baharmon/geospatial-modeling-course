@@ -1,5 +1,4 @@
 ## README TODO
-* Create a new GRASS location
 * Add screenshots
 * Lidar in ArcGIS
 * Topographic analysis in ArcGIS
