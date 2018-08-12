@@ -7,6 +7,7 @@
 * Roland Barthes, [The Death of the Author](http://artsites.ucsc.edu/faculty/Gustafson/FILM%20162.W10/readings/barthes.death.pdf)
 * Choma, *Morphing: A Guide to Mathematical Transformations for Architects and Designers*
 * Tedeschi, *Algorithms-Aided Design*
+* Dunn, *Digital Fabrication in Architecture*
 
 ## Recommended
 * Goudie and Viles, *Landscapes and Geomorphology: A Very Short Introduction*
@@ -17,3 +18,5 @@
 * Terzidis, *Algorithmic Architecture*
 * Beorkrem, *Material Strategies in Digital Fabrication*
 * Thompson, *Manufacturing Processes for Designers*
+* Schodek et al., *Digital Design and Manufacturing: CAD/CAM Applications in Architecture and Design*
+* Stevens & Nelson, *Digital Vernacular: Architectural Principles, Tools, and Processes*
