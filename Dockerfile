@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM jupyter/scipy-notebook:df7a34bebed0
 
 MAINTAINER Brendan Harmon <brendan.harmon@gmail.com>
 
@@ -6,6 +6,9 @@ MAINTAINER Brendan Harmon <brendan.harmon@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 USER root
+
+# replace shell with bash
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # compile jupyter
 RUN apt-get update \
@@ -27,7 +30,6 @@ RUN python -m pip install numpy \
 # GRASS GIS compile dependencies
 RUN apt-get update \
     && apt-get install -y --install-recommends \
-        curl \
         autoconf2.13 \
         autotools-dev \
         bison \
@@ -85,6 +87,7 @@ RUN apt-get update \
 # other software
 RUN apt-get update \
     && apt-get install -y --install-recommends \
+        curl \
         imagemagick \
         p7zip \
         subversion \
@@ -122,7 +125,7 @@ RUN source activate python2 \
         --with-r \
         --with-numpy \
         --with-liblas=yes --with-liblas-config=/usr/bin/liblas-config \
-    && make && make install && ldconfig
+    && make ; make install ; ldconfig
 WORKDIR /usr/local
 RUN rm -r /usr/local/src
 
@@ -156,5 +159,7 @@ RUN chown -R jovyan:jovyan /data
 
 # switch the user
 USER jovyan
+RUN source activate python2
 
+# launch notebook
 CMD jupyter notebook --ip=0.0.0.0 --port=8080
