@@ -123,7 +123,6 @@ RUN source activate python2 \
         --with-python-ply \
         --with-r \
         --with-numpy \
-        --with-liblas=yes --with-liblas-config=/usr/bin/liblas-config \
     && make ; make install ; ldconfig
 WORKDIR /usr/local
 RUN rm -r /usr/local/src
