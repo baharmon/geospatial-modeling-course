@@ -1,14 +1,9 @@
-FROM jupyter/scipy-notebook:df7a34bebed0
+FROM ubuntu:16.04
 
 MAINTAINER Brendan Harmon <brendan.harmon@gmail.com>
 
 # system environment
 ENV DEBIAN_FRONTEND noninteractive
-
-USER root
-
-# replace shell with bash
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # compile jupyter
 RUN apt-get update \
@@ -17,15 +12,7 @@ RUN apt-get update \
     && apt-get autoremove \
     && apt-get clean
 RUN python -m pip install --upgrade pip
-RUN python -m pip install numpy \
-  scipy \
-  matplotlib \
-  ipython \
-  jupyter \
-  pandas \
-  sympy \
-  nose \
-  ggplot
+RUN python -m pip install jupyter
 
 # GRASS GIS compile dependencies
 RUN apt-get update \
@@ -74,6 +61,7 @@ RUN apt-get update \
         python-pil \
         python-ply \
         python-dateutil \
+        libgsl-dev \
         python-matplotlib \
         python-watchdog \
         unixodbc-dev \
@@ -86,21 +74,16 @@ RUN apt-get update \
 # other software
 RUN apt-get update \
     && apt-get install -y --install-recommends \
-        curl \
         imagemagick \
         p7zip \
         subversion \
-        git-core \
     && apt-get autoremove \
     && apt-get clean
 
-# GRASS GIS needs to be built with Python 2
-RUN ln -s /usr/bin/python2 /bin/python
-
 # install GRASS GIS
+# using a specific revision, otherwise we can't apply the path safely
 WORKDIR /usr/local/src
-RUN source activate python2 \
-    && svn checkout https://svn.osgeo.org/grass/grass/trunk grass \
+RUN svn checkout -r 73003 https://svn.osgeo.org/grass/grass/trunk grass \
     && cd grass \
     &&  ./configure \
         --enable-largefile=yes \
@@ -123,21 +106,11 @@ RUN source activate python2 \
         --with-python-ply \
         --with-r \
         --with-numpy \
-    && make ; make install ; ldconfig
-WORKDIR /usr/local
-RUN rm -r /usr/local/src
+        --with-liblas=yes --with-liblas-config=/usr/bin/liblas-config \
+    && make && make install && ldconfig
 
 # enable simple grass command regardless of version number
 RUN ln -s /usr/local/bin/grass* /usr/local/bin/grass
-
-# install GRASS GIS extensions
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.geomorphon
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.skyview
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.lake.series
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.stream
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sun.daily
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sun.hourly
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sim.terrain url=https://github.com/baharmon/landscape_evolution
 
 # pull grassdata directory
 RUN mkdir /grassdata
@@ -157,7 +130,5 @@ RUN chown -R jovyan:jovyan /data
 
 # switch the user
 USER jovyan
-RUN source activate python2
 
-# launch notebook
 CMD jupyter notebook --ip=0.0.0.0 --port=8080
