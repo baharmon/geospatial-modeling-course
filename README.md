@@ -1,4 +1,5 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/baharmon/geospatial-modeling-course/master)
 
 # Geospatial Modeling
 
@@ -26,7 +27,9 @@ design the restoration of a highly eroded landscape with a deep gully.
 [2017](geospatial-modeling-syllabus-2017.pdf) |
 [2018](geospatial-modeling-syllabus-2018.pdf)
 
-**Assignments** | [Projects](projects.md) | [Readings](readings.md) | [Terminology](terminology.md)
+**Assignments** | [Projects](projects.md) |
+[Jupyter Notebooks](https://mybinder.org/v2/gh/baharmon/geospatial-modeling-course/master) |
+[Readings](readings.md) | [Terminology](terminology.md)
 
 **Resources** | [Geospatial data sources](geospatial-data-sources.md)
 
@@ -63,32 +66,32 @@ design the restoration of a highly eroded landscape with a deep gully.
 
 1. **Geospatial modeling**
     1. [Airborne lidar](airborne-lidar.md)
-    2. [Terrestrial lidar](terrestrial-lidar.md)
-    3. [Unmanned aerial systems](unmanned-aerial-systems.md)
-    4. [Photospheres](photospheres.md)
+    2. Terrestrial lidar
+    3. Unmanned aerial systems
+    4. Photospheres
 
     **Project** | [Gully monitoring](projects.md#gully-monitoring)
 
     5. [Terrain modeling](terrain-modeling.md)
-    6. [Digital fabrication](digital-fabrication.md)
+    6. Digital fabrication
     7. [Hydrological modeling](hydrological-modeling.md)
     8. [Erosion modeling](erosion-modeling.md)
-    9. [Landscape evolution](landscape-evolution.md)
+    9. Landscape evolution
 
     **Project** | [Physical simulation](projects.md#physical-simulation)
 
 2. **Generative design**
-    1. [The alphabet and algorithm](the-alphabet-and-algorithm.md)
-    2. [Map algebra](map-algebra.md)
-    3. [Visual programming](visual-programming.md)
-    4. [Parametric landforms](parametric-landforms.md)
-    5. [Generative processes](generative-processes.md)
-    6. [Attractors](attractors.md)
+    1. The alphabet and algorithm
+    2. Map algebra
+    3. Visual programming
+    4. Parametric landforms
+    5. Generative processes
+    6. Attractors
 
     **Project** | [Families of form](projects.md#families-of-form)
 
 3. **Ecosystem modeling**
-    1. [3D plants](3d-plants.md)
+    1. [3D plants][3d-plants.md]
     2. [Particle systems](particle-systems.md)
 
     **Project** | [The great piece of turf](projects.md#the-great-piece-of-turf)
@@ -97,9 +100,9 @@ design the restoration of a highly eroded landscape with a deep gully.
     4. [Landform classification](landform-classification.md)
     5. [Landscape modeling](landscape-modeling.md)
     6. [Landscape rendering](landscape-rendering.md)
-    7. [Bioengineering](bioengineering.md)
-    8. [Freeform modeling](freeform-modeling.md)
-    9. [Virtual reality](virtual-reality.md)
+    7. Bioengineering
+    8. Freeform modeling
+    9. Virtual reality
 
     **Project** | [Gully restoration](projects.md#gully-restoration)
 

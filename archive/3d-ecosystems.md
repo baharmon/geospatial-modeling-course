@@ -103,9 +103,10 @@ g.region region=region res=1
 
 Compute landform types uses the add-on module
 [r.geomorphon](https://grass.osgeo.org/grass72/manuals/addons/r.geomorphon.html).
- ```
+```
+g.extension extension=r.geomorphon
 r.geomorphon elevation=elevation_2016 forms=forms search=24 skip=0 flat=1 dist=0
- ```
+```
 <p align="center">
   <img src="images/3d-ecosystems/landforms.png" height="250">
 </p>

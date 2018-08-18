@@ -27,6 +27,7 @@ RUN python -m pip install numpy \
 # GRASS GIS compile dependencies
 RUN apt-get update \
     && apt-get install -y --install-recommends \
+        curl \
         autoconf2.13 \
         autotools-dev \
         bison \
@@ -91,10 +92,13 @@ RUN apt-get update \
     && apt-get autoremove \
     && apt-get clean
 
+# GRASS GIS needs to be built with Python 2
+RUN ln -s /usr/bin/python2 /bin/python
+
 # install GRASS GIS
-# using a specific revision, otherwise we can't apply the path safely
 WORKDIR /usr/local/src
-RUN svn checkout -r 73003 https://svn.osgeo.org/grass/grass/trunk grass \
+RUN source activate python2 \
+    && svn checkout https://svn.osgeo.org/grass/grass/trunk grass \
     && cd grass \
     &&  ./configure \
         --enable-largefile=yes \
@@ -118,7 +122,9 @@ RUN svn checkout -r 73003 https://svn.osgeo.org/grass/grass/trunk grass \
         --with-r \
         --with-numpy \
         --with-liblas=yes --with-liblas-config=/usr/bin/liblas-config \
-    && make && make install && ldconfig
+    && make ; make install ; ldconfig
+WORKDIR /usr/local
+RUN rm -r /usr/local/src
 
 # enable simple grass command regardless of version number
 RUN ln -s /usr/local/bin/grass* /usr/local/bin/grass
