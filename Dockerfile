@@ -130,12 +130,7 @@ RUN rm -r /usr/local/src
 RUN ln -s /usr/local/bin/grass* /usr/local/bin/grass
 
 # install GRASS GIS extensions
-RUN mkdir /code
-WORKDIR /code
-COPY Makefile .
-COPY r.sim.terrain.py .
-COPY r.sim.terrain.html .
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sim.terrain url=/code
+RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sim.terrain url=https://github.com/baharmon/landscape_evolution
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.geomorphon
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.skyview
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.lake.series
