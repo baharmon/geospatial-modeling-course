@@ -122,7 +122,7 @@ RUN source activate python2 \
         --with-r \
         --with-numpy \
         --with-liblas=yes --with-liblas-config=/usr/bin/liblas-config \
-    && make ; make install ; ldconfig
+    && make && make install && ldconfig
 WORKDIR /usr/local
 RUN rm -r /usr/local/src
 
@@ -130,13 +130,13 @@ RUN rm -r /usr/local/src
 RUN ln -s /usr/local/bin/grass* /usr/local/bin/grass
 
 # install GRASS GIS extensions
-RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sim.terrain url=https://github.com/baharmon/landscape_evolution
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.geomorphon
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.skyview
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.lake.series
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.stream
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sun.daily
 RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sun.hourly
+RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sim.terrain url=https://github.com/baharmon/landscape_evolution
 
 # pull grassdata directory
 RUN mkdir /grassdata
