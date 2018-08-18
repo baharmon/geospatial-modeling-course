@@ -42,7 +42,7 @@ design the restoration of a highly eroded landscape with a deep gully.
 [r.stream](https://grasswiki.osgeo.org/wiki/R.stream.*_modules) |
 [r.sun.daily](https://grass.osgeo.org/grass72/manuals/addons/r.sun.daily.html) |
 [r.sun.hourly](https://grass.osgeo.org/grass72/manuals/addons/r.sun.hourly.html) |
-[r.evolution](https://github.com/baharmon/landscape_evolution) |
+[r.sim.terrain](https://github.com/baharmon/landscape_evolution) |
 [RhinoTerrain](http://www.rhinoterrain.com/en/home.html) |
 [Neon](http://v5.rhino3d.com/group/neon) |
 [BlenderGIS](https://github.com/domlysz/BlenderGIS)

@@ -20,7 +20,7 @@ in GRASS GIS.
 Start GRASS GIS in the `nc_spm_evolution` location
 and create a new mapset called `lidar`.
 
-<p align="center"><img src="images/grass-gui/grass_start.png" height="250"></p>
+<p align="center"><img src="images/grass-gui/grass-start.png" height="250"></p>
 [Guide to starting GRASS GIS](https://grass.osgeo.org/grass74/manuals/helptext.html)
 
 In the GRASS terminal
