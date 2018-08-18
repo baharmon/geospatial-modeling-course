@@ -74,7 +74,6 @@ RUN apt-get update \
         python-pil \
         python-ply \
         python-dateutil \
-        libgsl-dev \
         python-matplotlib \
         python-watchdog \
         unixodbc-dev \
