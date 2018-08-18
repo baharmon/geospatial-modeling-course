@@ -1,4 +1,5 @@
 ## README TODO
+* Jupyter notebooks and binder
 * Add screenshots
 * Lidar in ArcGIS
 * Topographic analysis in ArcGIS
