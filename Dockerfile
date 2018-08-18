@@ -140,7 +140,7 @@ RUN grass --tmp-location -c EPSG:4326 --exec g.extension r.sun.hourly
 # pull grassdata directory
 RUN mkdir /grassdata
 WORKDIR /grassdata
-git clone https://github.com/baharmon/landscape_evolution_dataset.git
+RUN git clone https://github.com/baharmon/landscape_evolution_dataset.git
 
 # copy jupyter notebooks
 RUN mkdir /data
