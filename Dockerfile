@@ -77,6 +77,7 @@ RUN apt-get update \
         imagemagick \
         p7zip \
         subversion \
+        git-core \
     && apt-get autoremove \
     && apt-get clean
 
