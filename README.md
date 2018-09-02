@@ -73,7 +73,7 @@ design the restoration of a highly eroded landscape with a deep gully.
     **Project** | [Gully monitoring](projects.md#gully-monitoring)
 
     5. [Terrain modeling](terrain-modeling.md)
-    6. Digital fabrication
+    6. [Digital fabrication](digital-fabrication.md)
     7. [Hydrological modeling](hydrological-modeling.md)
     8. [Erosion modeling](erosion-modeling.md)
     9. Landscape evolution

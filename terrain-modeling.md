@@ -1,4 +1,4 @@
-# [Contents](readme.md#contents)
+# Contents
 1. [**Terrain modeling**](#terrain-modeling)
     1. [Elevation data sources](#elevation-data-sources)
         1. [Data acquisition in GRASS](#data-acquisition-in-grass)

@@ -1,4 +1,4 @@
-# [Contents](readme.md#contents)
+# Contents
 1. [**Landform classification**](#landform-classification.md)
     1. [Geomorphons](#geomorphons)
     2. [Topographic parameters](#topographic-parameters)

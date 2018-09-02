@@ -1,4 +1,4 @@
-# [Contents](readme.md#contents)
+# Contents
 1. [**Airborne lidar**](#airborne-lidar)
     1. [Reprojection](#reprojection)
     2. [Binning](#binning)
