@@ -15,14 +15,14 @@
         1. [Skyview factor](#skyview-factor)
         1. [Visual programming](#visual-programming)
         1. [Profile](#profile)
-        1. [Time series analysis](time-series-analysis)
+        1. [Time series analysis](#time-series-analysis)
     1. [3D terrain visualization in GRASS](#3d-terrain-visualization-in-grass)
     1. [3D terrain modeling in Rhino](#3d-terrain-modeling-in-rhino)
         1. [Heightfield](#heightfield)
         1. [Heightfield mesh](#heightfield-mesh)
         1. [Point cloud patching](#point-cloud-patching)
-        1. [Material and texture mapping](material-and-texture-mapping)
-        1. [Delaunay triangulation](delaunay-triangulation)
+        1. [Material and texture mapping](#material-and-texture-mapping)
+        1. [Delaunay triangulation](#delaunay-triangulation)
 
 ---
 
@@ -234,7 +234,7 @@ r.series input=elevation2004,elevation_2012,elevation_2016 output=range_2004_201
 
 ---
 
-## 3D terrain visualization
+## 3D terrain visualization in GRASS
 Start GRASS GIS in the `nc_spm_evolution` location
 and select the `terrain_analysis` mapset.
 
@@ -280,7 +280,7 @@ button.
 
 ---
 
-## 3D terrain modeling
+## 3D terrain modeling in Rhino
 In this section you will export
 a digital elevation model from GRASS GIS
 and import it into Rhino for 3D modeling and visualization.

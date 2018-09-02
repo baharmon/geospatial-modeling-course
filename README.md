@@ -91,7 +91,7 @@ design the restoration of a highly eroded landscape with a deep gully.
     **Project** | [Families of form](projects.md#families-of-form)
 
 3. **Ecosystem modeling**
-    1. [3D plants][3d-plants.md]
+    1. [3D plants](3d-plants.md)
     2. [Particle systems](particle-systems.md)
 
     **Project** | [The great piece of turf](projects.md#the-great-piece-of-turf)
@@ -111,7 +111,7 @@ design the restoration of a highly eroded landscape with a deep gully.
 ## Course data
 Open access data for this course can be downloaded from:
 * [GRASS GIS Mapset](https://github.com/baharmon/landscape_evolution_dataset)
-* [Open Science Framework Repository](osf.io/f6egw)
+* [Open Science Framework Repository](https://osf.io/f6egw)
 
 ---
 
