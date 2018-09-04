@@ -4,11 +4,12 @@
     2. [Parametric equations](#parametric-equations)
     3. [3D modeling](#3d-modeling)
     4. [Machining toolpaths](#machining-toolpaths)
-      1. [Work Zero](#work-zero)
-      2. [Quarter inch parallel finish cut](#quarter-inch-parallel-finish-cut)
-      3. [Eighth inch parallel finish cut](#eighth-inch-parallel-finish-cut)
-      4. [Simulate toolpaths](#simulate-toolpaths)
-      5. [Generate toolpaths](#generate-toolpaths)
+      1. [World Coordinate System](#world-coordinate-system)
+      2. [Work Zero](#work-zero)
+      3. [Quarter inch parallel finish cut](#quarter-inch-parallel-finish-cut)
+      4. [Eighth inch parallel finish cut](#eighth-inch-parallel-finish-cut)
+      5. [Simulate toolpaths](#simulate-toolpaths)
+      6. [Generate toolpaths](#generate-toolpaths)
 
 ---
 
@@ -138,6 +139,12 @@ Set the Post to `VelocityCNCmill`.
 Set the Stock length to 2.75, width to 2.75, and height to 1.
 
 <p align="center"><img src="images/digital-fabrication/stock.png"></p>
+
+---
+
+### World Coordinate System
+Set the World Coordinate System (WCS) to the box stock.
+Select the lower left corner ontop of the stock.
 
 ---
 
