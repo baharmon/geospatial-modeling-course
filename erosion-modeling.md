@@ -73,6 +73,11 @@ the command [d.legend](https://grass.osgeo.org/grass72/manuals/d.legend.html).
 Optionally use the range parameter set to `range=100-0.03`
 to show only the concentrated flow values.
 
+<p align="center">
+  <img src="images/erosion/water-flow.png" height="500">
+  <img src="images/erosion/water-flow-3d.png" height="500">
+</p>
+
 ## Shallow water flow with landcover
 The first run of the simulation assumed constant landcover
 with no infiltration and a constant surface roughness

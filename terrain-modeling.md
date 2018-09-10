@@ -276,7 +276,7 @@ Export your 3D view with the
 `Save display to graphic file`
 ![export](images/grass-gui/map-export.png)
 button.
-<p align="center"><img src="images/3d-view.png"></p>
+<p align="center"><img src="images/terrain/3d-view.png"></p>
 
 ---
 
