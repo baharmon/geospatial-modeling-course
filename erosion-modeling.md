@@ -74,8 +74,8 @@ Optionally use the range parameter set to `range=100-0.03`
 to show only the concentrated flow values.
 
 <p align="center">
-  <img src="images/erosion/water-flow.png" height="500">
-  <img src="images/erosion/water-flow-3d.png" height="500">
+  <img src="images/erosion/water-flow.gif" height="500">
+  <img src="images/erosion/water-flow-3d.gif" height="500">
 </p>
 
 ## Shallow water flow with landcover
