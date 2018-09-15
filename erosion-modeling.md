@@ -113,13 +113,19 @@ Finally compute the dimensionless 3D topographic factor LS3D
 with the raster calculator
 [r.mapcalc](https://grass.osgeo.org/grass74/manuals/r.mapcalc.html)
 as a function of slope and flow accumulation.
+Then use the module
+[r.colors](https://grass.osgeo.org/grass74/manuals/r.colors.html)
+to assign a sequential, perceptually uniform color table such as viridis
+with either histogram equalization or logarithmic scaling
+with `e` or `g` flag.
 ```
 r.slope.aspect elevation=elevation_2016 slope=slope_2016
 r.grow.distance input=slope_2016 value=grow_slope
 r.mapcalc "slope_2016 = grow_slope" --overwrite
 g.remove -f type=raster name=grow_slope
 r.watershed elevation=elevation_2016 accumulation=accumulation_2016
-r.mapcalc "ls_factor=({0.4}+1.0)*(({accumulation_2016}/22.1)^{0.4})*((sin({slope_2016})/0.09)^{1.3})"
+r.mapcalc "ls_factor=(0.4+1.0)*((accumulation_2016/22.1)^0.4)*((sin(slope_2016)/0.09)^1.3)"
+r.colors map=ls_factor color=viridis -e
 ```
 
 **Sediment flow**
@@ -136,22 +142,21 @@ Do not use a P-factor for the study landscape.
 Compute flow using the equation `E = R * K * LS3D * C` without the P-factor.
 Then convert sediment flow from tons/ha to kg/ms using the equation
 `E = E * ton_to_kg / ha_to_m^2`.
-Rename the map with the module
-[g.rename](https://grass.osgeo.org/grass74/manuals/g.rename.html).
-and then use the module
+Use map algebra to filter out overestimated sediment flow values
+above a threshold of 36.
+Finally use the module
 [r.colors](https://grass.osgeo.org/grass74/manuals/r.colors.html)
 to set the viridis color table
-with the `g` flag for logarithmic scaling.
+with the `e` flag for histogram equalization or
+the`g` flag for logarithmic scaling.
 
 ```
 r.mapcalc "r_factor=310.0"
 r.mapcalc "sedflow=r_factor*k_factor*ls_factor*c_factor"
 r.mapcalc "converted_sedflow=sedflow*1000./10000."
-g.rename raster=converted_sedflow,sedflow
-r.colors map=sedlow color=viridis -g
+r.mapcalc expression="sedflow = if(converted_sedflow <= 36.0, converted_sedflow, 36.0)"
+r.colors map=sedflow color=viridis -e
 ```
-
-*Under development...*
 
 **References**
 * Fogleman, Brent D. 2009. “Erosion Modeling: Use of Multiple-Return and Bare-Earth LIDAR Data to Identify Bare Areas Susceptible to Erosion MacRidge, Training Area J, Fort Bragg, NC.” http://www.geomodeler.com/Documents/bragg_Main_optimized.pdf.
