@@ -52,7 +52,7 @@ Function Y(u,v): sin(u)+cos(v)
 Function Z(u,v): sin(v)*cos(u)
 ```
 
-<p align="center"><img src="images/digital-fabrication/math-surface.png"></p>
+<p align="center"><img src="../images/digital-fabrication/math-surface.png"></p>
 
 ---
 
@@ -92,7 +92,7 @@ _ToBoundary
 Extrusion distance <-1.6>
 ```
 
-<p align="center"><img src="images/digital-fabrication/extrude.png"></p>
+<p align="center"><img src="../images/digital-fabrication/extrude.png"></p>
 
 Now create an array of solid polysurfaces either manually with object snaps
 or using the Array command.
@@ -105,7 +105,7 @@ X spacing: 0.69
 Y spacing: 0.4
 ```
 
-<p align="center"><img src="images/digital-fabrication/array.png"></p>
+<p align="center"><img src="../images/digital-fabrication/array.png"></p>
 
 Combine the array of polysurfaces into a single solid using a boolean union.
 ```
@@ -118,7 +118,7 @@ Clip the parametric solid to the stock box using a boolean intersection.
 _BooleanIntersection
 ```
 
-<p align="center"><img src="images/digital-fabrication/boolean-intersection.png"></p>
+<p align="center"><img src="../images/digital-fabrication/boolean-intersection.png"></p>
 
 Save your work.
 ```
@@ -138,7 +138,7 @@ Set the Machine to `3 Axis`.
 Set the Post to `VelocityCNCmill`.
 Set the Stock length to 2.75, width to 2.75, and height to 1.
 
-<p align="center"><img src="images/digital-fabrication/stock.png"></p>
+<p align="center"><img src="../images/digital-fabrication/stock.png"></p>
 
 ---
 
@@ -153,7 +153,7 @@ In the Machining Operations dropdown menu
 select `Work Zero`.
 Generate the work zero for the coordinate 0,0,1.
 
-<p align="center"><img src="images/digital-fabrication/work-zero.png"></p>
+<p align="center"><img src="../images/digital-fabrication/work-zero.png"></p>
 
 ---
 
@@ -175,14 +175,14 @@ Retract: 800 in/mm
 Departure: 800 in/mm
 ```
 
-<p align="center"><img src="images/digital-fabrication/quarter-inch-tool.png"></p>
+<p align="center"><img src="../images/digital-fabrication/quarter-inch-tool.png"></p>
 
 In the Cut Parameters tab set Stepover Control to
 `25`% Tool Diameter.
 Press `Generate` to compute the
 first toolpath.
 
-<p align="center"><img src="images/digital-fabrication/parallel-finishing-1.png"></p>
+<p align="center"><img src="../images/digital-fabrication/parallel-finishing-1.png"></p>
 
 ---
 
@@ -196,7 +196,7 @@ the Angle of Cuts to `90` degrees.
 Press `Generate` to compute the
 second toolpath.
 
-<p align="center"><img src="images/digital-fabrication/parallel-finishing-2.png"></p>
+<p align="center"><img src="../images/digital-fabrication/parallel-finishing-2.png"></p>
 
 ---
 
@@ -204,7 +204,7 @@ second toolpath.
 In the Simulate tab of the RhinoCAM Machining Browser
 run a simulation to check each toolpath.
 
-<p align="center"><img src="images/digital-fabrication/simulate-2.png"></p>
+<p align="center"><img src="../images/digital-fabrication/simulate-2.png"></p>
 
 ---
 

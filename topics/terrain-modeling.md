@@ -201,7 +201,7 @@ Move the contour maps above the shaded relief map.
 
 ### Profile
 Use the
-![profile](images/grass-gui/layer-raster-profile.png)
+![profile](../images/grass-gui/layer-raster-profile.png)
 GUI profile surface map button
 to find the profile, i.e. section, of the digital elevation model.
 
@@ -274,9 +274,9 @@ in the `Lighting` menu in the `Appearance` tab.
 
 Export your 3D view with the
 `Save display to graphic file`
-![export](images/grass-gui/map-export.png)
+![export](../images/grass-gui/map-export.png)
 button.
-<p align="center"><img src="images/terrain/3d-view.png"></p>
+<p align="center"><img src="../images/terrain/3d-view.png"></p>
 
 ---
 
@@ -495,13 +495,13 @@ _SaveAs
 Start GRASS GIS in the `nc_spm_evolution` location
 and select the `PERMANENT` mapset.
 
-![layer-raster-add](images/grass-gui/layer-raster-add.png)
+![layer-raster-add](../images/grass-gui/layer-raster-add.png)
 Add the raster map layer `naip_2014` with the latest orthophoto
 to your map display. Resize your map display so that is square and
 zoom to the selected map.
 Export this map with the
 `Save display to graphic file`
-![export](images/grass-gui/map-export.png)
+![export](../images/grass-gui/map-export.png)
 button. Save as `naip_2014.png`.
 
 

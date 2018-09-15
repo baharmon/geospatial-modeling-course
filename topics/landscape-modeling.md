@@ -146,7 +146,7 @@ Delete the default cube.
 Open the `GIS` tab added by Blender GIS.
 First set your spatial reference system
 Under `Geoscene` click the
-![geoscene](images/blender-gui/geoscene_settings.png)
+![geoscene](../images/blender-gui/geoscene_settings.png)
 `Switch scene crs` button
 and select `NAD83 / North Carolina`
 from the dropdown menu and press `Ok`.
@@ -157,7 +157,7 @@ to match the west and south boundaries determined in GRASS GIS.
 Import `elevation.tif` into Blender using
 `File > Import > Georeferenced raster`
 or the
-![import](images/blender-gui/gis_import.png)
+![import](../images/blender-gui/gis_import.png)
 `Import georeferenced raster with world file` button in the GIS tab.
 Select `elevation.tif`. then in the `Import georaster` panel
 set `Mode: As DEM`,
@@ -170,7 +170,7 @@ for more details about importing georeferenced rasters.
 To vertically exaggerate the digital elevation model
 select `elevation` in the Outliner,
 and open the
-![modifiers](images/blender-gui/modifiers.png)
+![modifiers](../images/blender-gui/modifiers.png)
 `Modifiers` panel.
 This will show the parameters for the
 [displace](https://docs.blender.org/manual/en/dev/modeling/modifiers/deform/displace.html)
@@ -195,7 +195,7 @@ Press `tab` to return to object mode.
 Use a sun to light the scene.
 Select `Lamp` in the Outliner
 and open the
-![data](images/blender-gui/data.png)
+![data](../images/blender-gui/data.png)
 `Data` panel.
 Set `Lamp` to `Sun`.
 Move the sun 1000 units vertically.
@@ -204,7 +204,7 @@ Save your scene as `nspm_evolution.blend` (Shift + Ctrl + S).
 
 ### Simple ground texture
 Select our terrain mesh `elevation` in the Outliner.
-In the ![materials](images/blender-gui/materials.png)
+In the ![materials](../images/blender-gui/materials.png)
 `Material` panel
 open the `Cycles Material Vault`,
 click on `Category Type`,
@@ -219,5 +219,5 @@ Save your scene (Ctrl + S).
 ### Ground texture from landforms
 *Under development...*
 
-![Ground nodes](images/3d-ecosystems/ground_material_nodes.png)
-![Ground view](images/3d-ecosystems/ground_material_view.png)
+![Ground nodes](../images/3d-ecosystems/ground_material_nodes.png)
+![Ground view](../images/3d-ecosystems/ground_material_view.png)

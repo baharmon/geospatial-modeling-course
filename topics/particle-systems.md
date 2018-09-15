@@ -9,13 +9,13 @@
 First on a new layer append
 `plant_library\c_eastern_white_pine_a.blend\Group\eastern_white_pine`.
 
-In the ![textures](images/blender-gui/textures.png)
+In the ![textures](../images/blender-gui/textures.png)
 `Textures` panel
 create a `Mixed forest` texture with
 `mixed_forest.tif`.
 
 Open the
-![particle systems](images/blender-gui/particle_systems.png)
+![particle systems](../images/blender-gui/particle_systems.png)
 `Particles` panel.
 Click `New` to create a new particle system.
 Rename as `Forest`.
@@ -50,12 +50,12 @@ In another new layer append
 `D:\GrassEssentials\Grass Essentials - Grass Models v1.2\Grass\Meadow Fescues\Grass_Meadow Fescues.blend\Group\APPEND - Grass_Meadow Fescues - Particles Setup`.
 
 Open the
-![particle systems](images/blender-gui/particle_systems.png)
+![particle systems](../images/blender-gui/particle_systems.png)
 `Particles` panel.
 Click `New` to create a new particle system.
 Rename as `Bluegrass`.
 Under `Settings` use the
-![grass particle systems](images/blender-gui/grass_particles.png)
+![grass particle systems](../images/blender-gui/grass_particles.png)
 `Browse particle settings to be linked` dropdown menu
 to select the appended Kentucky Bluegrass particle system.
 In the `Emissions` tab of the `Particles` panel
@@ -64,7 +64,7 @@ and `Hair Length: 50`
 In the `Texture` tab of the `Particles` panel
 add a new texture called `grass`.
 Use the `Show texture in texture tab` button
-![show texture tab](images/blender-gui/show_texture_tab.png)
+![show texture tab](../images/blender-gui/show_texture_tab.png)
 to open the `Texture` panel.
 In the `Texture` panel set the image texture to `grass.tif`.
 In the `Influence` tab uncheck

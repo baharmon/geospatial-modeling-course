@@ -34,7 +34,7 @@ r.geomorphon elevation=elevation_2016 forms=forms search=24 skip=0 flat=1 dist=0
 ```
 
 <p align="center">
-  <img src="images/landforms/landforms.png" height="500">
+  <img src="../images/landforms/landforms.png" height="500">
 </p>
 
 The landform types are:
@@ -42,7 +42,7 @@ The landform types are:
 **6.** slope, **7.** hollow, **8.** footslope, **9.** valley,
 and **10.** depression.
 
-<p align="center"><img src="images/landforms/geomorphon_legend.png"></p>
+<p align="center"><img src="../images/landforms/geomorphon_legend.png"></p>
 
 ---
 

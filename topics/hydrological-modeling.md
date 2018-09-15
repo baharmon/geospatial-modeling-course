@@ -71,7 +71,7 @@ Model the wetland as a lake using the module
 Set the water level to an elevation value
 within the range of the study landscape,
 ie. between 90 and 112 m.
-In the seed tab use the ![pointer](images/grass-gui/pointer.png)
+In the seed tab use the ![pointer](../images/grass-gui/pointer.png)
 to pick coordinates near the lower right corner on the map display
 for the starting point.
 ```
@@ -90,7 +90,7 @@ Create a time series of flood maps using the add-on module
 In the water tab
 set the starting water level to 90 m, the end water level to 100 m,
 and the water level step to 1 m.
-Use the ![pointer](images/grass-gui/pointer.png)
+Use the ![pointer](../images/grass-gui/pointer.png)
 to pick coordinates near the lower right corner on the map display
 for the starting point.
 In the time tab set the time step to 1 minute

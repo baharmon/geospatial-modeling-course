@@ -15,10 +15,10 @@ Once the rendering finishes
 click `Image > Save as`.
 
 <p align="center">
-  <img src="images/3d-ecosystems/ncspm_rendering_1.png" height="250">
-  <img src="images/3d-ecosystems/ncspm_rendering_2.png" height="250">
+  <img src="../images/3d-ecosystems/ncspm_rendering_1.png" height="250">
+  <img src="../images/3d-ecosystems/ncspm_rendering_2.png" height="250">
 </p>
 
-![rendering](images/3d-ecosystems/ncspm_rendering_3.png)
+![rendering](../images/3d-ecosystems/ncspm_rendering_3.png)
 
 *Under development...*
