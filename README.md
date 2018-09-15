@@ -24,8 +24,8 @@ design the restoration of a highly eroded landscape with a deep gully.
 ---
 
 **Syllabi** |
-[2017](geospatial-modeling-syllabus-2017.pdf) |
-[2018](geospatial-modeling-syllabus-2018.pdf)
+[2017](syllabus/geospatial-modeling-syllabus-2017.pdf) |
+[2018](syllabus/geospatial-modeling-syllabus-2018.pdf)
 
 **Assignments** | [Projects](projects.md) |
 [Jupyter Notebooks](https://mybinder.org/v2/gh/baharmon/geospatial-modeling-course/master) |
@@ -65,17 +65,17 @@ design the restoration of a highly eroded landscape with a deep gully.
 ## Contents
 
 1. **Geospatial modeling**
-    1. [Airborne lidar](airborne-lidar.md)
+    1. [Airborne lidar](topics/airborne-lidar.md)
     2. Terrestrial lidar
     3. Unmanned aerial systems
     4. Photospheres
 
     **Project** | [Gully monitoring](projects.md#gully-monitoring)
 
-    5. [Terrain modeling](terrain-modeling.md)
-    6. [Digital fabrication](digital-fabrication.md)
-    7. [Hydrological modeling](hydrological-modeling.md)
-    8. [Erosion modeling](erosion-modeling.md)
+    5. [Terrain modeling](topics/terrain-modeling.md)
+    6. [Digital fabrication](topics/digital-fabrication.md)
+    7. [Hydrological modeling](topics/hydrological-modeling.md)
+    8. [Erosion modeling](topics/erosion-modeling.md)
     9. Landscape evolution
 
     **Project** | [Physical simulation](projects.md#physical-simulation)
@@ -91,15 +91,15 @@ design the restoration of a highly eroded landscape with a deep gully.
     **Project** | [Families of form](projects.md#families-of-form)
 
 3. **Ecosystem modeling**
-    1. [3D plants](3d-plants.md)
-    2. [Particle systems](particle-systems.md)
+    1. [3D plants](topics/3d-plants.md)
+    2. [Particle systems](topics/particle-systems.md)
 
     **Project** | [The great piece of turf](projects.md#the-great-piece-of-turf)
 
-    3. [Image classification](image-classification.md)
-    4. [Landform classification](landform-classification.md)
-    5. [Landscape modeling](landscape-modeling.md)
-    6. [Landscape rendering](landscape-rendering.md)
+    3. [Image classification](topics/image-classification.md)
+    4. [Landform classification](topics/landform-classification.md)
+    5. [Landscape modeling](topics/landscape-modeling.md)
+    6. [Landscape rendering](topics/landscape-rendering.md)
     7. Bioengineering
     8. Freeform modeling
     9. Virtual reality
