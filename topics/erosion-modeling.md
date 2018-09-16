@@ -95,7 +95,7 @@ a_0 is the length of the standard USLE plot (22.1 m)
 beta is the slope angle (degrees)
 m is an empirical coefficient
 n is an empirical coefficient
-beta_0 is the slope of the standard USLE plot (0.09 degrees)
+beta_0 is the slope of the standard USLE plot (5.14 degrees)
 ```
 
 Compute the angle of the slope with the module
@@ -124,7 +124,7 @@ r.grow.distance input=slope_2016 value=grow_slope
 r.mapcalc "slope_2016 = grow_slope" --overwrite
 g.remove -f type=raster name=grow_slope
 r.watershed elevation=elevation_2016 accumulation=accumulation_2016
-r.mapcalc "ls_factor=(0.4+1.0)*((accumulation_2016/22.1)^0.4)*((sin(slope_2016)/0.09)^1.3)"
+r.mapcalc "ls_factor=(0.4+1.0)*((accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)"
 r.colors map=ls_factor color=viridis -e
 ```
 
