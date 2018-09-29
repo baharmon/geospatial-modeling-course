@@ -1,26 +1,39 @@
 # Contents
 1. [**Freeform modeling**](#freeform-modeling)
-    1. [](#)
-    2. [](#)
-    3. [](#)
-    4. [](#)
 
 ---
 
 # Freeform modeling
-...
+Model a freeform bench and
+explore different modes of fabrication
+such as casting or cnc milling plywood slices.
 Use the Rhino file [freeform_bench.3dm](../models/freeform_bench.3dm)
-and the Grasshopper definition [parametric_bench.gh](../models/freeform_bench.gh)
 as a reference.
+
+<p align="center">
+<img src="../images/parametric_modeling/freeform_bench_top.png" height="250">
+<img src="../images/parametric_modeling/freeform_bench_1.png" height="250">
+</p>
 
 ---
 
 ## ...
 ...
 ```
+_InterpCrv
+
+_Array
+
+History
+
+_Loft
+_Contour
+_ExtrudeCrv
+_Cap
+
 ```
 
-<p align="center"><img src="../images/digital-fabrication/math-surface.png"></p>
+<p align="center"><img src="../images/digital-fabrication/.png"></p>
 
 ---
 
@@ -28,3 +41,40 @@ Save your work.
 ```
 _SaveAs
 ```
+
+
+
+by drawing a series of profile curves,
+lofting the curves to generate a surface
+
+
+
+
+Curve: Interpolate points
+
+```
+_InterpCrv
+
+_Array
+
+History
+
+_Loft
+
+
+_Contour
+
+
+_ExtrudeCrv
+
+
+_Cap
+
+
+Materials
+
+Renderings
+
+```
+
+**Fabrication**
