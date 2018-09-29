@@ -221,6 +221,6 @@ And of course save again!
 `_Save`
 
 <p align="center">
-  <img src="../images/digital-fabrication/cnc_2.jpg" height="250">
-  <img src="../images/digital-fabrication/cnc_4.jpg" height="250">
+  <img src="../images/digital-fabrication/cnc_2.jpg" height="360">
+  <img src="../images/digital-fabrication/cnc_4.jpg" height="360">
 </p>
