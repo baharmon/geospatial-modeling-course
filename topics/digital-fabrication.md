@@ -22,7 +22,7 @@ as a reference.
 Also see Niloufar Emami's
 [guide to computer aided manufacturing](https://github.com/niloufaremami/CAD-CAM).
 
-<p align="center"><img src="../images/digital-fabrication/cnc_5.png"></p>
+<p align="center"><img src="../images/digital-fabrication/cnc_5.jpg"></p>
 
 ---
 
@@ -221,6 +221,6 @@ And of course save again!
 `_Save`
 
 <p align="center">
-  <img src="../images/digital_fabrication/cnc_2.png.gif" height="250">
-  <img src="../images/digital_fabrication/cnc_4.png" height="250">
+  <img src="../images/digital_fabrication/cnc_2.jpg" height="250">
+  <img src="../images/digital_fabrication/cnc_4.jpg" height="250">
 </p>
