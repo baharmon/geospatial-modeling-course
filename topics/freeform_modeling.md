@@ -59,8 +59,8 @@ _Cap
 
 <p align="center">
 <img src="../images/parametric_modeling/contour_bench.png">
-<img src="../images/parametric_modeling/sliced_bench_1.png" height="300">
-<img src="../images/parametric_modeling/sliced_bench_2.png" height="300">
+<img src="../images/parametric_modeling/sliced_bench_1.png" height="250">
+<img src="../images/parametric_modeling/sliced_bench_2.png" height="250">
 </p>
 
 Save your work.
