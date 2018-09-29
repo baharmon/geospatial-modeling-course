@@ -27,13 +27,23 @@ _Array
 History
 
 _Loft
+```
+
+<p align="center">
+<img src="../images/parametric_modeling/corten_bench.png">
+</p>
+
+```
 _Contour
 _ExtrudeCrv
 _Cap
 
 ```
 
-<p align="center"><img src="../images/digital-fabrication/.png"></p>
+<p align="center">
+<img src="../images/parametric_modeling/freeform_bench_top.png" height="300">
+<img src="../images/parametric_modeling/freeform_bench_1.png" height="300">
+</p>
 
 ---
 
