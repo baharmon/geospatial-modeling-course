@@ -38,7 +38,6 @@ Then run the
 [MathSurface](http://www.rhino3.de/_develop/__v3_plugins/math/commands.shtml)
 command with the following equations and parameters
 to create a meandering mound (see Choma, [Morphing](http://www.morphingbook.com/), p.128-129).
-:
 ```
 MathSurface
 minimum u: -PI/2

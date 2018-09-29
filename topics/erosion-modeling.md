@@ -20,8 +20,11 @@ and select the `erosion` mapset.
 Set your region to our study area with 1 meter resolution
 using the module
 [g.region](https://grass.osgeo.org/grass74/manuals/g.region.html).
+Optionally set the watershed as a mask using the modules
+[g.region](https://grass.osgeo.org/grass74/manuals/r.mask.html).
 ```
 g.region region=region res=1
+r.mask vector=watershed
 ```
 
 ## RUSLE
@@ -129,6 +132,10 @@ r.mapcalc "ls_factor=(0.4+1.0)*((accumulation_2016/22.1)^0.4)*((sin(slope_2016)/
 r.colors map=ls_factor color=viridis -e
 ```
 
+<p align="center"><img src="../images/erosion/flow_accumulation_2016.png"></p>
+
+<p align="center"><img src="../images/erosion/ls_factor.png"></p>
+
 **Sediment flow**
 The R-factor for our study landscape in Fort Bragg will be 310
 ([Fogleman 2009](http://www.geomodeler.com/Documents/bragg_Main_optimized.pdf)
@@ -150,12 +157,14 @@ with the `e` flag for histogram equalization..
 
 ```
 r.mapcalc "r_factor=310.0"
-r.mapcalc "sediment_flow=r_factor*k_factor*ls_factor*c_factor"
-r.mapcalc "converted_flow=sediment_flow*1000./10000."
-g.rename raster=converted_flow,sediment_flow
+r.mapcalc "sediment_flow_2016=r_factor*k_factor*ls_factor*c_factor"
+r.mapcalc "converted_flow=sediment_flow_2016*1000./10000."
+g.rename raster=converted_flow,sediment_flow_2016
 r.colors map=sediment_flow color=viridis -e
 g.remove -f type=raster name=r_factor
 ```
+
+<p align="center"><img src="../images/erosion/sediment_flow_2016.png"></p>
 
 **References**
 * Fogleman, Brent D. 2009. “Erosion Modeling: Use of Multiple-Return and Bare-Earth LIDAR Data to Identify Bare Areas Susceptible to Erosion MacRidge, Training Area J, Fort Bragg, NC.” http://www.geomodeler.com/Documents/bragg_Main_optimized.pdf.
@@ -233,8 +242,10 @@ Set `man=mannings` and `infil=infiltration`.
 Make sure to set the `--overwrite` flag
 because you are rerunning the simulation.
 ```
-r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 man=mannings infil=infiltration depth=depth nwalkers=10000 niterations=10 --overwrite
+r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 man=mannings infil=infiltration depth=depth_2016 nwalkers=10000 niterations=10 --overwrite
 ```
+
+<p align="center"><img src="../images/erosion/depth_2016.png"></p>
 
 ## Erosion-deposition
 To simulate erosion-deposition you first need to compute
@@ -251,13 +262,15 @@ r.mapcalc "shear_stress = 0.0"
 Simulate net erosion-deposition (kg/m^2^s) with
 [r.sim.sediment](https://grass.osgeo.org/grass74/manuals/r.sim.sediment.html).
 ```
-r.sim.sediment elevation=elevation_2016 water_depth=depth dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings erosion_deposition=erosion_deposition nwalkers=10000
+r.sim.sediment elevation=elevation_2016 water_depth=depth_2016 dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings erosion_deposition=erosion_deposition_2016 nwalkers=10000
 ```
 Display the legend for the erosion-deposition map with either the
 ![legend](../images/grass-gui/legend-add.png)
 `Add raster legend` button
 or
 the command [d.legend](https://grass.osgeo.org/grass74/manuals/d.legend.html).
+
+<p align="center"><img src="../images/erosion/erosion_deposition_2016.png"></p>
 
 ## Sediment flow
 In a detachment limited soil erosion regime
@@ -277,8 +290,10 @@ Simulate sediment flow (kg/ms)
 in a detachment limited soil erosion regime with
 [r.sim.sediment](https://grass.osgeo.org/grass74/manuals/r.sim.sediment.html).
 ```
-r.sim.sediment elevation=elevation_2016 water_depth=depth dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings sediment_flux=sediment_flux nwalkers=10000
+r.sim.sediment elevation=elevation_2016 water_depth=depth_2016 dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings sediment_flux=sediment_flux_2016 nwalkers=10000
 ```
+
+<p align="center"><img src="../images/erosion/sediment_flux_2016.png"></p>
 
 ## Water flow animation
 To create a water flow animation first run the module

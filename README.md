@@ -81,10 +81,10 @@ design the restoration of a highly eroded landscape with a deep gully.
     **Project** | [Physical simulation](projects.md#physical-simulation)
 
 2. **Generative design**
-    1. The alphabet and algorithm
-    2. Map algebra
-    3. Visual programming
-    4. Parametric landforms
+    1. [Freeform modeling](topics/freeform_modeling.md)
+    2. [Visual programming](topics/visual_programming.md)
+    3. Parametric landforms
+    4. Map algebra
     5. Generative processes
     6. Attractors
 
