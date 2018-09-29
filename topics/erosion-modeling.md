@@ -140,9 +140,11 @@ r.colors map=ls_factor color=viridis -e
 ```
 
 <p align="center"><img src="../images/erosion/flow_accumulation_2016.png"></p>
+
 **Flow accumulation**
 
 <p align="center"><img src="../images/erosion/ls_factor.png"></p>
+
 **LS3D factor**
 
 ---
@@ -176,6 +178,7 @@ g.remove -f type=raster name=r_factor
 ```
 
 <p align="center"><img src="../images/erosion/sediment_flow_2016.png"></p>
+
 **Sediment flow**
 
 ---
@@ -274,6 +277,7 @@ r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 man=mannings in
 ```
 
 <p align="center"><img src="../images/erosion/depth_2016.png"></p>
+
 **Water depth**
 
 ---
@@ -302,6 +306,7 @@ or
 the command [d.legend](https://grass.osgeo.org/grass74/manuals/d.legend.html).
 
 <p align="center"><img src="../images/erosion/erosion_deposition_2016.png"></p>
+
 **Erosion deposition**
 
 ---
@@ -328,6 +333,7 @@ r.sim.sediment elevation=elevation_2016 water_depth=depth_2016 dx=dx dy=dy detac
 ```
 
 <p align="center"><img src="../images/erosion/sediment_flux_2016.png"></p>
+
 **Sediment flux**
 
 ---
