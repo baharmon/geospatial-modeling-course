@@ -13,8 +13,8 @@ Use the Rhino file [freeform_bench.3dm](../models/freeform_bench.3dm)
 as a reference.
 
 <p align="center">
-<img src="../images/parametric_modeling/freeform_bench_top.png" height="300">
-<img src="../images/parametric_modeling/freeform_bench_1.png" height="300">
+<img src="../images/parametric-modeling/freeform_bench_top.png" height="300">
+<img src="../images/parametric-modeling/freeform_bench_1.png" height="300">
 </p>
 
 ---
@@ -40,7 +40,7 @@ Cap
 ```
 
 <p align="center">
-<img src="../images/parametric_modeling/solid_bench.png">
+<img src="../images/parametric-modeling/solid_bench.png">
 </p>
 
 ---
@@ -58,8 +58,8 @@ _Cap
 ```
 
 <p align="center">
-<img src="../images/parametric_modeling/contour_bench.png">
-<img src="../images/parametric_modeling/sliced_bench_2.png">
+<img src="../images/parametric-modeling/contour_bench.png">
+<img src="../images/parametric-modeling/sliced_bench_2.png">
 </p>
 
 Save your work.
@@ -74,4 +74,4 @@ As a prototype laser cut a scale model of the bench
 in basswood, balsa wood, museum board, or chipboard.
 Then CNC mill the slices in plywood and build a full scale prototype.
 
-<img src="../images/parametric_modeling/birch_bench.png">
+<img src="../images/parametric-modeling/birch_bench.png">

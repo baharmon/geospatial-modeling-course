@@ -20,7 +20,7 @@ as a reference.
 ```
 ```
 
-<p align="center"><img src="../images/digital-fabrication/.png"></p>
+<p align="center"><img src="../images/parametric-modeling/.png"></p>
 
 ---
 
