@@ -20,17 +20,15 @@ as a reference.
 ## ...
 ...
 ```
-_InterpCrv
-
-_Array
-
+InterpCrv
+Array
 History
-
-_Loft
+Loft
+Cap
 ```
 
 <p align="center">
-<img src="../images/parametric_modeling/corten_bench.png">
+<img src="../images/parametric_modeling/solid_bench.png">
 </p>
 
 ```
@@ -41,8 +39,9 @@ _Cap
 ```
 
 <p align="center">
-<img src="../images/parametric_modeling/freeform_bench_top.png" height="300">
-<img src="../images/parametric_modeling/freeform_bench_1.png" height="300">
+<img src="../images/parametric_modeling/contour_bench.png">
+<img src="../images/parametric_modeling/sliced_bench_1.png" height="300">
+<img src="../images/parametric_modeling/sliced_bench_2.png" height="300">
 </p>
 
 ---
