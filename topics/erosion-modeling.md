@@ -9,6 +9,8 @@
       4. [Sediment flow](#sediment-flow)
       5. [Water flow animation](#water-flow-animation)
 
+---
+
 # Erosion modeling
 In this section you will learn about
 the RUSLE, USPED, and SIMWE erosion models.
@@ -27,6 +29,8 @@ Optionally set the watershed as a mask using the modules
 g.region region=region res=1
 r.mask vector=watershed
 ```
+
+---
 
 ## RUSLE
 The **Revised Universal Soil Loss Equation for Complex Terrain (RUSLE3D)**
@@ -72,6 +76,8 @@ LS3D is a dimensionless topographic (length-slope) factor
 C is a dimensionless land cover factor
 P is a dimensionless prevention measures factor
 ```
+
+---
 
 **LS3D Factor**
 The dimensionless 3D topographic factor LS3D
@@ -134,10 +140,12 @@ r.colors map=ls_factor color=viridis -e
 ```
 
 <p align="center"><img src="../images/erosion/flow_accumulation_2016.png"></p>
-Flow accumulation
+**Flow accumulation**
 
 <p align="center"><img src="../images/erosion/ls_factor.png"></p>
-LS3D factor
+**LS3D factor**
+
+---
 
 **Sediment flow**
 The R-factor for our study landscape in Fort Bragg will be 310
@@ -168,17 +176,21 @@ g.remove -f type=raster name=r_factor
 ```
 
 <p align="center"><img src="../images/erosion/sediment_flow_2016.png"></p>
-Sediment flow
+**Sediment flow**
+
+---
 
 **References**
 * Fogleman, Brent D. 2009. “Erosion Modeling: Use of Multiple-Return and Bare-Earth LIDAR Data to Identify Bare Areas Susceptible to Erosion MacRidge, Training Area J, Fort Bragg, NC.” http://www.geomodeler.com/Documents/bragg_Main_optimized.pdf.
 * Mitasova, Helena, Jaroslav Hofierka, Maros Zlocha, and Louis R. Iverson. 1996. “Modelling Topographic Potential for Erosion and Deposition Using GIS.” International Journal of Geographical Information Science 10 (5): 629–41. https://doi.org/10.1080/02693799608902101.
 * Renard, K. G., G. R. Foster, G. A. Weesies, D. K. McCool, and D. C. Yoder. 1997. “Predicting Soil Erosion by Water: A Guide to Conservation Planning with the Revised Universal Soil Loss Equation (RUSLE).” Washington, DC. https://www.ars.usda.gov/ARSUserFiles/64080530/rusle/ah_703.pdf.
 
+---
 
 ## USPED
 *Under development*
 
+---
 
 ## SIMWE
 The processed based Simulation of Water Erosion (SIMWE) model
@@ -186,6 +198,8 @@ simulates overland hydrologic and sediment flows using a path sampling method.
 
 **References**
 * Mitasova, H, M. Barton, I. Ullah, J. Hofierka, and R.S. Harmon. 2013. “3.9 GIS-Based Soil Erosion Modeling.” In Treatise on Geomorphology, 228–58. https://doi.org/10.1016/B978-0-12-374739-6.00052-X.
+
+---
 
 ### Shallow water flow
 Compute the partial derivatives of the topography using the module
@@ -230,6 +244,8 @@ the command [d.legend](https://grass.osgeo.org/grass74/manuals/d.legend.html).
 Optionally use the range parameter set to `range=100-0.03`
 to show only the concentrated flow values.
 
+---
+
 ## Shallow water flow with landcover
 The first run of the simulation assumed constant landcover
 with no infiltration and a constant surface roughness
@@ -258,7 +274,9 @@ r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 man=mannings in
 ```
 
 <p align="center"><img src="../images/erosion/depth_2016.png"></p>
-Water depth
+**Water depth**
+
+---
 
 ## Erosion-deposition
 To simulate erosion-deposition you first need to compute
@@ -284,7 +302,9 @@ or
 the command [d.legend](https://grass.osgeo.org/grass74/manuals/d.legend.html).
 
 <p align="center"><img src="../images/erosion/erosion_deposition_2016.png"></p>
-Erosion deposition
+**Erosion deposition**
+
+---
 
 ## Sediment flow
 In a detachment limited soil erosion regime
@@ -308,7 +328,9 @@ r.sim.sediment elevation=elevation_2016 water_depth=depth_2016 dx=dx dy=dy detac
 ```
 
 <p align="center"><img src="../images/erosion/sediment_flux_2016.png"></p>
-Sediment flux
+**Sediment flux**
+
+---
 
 ## Water flow animation
 To create a water flow animation first run the module
