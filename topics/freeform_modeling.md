@@ -11,8 +11,8 @@ Use the Rhino file [freeform_bench.3dm](../models/freeform_bench.3dm)
 as a reference.
 
 <p align="center">
-<img src="../images/parametric_modeling/freeform_bench_top.png" height="250">
-<img src="../images/parametric_modeling/freeform_bench_1.png" height="250">
+<img src="../images/parametric_modeling/freeform_bench_top.png" height="300">
+<img src="../images/parametric_modeling/freeform_bench_1.png" height="300">
 </p>
 
 ---
