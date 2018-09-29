@@ -2,11 +2,12 @@
 1. [**Erosion modeling**](#erosion-modeling)
     1. [RULSE](#rusle)
     2. [USPED](#usped)
-    3. [Shallow water flow](#shallow-water-flow)
-    4. [Shallow water flow with landcover](#shallow-water-flow-with-landcover)
-    5. [Erosion-deposition](#erosion-deposition)
-    6. [Sediment flow](#sediment-flow)
-    7. [Water flow animation](#water-flow-animation)
+    3. [SIMWE](#simwe)
+      1. [Shallow water flow](#shallow-water-flow)
+      2. [Shallow water flow with landcover](#shallow-water-flow-with-landcover)
+      3. [Erosion-deposition](#erosion-deposition)
+      4. [Sediment flow](#sediment-flow)
+      5. [Water flow animation](#water-flow-animation)
 
 # Erosion modeling
 In this section you will learn about
@@ -133,8 +134,10 @@ r.colors map=ls_factor color=viridis -e
 ```
 
 <p align="center"><img src="../images/erosion/flow_accumulation_2016.png"></p>
+Flow accumulation
 
 <p align="center"><img src="../images/erosion/ls_factor.png"></p>
+LS3D factor
 
 **Sediment flow**
 The R-factor for our study landscape in Fort Bragg will be 310
@@ -165,6 +168,7 @@ g.remove -f type=raster name=r_factor
 ```
 
 <p align="center"><img src="../images/erosion/sediment_flow_2016.png"></p>
+Sediment flow
 
 **References**
 * Fogleman, Brent D. 2009. “Erosion Modeling: Use of Multiple-Return and Bare-Earth LIDAR Data to Identify Bare Areas Susceptible to Erosion MacRidge, Training Area J, Fort Bragg, NC.” http://www.geomodeler.com/Documents/bragg_Main_optimized.pdf.
@@ -175,7 +179,15 @@ g.remove -f type=raster name=r_factor
 ## USPED
 *Under development*
 
-## Shallow water flow
+
+## SIMWE
+The processed based Simulation of Water Erosion (SIMWE) model
+simulates overland hydrologic and sediment flows using a path sampling method.
+
+**References**
+* Mitasova, H, M. Barton, I. Ullah, J. Hofierka, and R.S. Harmon. 2013. “3.9 GIS-Based Soil Erosion Modeling.” In Treatise on Geomorphology, 228–58. https://doi.org/10.1016/B978-0-12-374739-6.00052-X.
+
+### Shallow water flow
 Compute the partial derivatives of the topography using the module
 [r.slope.aspect](https://grass.osgeo.org/grass74/manuals/r.slope.aspect.html).
 ```
@@ -246,6 +258,7 @@ r.sim.water elevation=elevation_2016 dx=dx dy=dy rain_value=50.0 man=mannings in
 ```
 
 <p align="center"><img src="../images/erosion/depth_2016.png"></p>
+Water depth
 
 ## Erosion-deposition
 To simulate erosion-deposition you first need to compute
@@ -271,6 +284,7 @@ or
 the command [d.legend](https://grass.osgeo.org/grass74/manuals/d.legend.html).
 
 <p align="center"><img src="../images/erosion/erosion_deposition_2016.png"></p>
+Erosion deposition
 
 ## Sediment flow
 In a detachment limited soil erosion regime
@@ -294,6 +308,7 @@ r.sim.sediment elevation=elevation_2016 water_depth=depth_2016 dx=dx dy=dy detac
 ```
 
 <p align="center"><img src="../images/erosion/sediment_flux_2016.png"></p>
+Sediment flux
 
 ## Water flow animation
 To create a water flow animation first run the module
