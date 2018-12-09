@@ -24,7 +24,7 @@ Set your region to our study area with 1 meter resolution
 using the module
 [g.region](https://grass.osgeo.org/grass74/manuals/g.region.html).
 Optionally set the watershed as a mask using the modules
-[g.region](https://grass.osgeo.org/grass74/manuals/r.mask.html).
+[r.mask](https://grass.osgeo.org/grass74/manuals/r.mask.html).
 ```
 g.region region=region res=1
 r.mask vector=watershed
