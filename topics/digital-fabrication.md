@@ -151,7 +151,7 @@ Set the Stock length to 2.75, width to 2.75, and height to 1.
 
 ### World Coordinate System
 Set the World Coordinate System (WCS) to the box stock.
-Select the SouthWest corner ontop of the stock.
+Select the SouthWest corner at the bottom of the stock.
 
 ---
 
