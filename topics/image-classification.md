@@ -1,9 +1,8 @@
 # Contents
 1. [**Image classification**](#image-classification)
     1. [Import orthophotography](#import-orthophotography)
-    2. [Import orthophotography](#import-orthophotography)
-    3. [Unsupervised image classification](#unsupervised-image-classification)
-    4. [Normalized difference vegetation index](#normalized-difference-vegetation-index)
+    2. [Unsupervised image classification](#unsupervised-image-classification)
+    3. [Normalized difference vegetation index](#normalized-difference-vegetation-index)
 
 # Image classification
 Start GRASS GIS in the `nc_spm_evolution` location
