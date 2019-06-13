@@ -9,6 +9,8 @@
 * [Global Map](https://globalmaps.github.io/)
 * [Natural Earth](https://www.naturalearthdata.com/)
 * [GRASS-Wiki List of Global Datasets](https://grasswiki.osgeo.org/wiki/Global_datasets)
+* [Open Street Map Extracts from Geofabrik](http://download.geofabrik.de/)
+* [Open Street Map Extracts from Open Map Tiles](https://openmaptiles.com/downloads/planet/)
 
 ## Elevation data
 * [National Map Viewer](http://nationalmap.gov/viewer.html)
