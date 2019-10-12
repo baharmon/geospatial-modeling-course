@@ -14,7 +14,6 @@
 
 ## Elevation data
 * [National Map Viewer](http://nationalmap.gov/viewer.html)
-* [National Map Small-Scale Data](https://nationalmap.gov/small_scale/atlasftp.html)
 * [US Interagency Elevation Inventory](https://coast.noaa.gov/inventory/)
 * [Open Topography](http://www.opentopography.org/)
 * [ALOS Global Digital Surface Model](http://www.eorc.jaxa.jp/ALOS/en/aw3d30/index.htm)
@@ -22,12 +21,13 @@
 * [UK Open Data Lidar](https://data.gov.uk/dataset/977a4ca4-1759-4f26-baa7-b566bd7ca7bf/lidar-point-cloud)
 
 ## Web mapping services (WMS)
-* [National Map Small-Scale Data WMS](https://nationalmap.gov/small_scale/infodocs/webservices.html)
 * [USGS Imagery WMS](https://basemap.nationalmap.gov/arcgis/services/USGSImageryOnly/MapServer/WMSServer?)
 * [USGS NAIP Imagery WMS](https://services.nationalmap.gov/arcgis/services/USGSNAIPImagery/ImageServer/WMSServer?)
-
-## USGS WMS for GRASS GIS
 * [r.in.usgs](https://grass.osgeo.org/grass74/manuals/addons/r.in.usgs.html)
+
+```
+r.in.wms url=https://services.nationalmap.gov/arcgis/services/USGSNAIPPlus/MapServer/WMSServer output=orthophoto layers=0
+```
 
 ## Ecological data
 * [USGS GAP Analysis Program](https://gapanalysis.usgs.gov/data/)
