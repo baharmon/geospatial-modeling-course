@@ -1,13 +1,13 @@
 # Geospatial data sources
 
-## Sample datasets
+## Sample datasets for GRASS GIS
 * [GRASS GIS Sample Datasets](https://grass.osgeo.org/download/sample-data/)
-* [Landscape Evolution Dataset for GRASS GIS](https://github.com/baharmon/landscape_evolution_dataset)
-* [Global Dataset for GRASS GIS](https://doi.org/10.5281/zenodo.3359632)
-* [Louisiana Dataset for GRASS GIS](https://doi.org/10.5281/zenodo.3359620)
-* [New Orleans Dataset for GRASS GIS](https://doi.org/10.5281/zenodo.3359642)
-* [Sichuan Dataset for GRASS GIS](https://doi.org/10.5281/zenodo.3359645)
-* [Greater Panama Canal Zone Dataset for GRASS GIS](https://osf.io/d5h7s/)
+* [Landscape Evolution Dataset](https://github.com/baharmon/landscape_evolution_dataset)
+* [Global Dataset](https://doi.org/10.5281/zenodo.3359632)
+* [Louisiana Dataset](https://doi.org/10.5281/zenodo.3359620)
+* [New Orleans Dataset](https://doi.org/10.5281/zenodo.3359642)
+* [Sichuan Dataset](https://doi.org/10.5281/zenodo.3359645)
+* [Greater Panama Canal Zone Dataset](https://osf.io/d5h7s/)
 
 ## Global data
 * [USGS EarthExplorer](https://earthexplorer.usgs.gov/)
