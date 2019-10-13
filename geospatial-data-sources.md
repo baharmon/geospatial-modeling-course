@@ -11,7 +11,7 @@
 
 ## Sample datasets for ArcGIS
 * [Louisiana Geodatabase](https://doi.org/10.5281/zenodo.3484055)
-* [New Orleans Geodatabase](https://doi.org/10.5281/zenodo.3483791)
+* [New Orleans Geodatabase](https://doi.org/10.5281/zenodo.3484059)
 
 ## Global data
 * [USGS EarthExplorer](https://earthexplorer.usgs.gov/)
