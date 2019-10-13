@@ -10,6 +10,7 @@
 * [Greater Panama Canal Zone Dataset](https://osf.io/d5h7s/)
 
 ## Sample datasets for ArcGIS
+* [Louisiana Geodatabase](https://doi.org/10.5281/zenodo.3484055)
 * [New Orleans Geodatabase](https://doi.org/10.5281/zenodo.3483791)
 
 ## Global data
