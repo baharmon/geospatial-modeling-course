@@ -9,6 +9,9 @@
 * [Sichuan Dataset](https://doi.org/10.5281/zenodo.3359645)
 * [Greater Panama Canal Zone Dataset](https://osf.io/d5h7s/)
 
+## Sample datasets for ArcGIS
+* [New Orleans Geodatabase](https://doi.org/10.5281/zenodo.3483791)
+
 ## Global data
 * [USGS EarthExplorer](https://earthexplorer.usgs.gov/)
 * [USGS Landcover Institute](https://landcover.usgs.gov/globallandcover.php)
